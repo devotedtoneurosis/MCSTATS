@@ -1,0 +1,17 @@
+{
+  "name": "mcstats",
+  "version": "1.0.0",
+  "description": "Profiler for Monster Crown stats and sales",
+  "main": "server.js",
+  "scripts": {
+    "test": "git repository"
+  },
+  "author": "Jason Walsh",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.12.4"
+  }
+}
