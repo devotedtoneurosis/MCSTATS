@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const Pages = sequelize.define("pages", {
+  const Page = sequelize.define("pages", {
 	url: {
       type: Sequelize.STRING(255)
     },
@@ -17,5 +17,5 @@ module.exports = (sequelize, Sequelize) => {
     }
   });
 
-  return Pages;
+  return Page;
 };
