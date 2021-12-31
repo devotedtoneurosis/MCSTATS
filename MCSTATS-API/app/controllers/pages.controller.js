@@ -1,5 +1,5 @@
 const db = require("../models");
-const Page = db.pages;
+const Page = db.page;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Page
@@ -139,7 +139,7 @@ exports.deleteAll = (req, res) => {
 
 // Find all published Pages
 exports.findAllPublished = (req, res) => {
-    Page.findAll()
+    Page.findAll({ where: { published: true } })
     .then(data => {
       res.send(data);
     })
