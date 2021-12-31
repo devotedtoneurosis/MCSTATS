@@ -6,7 +6,7 @@ const db = require("./app/models");
 db.sequelize.sync();
 
 var corsOptions = {
-  origin: "http://75.127.4.251:8081"
+  origin: "http://75.127.4.251:3000"
 };
 
 app.use(cors(corsOptions));
