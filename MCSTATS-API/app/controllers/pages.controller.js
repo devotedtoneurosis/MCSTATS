@@ -139,7 +139,7 @@ exports.deleteAll = (req, res) => {
 
 // Find all published Pages
 exports.findAllPublished = (req, res) => {
-    Tutorial.findAll({ where: { published: true } })
+    Page.findAll({  })
     .then(data => {
       res.send(data);
     })
