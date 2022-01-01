@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const app = express();
 const db = require("./app/models");
-console.log(models);
+console.log(db);
 db.sequelize.sync();
 
 var corsOptions = {
