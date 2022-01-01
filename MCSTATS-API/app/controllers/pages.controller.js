@@ -1,6 +1,5 @@
 const db = require("../models");
-console.log(models);
-const Page = db.page;
+const Page = db.pages;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Page
@@ -34,7 +33,7 @@ exports.create = (req, res) => {
 };
 
 // Retrieve all Pages from the database.
-exports.findAll = (req, res) => {
+exports.   = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
