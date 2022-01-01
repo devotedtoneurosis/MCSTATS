@@ -1,4 +1,5 @@
 const db = require("../models");
+console.log(models);
 const Page = db.page;
 const Op = db.Sequelize.Op;
 
