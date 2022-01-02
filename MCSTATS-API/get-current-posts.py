@@ -19,6 +19,18 @@ SUBRE_LIST = ["gaming","games","truegaming","monstertamerworld","nintendo","poke
 HTML_HEAD = "<!DOCTYPE html><html lang=\"en\"><head>  <title>Control Center</title>  <meta charset=\"utf-8\">  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>  <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script></head><body style=\"background-color:lightgray;\">"
 
 def main():    
+
+    print("Starting Hourly stats...")
+
+    #log hourly app stats     
+    response_API = requests.get('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v0001/?appid=830370')
+    data = response_API.text
+    parse_json = json.loads(data)
+    player_count = parse_json['player_count']
+    insert_playercount(player_count)
+
+    print("--steam stats logged.")
+
     reddit = praw.Reddit(
         user_agent="monsteradvocate (by u/monsteradvocate)",
         client_id="j_VZbYhCZG33dQ",
@@ -36,18 +48,14 @@ def main():
         subreddit = reddit.subreddit(subreddit)
         for submission in subreddit.stream.submissions():
             process_submission(submission,usedThreads)
+
+    print("--reddit threads logged.")
  
     for board in BOARD_LIST:
         grab_four_chan(board,usedThreads)
 
-    #log hourly app stats     
-    response_API = requests.get('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v0001/?appid=830370')
-    data = response_API.text
-    parse_json = json.loads(data)
-    player_count = parse_json['player_count']
-    insert_playercount(player_count)
-     
-    print("Done")
+    print("--4chan threads logged.")
+    print("--Done")
 
 def grab_four_chan(board,usedThre):
     compTxt=""
@@ -58,7 +66,7 @@ def grab_four_chan(board,usedThre):
         for post in posts:
             for term in TERM_LIST:
                 if term.upper() in post.html_comment.upper() and thread.url not in usedThre:
-                    print("4chan entry found")
+                    print("----4chan entry found")
                     insert_record(thread.url,datetime.now(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),thread.replies)
     return compTxt
 
@@ -88,7 +96,7 @@ def insert_record(url,date,title,preview,weight):
         sqlVal = (url, date, title, preview, weight,now, now)
         cursor.execute(sqlCm, sqlVal)
         conn.commit()
-        print("Record inserted")
+        print("----Record inserted")
 
 
 def insert_playercount(playercount):
@@ -104,7 +112,7 @@ def insert_playercount(playercount):
     sqlVal = (now, playercount)
     cursor.execute(sqlCm, sqlVal)
     conn.commit()
-    print("Record inserted")
+    print("----Record inserted")
 
 if __name__ == "__main__":
     main()
