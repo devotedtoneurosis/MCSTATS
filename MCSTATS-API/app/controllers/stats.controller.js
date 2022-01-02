@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // Retrieve all Stats from the database.
 exports.findAll  = (req, res) => {
 
-  Page.findAll()
+  Stat.findAll()
     .then(data => {
       res.send(data);
     })

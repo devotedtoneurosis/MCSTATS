@@ -8,6 +8,8 @@ import {
     const { type, payload } = action;
   
     switch (type) {  
+      case RETRIEVE_STATS:
+        return payload;
       default:
         return stats;
     }

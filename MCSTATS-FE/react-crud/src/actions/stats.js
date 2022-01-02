@@ -2,7 +2,7 @@ import {
     RETRIEVE_STATS,
   } from "./types";
   
-  import PagesDataService from "../services/stats.service";
+  import StatsDataService from "../services/stats.service";
 
   export const retrieveStats = () => async (dispatch) => {
     try {
