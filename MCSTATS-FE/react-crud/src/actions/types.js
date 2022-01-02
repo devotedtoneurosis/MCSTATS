@@ -3,3 +3,5 @@ export const RETRIEVE_PAGES = "RETRIEVE_PAGES";
 export const UPDATE_PAGE = "UPDATE_PAGE";
 export const DELETE_PAGE = "DELETE_PAGE";
 export const DELETE_ALL_PAGES = "DELETE_ALL_PAGES";
+
+export const RETRIEVE_STATS = "RETRIEVE_STATS";

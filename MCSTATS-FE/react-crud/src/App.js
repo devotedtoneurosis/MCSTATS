@@ -6,6 +6,7 @@ import "./App.css";
 import AddPage from "./components/add-page.component";
 import Page from "./components/page.component";
 import PagesList from "./components/pages-list.component";
+import StatsList from "./components/stat-list.component";
 
 class App extends Component {
   render() {
@@ -22,8 +23,8 @@ class App extends Component {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to={"/add"} className="nav-link">
-                Add
+              <Link to={"/stat"} className="nav-link">
+                Stat Timeline
               </Link>
             </li>
           </div>
@@ -32,7 +33,7 @@ class App extends Component {
         <div className="container mt-3">
           <Routes>
             <Route exact path="/" element={<PagesList/>} />
-            <Route exact path="/add" element={<AddPage/>} />
+            <Route exact path="/stat" element={<StatsList/>} />
             <Route path="/pages/:id" element={<Page/>} />
           </Routes>
         </div>

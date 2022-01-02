@@ -9,6 +9,7 @@ from datetime import datetime
 import json
 from bs4 import BeautifulSoup
 import mysql.connector
+import requests
 
 MY_USER = "monsteradvocate"
 TERM_LIST = ["pokemon clone", "pokeclone", "poke-clone", "coromon", "monster crown", "dwm", "dragon warrior monsters", "dragon quest monsters", "dqm", "kindred fates", "monster sanctuary", "monster taming", "monster catching", "siralim", "temtem", "monster rancher"]
@@ -31,31 +32,21 @@ def main():
     count = 0
     usedThreads = [""]
 
-    txtOut+="<div class=\"container\" style=\"width:80%;\">"
-
     for subreddit in SUBRE_LIST:
-        txtOut+="<div class=\"row\">"
         subreddit = reddit.subreddit(subreddit)
         for submission in subreddit.stream.submissions():
-            txtOut += process_submission(submission,usedThreads)
-            count+=1
-            if count > 99:   
-                txtOut+="</div>"
-                count = 0      
-                print("Subreddit complete")
-                break
-    
+            process_submission(submission,usedThreads)
+ 
     for board in BOARD_LIST:
-        txtOut+="<div class=\"row\">"  
-        txtOut+=grab_four_chan(board,usedThreads)
-        txtOut+="</div>"
-            
-    txtOut+="</div>"
-        
-    text_file = open("Output.htm", "w")
-    text_file.write(txtOut)
-    text_file.close()
-    
+        grab_four_chan(board,usedThreads)
+
+    #log hourly app stats     
+    response_API = requests.get('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v0001/?appid=830370')
+    data = response_API.text
+    parse_json = json.loads(data)
+    player_count = parse_json['player_count']
+    insert_playercount(player_count)
+     
     print("Done")
 
 def grab_four_chan(board,usedThre):
@@ -68,7 +59,7 @@ def grab_four_chan(board,usedThre):
             for term in TERM_LIST:
                 if term.upper() in post.html_comment.upper() and thread.url not in usedThre:
                     print("4chan entry found")
-                    insert_record(thread.url,datetime.now(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),post.replies)
+                    insert_record(thread.url,datetime.now(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),thread.replies)
     return compTxt
 
 def process_submission(submission,usedThre):
@@ -98,6 +89,22 @@ def insert_record(url,date,title,preview,weight):
         cursor.execute(sqlCm, sqlVal)
         conn.commit()
         print("Record inserted")
+
+
+def insert_playercount(playercount):
+    conn = mysql.connector.connect(host='localhost',
+                                    database='mcstats',
+                                    user='devotedtoneurosis',
+                                    password='6:AkMhR6(5>pj,#a')
+    cursor = conn.cursor()
+    
+    #only if weight is greater
+    now = datetime.now()
+    sqlCm = "INSERT INTO steam_stat (timestamp, player_count) VALUES (%s, %s)"
+    sqlVal = (now, playercount)
+    cursor.execute(sqlCm, sqlVal)
+    conn.commit()
+    print("Record inserted")
 
 if __name__ == "__main__":
     main()
