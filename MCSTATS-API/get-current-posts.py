@@ -92,7 +92,8 @@ def insert_record(url,date,title,preview,weight):
     #only if weight is greater
     cursor.execute("select * from pages where url like ? and weight > ?",url,weight)
     if cursor.rowcount < 1:
-        sqlCm = "INSERT INTO pages (url,date,title,preview,weight,createdAt,updatedAt) VALUES (%s, %s, %s, %s, %s, date.today(), date.today())"
+        now = datetime.now()
+        sqlCm = "INSERT INTO pages (url,date,title,preview,weight,createdAt,updatedAt) VALUES (%s, %s, %s, %s, %s, now, now)"
         sqlVal = (url, date, title, preview, weight)
         cursor.execute(sqlCm, sqlVal)
         conn.commit()
