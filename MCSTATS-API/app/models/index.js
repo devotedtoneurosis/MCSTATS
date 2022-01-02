@@ -20,6 +20,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.pages = require("./page.model.js")(sequelize, Sequelize);
-db.pages = require("./stats.model.js")(sequelize, Sequelize);
+db.stats = require("./stats.model.js")(sequelize, Sequelize);
 
 module.exports = db;
