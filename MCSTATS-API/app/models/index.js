@@ -22,6 +22,6 @@ db.sequelize = sequelize;
 db.pages = require("./page.model.js")(sequelize, Sequelize);
 db.stats = require("./stats.model.js")(sequelize, Sequelize);
 db.projects = require("./project.model.js")(sequelize, Sequelize);
-db.social_criterias = require("./social_criteria.model.js")(sequelize, Sequelize);
+db.social_criteria = require("./social_criteria.model.js")(sequelize, Sequelize);
 
 module.exports = db;
