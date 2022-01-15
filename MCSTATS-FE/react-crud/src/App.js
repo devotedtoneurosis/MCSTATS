@@ -7,6 +7,9 @@ import AddPage from "./components/add-page.component";
 import Page from "./components/page.component";
 import PagesList from "./components/pages-list.component";
 import StatsList from "./components/stat-list.component";
+import ProjectsList from "./components/page.component";
+import KeywordsList from "./components/page.component";
+import Page from "./components/page.component";
 
 class App extends Component {
   render() {
