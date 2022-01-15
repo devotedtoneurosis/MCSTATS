@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const SocialCriteria = sequelize.define("socialcriterias", {
+  const SocialCriteria = sequelize.define("social_criterias", {
   criteria_id: {
       type: Sequelize.INTEGER,
       primaryKey: true,

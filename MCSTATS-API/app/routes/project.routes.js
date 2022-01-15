@@ -9,17 +9,14 @@ module.exports = app => {
     // Retrieve all Projects
     router.get("/", projects.findAll);
   
-    // Retrieve all published Projects
-    router.get("/published", projects.findAllPublished);
-  
     // Retrieve a single Projects with id
-    router.get("/:id", projects.findOne);
+    router.get("/:project_id", projects.findOne);
   
     // Update a Projects with id
-    router.put("/:id", projects.update);
+    router.put("/:project_id", projects.update);
   
     // Delete a Projects with id
-    router.delete("/:id", projects.delete);
+    router.delete("/:project_id", projects.delete);
   
     // Delete all Projects
     router.delete("/", projects.deleteAll);
