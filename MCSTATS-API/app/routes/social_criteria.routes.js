@@ -4,13 +4,13 @@ module.exports = app => {
     var router = require("express").Router();
   
     // Create a new SocialCriteria
-    router.post("/", social_criteria.create);
+    router.post("/", social_criterias.create);
   
     // Retrieve all SocialCriteria
-    router.get("/", social_criteria.findAll);
+    router.get("/", social_criterias.findAll);
   
     // Retrieve all published SocialCriteria
-    router.get("/published", social_criteria.findAllPublished);
+    router.get("/published", social_criterias.findAllPublished);
   
     // Retrieve a single SocialCriteria with id
     router.get("/:id", social_criterias.findOne);
