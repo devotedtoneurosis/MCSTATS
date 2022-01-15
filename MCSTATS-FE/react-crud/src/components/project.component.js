@@ -15,41 +15,28 @@ class Project extends Component {
 
     this.state = {
       currentProject: {
-        id: null,
-        title: "",
-        description: "",
-        published: false,
+        project_id: null,
+        project_name: "",
       },
       message: "",
     };
   }
 
   componentDidMount() {
-    this.getProject(this.props.match.params.id);
+    this.getProject(this.props.match.params.project_id);
   }
 
-  onChangeTitle(e) {
+  onChangeProjectName(e) {
     const title = e.target.value;
 
     this.setState(function (prevState) {
       return {
         currentProject: {
           ...prevState.currentProject,
-          title: title,
+          project_name: title,
         },
       };
     });
-  }
-
-  onChangeDescription(e) {
-    const description = e.target.value;
-
-    this.setState((prevState) => ({
-      currentProject: {
-        ...prevState.currentProject,
-        description: description,
-      },
-    }));
   }
 
   getProject(id) {
@@ -65,49 +52,9 @@ class Project extends Component {
       });
   }
 
-  updateStatus(status) {
-    var data = {
-      id: this.state.currentProject.id,
-      title: this.state.currentProject.title,
-      description: this.state.currentProject.description,
-      published: status,
-    };
-
-    this.props
-      .updateProject(this.state.currentProject.id, data)
-      .then((reponse) => {
-        console.log(reponse);
-
-        this.setState((prevState) => ({
-          currentProject: {
-            ...prevState.currentProject,
-            published: status,
-          },
-        }));
-
-        this.setState({ message: "The status was updated successfully!" });
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
-
-  updateContent() {
-    this.props
-      .updatePage(this.state.currentProject.id, this.state.currentProject)
-      .then((reponse) => {
-        console.log(reponse);
-        
-        this.setState({ message: "The project was updated successfully!" });
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
-
   removeProject() {
     this.props
-      .deletePage(this.state.currentProject.id)
+      .deletePage(this.state.currentProject.project_id)
       .then(() => {
         this.props.history.push("/Projects");
       })
@@ -118,7 +65,7 @@ class Project extends Component {
 
   removePage() {
     this.props
-      .deletePage(this.state.currentProject.id)
+      .deletePage(this.state.currentProject.project_id)
       .then(() => {
         this.props.history.push("/Projects");
       })
@@ -142,44 +89,14 @@ class Project extends Component {
                   type="text"
                   className="form-control"
                   id="title"
-                  value={currentProject.title}
+                  value={currentProject.project_name}
                   onChange={this.onChangeTitle}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="description">Description</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="description"
-                  value={currentProject.description}
-                  onChange={this.onChangeDescription}
-                />
-              </div>
 
-              <div className="form-group">
-                <label>
-                  <strong>Status:</strong>
-                </label>
-                {currentProject.published ? "Published" : "Pending"}
-              </div>
             </form>
 
-            {currentProject.published ? (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updateStatus(false)}
-              >
-                UnPublish
-              </button>
-            ) : (
-              <button
-                className="badge badge-primary mr-2"
-                onClick={() => this.updateStatus(true)}
-              >
-                Publish
-              </button>
-            )}
+            
 
             <button
               className="badge badge-danger mr-2"

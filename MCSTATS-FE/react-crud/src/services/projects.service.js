@@ -26,7 +26,7 @@ class ProjectsDataService {
   }
 
   findByTitle(title) {
-    return http.get(`/projects?title=${title}`);
+    return http.get(`/projects?project_name=${title}`);
   }
 }
 
