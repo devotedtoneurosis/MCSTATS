@@ -33,8 +33,8 @@ exports.create = (req, res) => {
 
 // Retrieve all SocialCriteria from the database.
 exports.findAll  = (req, res) => {
-  const keyword = req.query.title;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+  const keyword = req.query.keyword;
+  var condition = keyword ? { keyword: { [Op.like]: `%${keyword}%` } } : null;
 
   SocialCriteria.findAll({ where: condition })
     .then(data => {
