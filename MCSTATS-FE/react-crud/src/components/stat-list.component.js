@@ -37,8 +37,8 @@ class StatsList extends Component {
           <h4>Stats List</h4>
 
           <ul className="list-group">
-            {pages &&
-              pages.map((page, index) => (
+            {stats &&
+              stats.map((page, index) => (
                 <li
                   className={
                     "list-group-item " +
@@ -46,7 +46,7 @@ class StatsList extends Component {
                   }
                   key={index}
                 >
-                  {page.title}
+                  {stats.title}
                 </li>
               ))}
           </ul>
