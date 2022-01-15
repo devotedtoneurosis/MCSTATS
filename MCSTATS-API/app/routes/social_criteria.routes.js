@@ -1,5 +1,5 @@
 module.exports = app => {
-    const socialcriterias = require("../controllers/social_criteria.controller.js");
+    const social_criterias = require("../controllers/social_criteria.controller.js");
   
     var router = require("express").Router();
   
