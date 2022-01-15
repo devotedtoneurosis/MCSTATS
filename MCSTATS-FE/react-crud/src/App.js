@@ -14,9 +14,19 @@ class App extends Component {
       <Router>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/pages"} className="navbar-brand">
-            bezKoder
+            MCAPI
           </Link>
           <div className="navbar-nav mr-auto">
+          <li className="nav-item">
+              <Link to={"/projects"} className="nav-link">
+                Projects
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to={"/socialcriterias"} className="nav-link">
+                Keywords
+              </Link>
+            </li>
             <li className="nav-item">
               <Link to={"/pages"} className="nav-link">
                 Pages
@@ -32,6 +42,8 @@ class App extends Component {
 
         <div className="container mt-3">
           <Routes>
+            <Route exact path="/projects" element={<ProjectsList/>} />
+            <Route exact path="/keywords" element={<KeywordsList/>} />
             <Route exact path="/" element={<PagesList/>} />
             <Route exact path="/stat" element={<StatsList/>} />
             <Route path="/pages/:id" element={<Page/>} />
