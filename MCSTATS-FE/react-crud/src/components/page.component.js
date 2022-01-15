@@ -74,7 +74,7 @@ class Page extends Component {
     };
 
     this.props
-      .updateTutorial(this.state.currentPage.id, data)
+      .updatePage(this.state.currentPage.id, data)
       .then((reponse) => {
         console.log(reponse);
 
@@ -98,7 +98,7 @@ class Page extends Component {
       .then((reponse) => {
         console.log(reponse);
         
-        this.setState({ message: "The tutorial was updated successfully!" });
+        this.setState({ message: "The page was updated successfully!" });
       })
       .catch((e) => {
         console.log(e);
@@ -172,7 +172,7 @@ class Page extends Component {
 
             <button
               className="badge badge-danger mr-2"
-              onClick={this.removeTutorial}
+              onClick={this.removePage}
             >
               Delete
             </button>

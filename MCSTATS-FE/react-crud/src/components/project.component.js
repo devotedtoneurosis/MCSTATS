@@ -74,7 +74,7 @@ class Project extends Component {
     };
 
     this.props
-      .updateTutorial(this.state.currentProject.id, data)
+      .updateProject(this.state.currentProject.id, data)
       .then((reponse) => {
         console.log(reponse);
 
@@ -98,16 +98,16 @@ class Project extends Component {
       .then((reponse) => {
         console.log(reponse);
         
-        this.setState({ message: "The tutorial was updated successfully!" });
+        this.setState({ message: "The project was updated successfully!" });
       })
       .catch((e) => {
         console.log(e);
       });
   }
 
-  removeProject() {
+  removePage() {
     this.props
-      .deleteProject(this.state.currentProject.id)
+      .deletePage(this.state.currentProject.id)
       .then(() => {
         this.props.history.push("/Projects");
       })
@@ -123,7 +123,7 @@ class Project extends Component {
       <div>
         {currentProject ? (
           <div className="edit-form">
-            <h4>Project</h4>
+            <h4>Page</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="title">Title</label>
@@ -172,7 +172,7 @@ class Project extends Component {
 
             <button
               className="badge badge-danger mr-2"
-              onClick={this.removeTutorial}
+              onClick={this.removeProject}
             >
               Delete
             </button>
