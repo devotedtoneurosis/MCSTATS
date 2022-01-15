@@ -19,7 +19,7 @@ function projectReducer(pages = initialState, action) {
       return payload;
 
     case UPDATE_PROJECT:
-      return project.map((project) => {
+      return projects.map((project) => {
         if (project.id === project.id) {
           return {
             ...project,

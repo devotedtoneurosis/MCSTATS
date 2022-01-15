@@ -19,7 +19,7 @@ function criteriaReducer(criterias = initialState, action) {
       return payload;
 
     case UPDATE_CRITERIA:
-      return criterias.map((page) => {
+      return criterias.map((criteria) => {
         if (criteria.id === payload.id) {
           return {
             ...criteria,
