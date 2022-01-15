@@ -9,7 +9,6 @@ import PagesList from "./components/pages-list.component";
 import StatsList from "./components/stat-list.component";
 import ProjectsList from "./components/project.component";
 import KeywordsList from "./components/criteria.component";
-import Page from "./components/page.component";
 
 class App extends Component {
   render() {
