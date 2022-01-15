@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Router>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/pages"} className="navbar-brand">
+          <Link to={"/"} className="navbar-brand">
             MCAPI
           </Link>
           <div className="navbar-nav mr-auto">

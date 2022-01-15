@@ -20,7 +20,6 @@ class Project extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match.params);
     this.getProject(this.props.match.params.project_id);
   }
 
@@ -35,6 +34,19 @@ class Project extends Component {
         },
       };
     });
+  }
+
+  updateContent() {
+    this.props
+      .updateProject(this.state.currentProject.project_id, this.state.currentPage)
+      .then((reponse) => {
+        console.log(reponse);
+        
+        this.setState({ message: "The project was updated successfully!" });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   getProject(id) {
@@ -61,16 +73,6 @@ class Project extends Component {
       });
   }
 
-  removePage() {
-    this.props
-      .deletePage(this.state.currentProject.project_id)
-      .then(() => {
-        this.props.history.push("/Projects");
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
 
   render() {
     const { currentProject } = this.state;
@@ -79,22 +81,19 @@ class Project extends Component {
       <div>
         {currentProject ? (
           <div className="edit-form">
-            <h4>Page</h4>
+            <h4>Project</h4>
             <form>
               <div className="form-group">
-                <label htmlFor="title">Title</label>
+                <label htmlFor="project_name">Name</label>
                 <input
                   type="text"
                   className="form-control"
-                  id="title"
                   value={currentProject.project_name}
-                  onChange={this.onChangeTitle}
+                  onChange={this.onChangeProjectName}
                 />
               </div>
 
             </form>
-
-            
 
             <button
               className="badge badge-danger mr-2"
@@ -110,6 +109,7 @@ class Project extends Component {
             >
               Update
             </button>
+
             <p>{this.state.message}</p>
           </div>
         ) : (
