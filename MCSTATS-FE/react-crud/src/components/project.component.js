@@ -105,6 +105,17 @@ class Project extends Component {
       });
   }
 
+  removeProject() {
+    this.props
+      .deletePage(this.state.currentProject.id)
+      .then(() => {
+        this.props.history.push("/Projects");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
   removePage() {
     this.props
       .deletePage(this.state.currentProject.id)
