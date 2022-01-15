@@ -10,13 +10,13 @@ module.exports = app => {
     router.get("/", social_criterias.findAll);
   
     // Retrieve a single SocialCriteria with id
-    router.get("/:criteria_id", social_criterias.findOne);
+    router.get("/:id", social_criterias.findOne);
   
     // Update a SocialCriteria with id
-    router.put("/:criteria_id", social_criterias.update);
+    router.put("/:id", social_criterias.update);
   
     // Delete a SocialCriteria with id
-    router.delete("/:criteria_id", social_criterias.delete);
+    router.delete("/:id", social_criterias.delete);
   
     // Delete all SocialCriteria
     router.delete("/", social_criterias.deleteAll);
