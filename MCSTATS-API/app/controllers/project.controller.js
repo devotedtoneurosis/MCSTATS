@@ -50,7 +50,7 @@ exports.findAll  = (req, res) => {
 
 // Find a single Project with an id
 exports.findOne = (req, res) => {
-    const id = req.params.id;
+    const id = req.params.project_id;
 
   Project.findByPk(id)
     .then(data => {
