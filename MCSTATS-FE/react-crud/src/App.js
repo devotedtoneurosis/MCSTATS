@@ -45,7 +45,8 @@ class App extends Component {
         <div className="container mt-3">
           <Routes>
             <Route exact path="/" element={<ProjectsList/>} />
-            <Route exact path="/keywords" element={<KeywordsList/>} />
+            <Route exact path="/projects" element={<ProjectsList/>} />
+            <Route exact path="/socialcriterias" element={<KeywordsList/>} />
             <Route exact path="/pages" element={<PagesList/>} />
             <Route exact path="/stat" element={<StatsList/>} />
             <Route path="/pages/:id" element={<Page/>} />
