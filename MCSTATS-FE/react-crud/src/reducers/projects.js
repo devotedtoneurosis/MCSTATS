@@ -8,7 +8,7 @@ import {
 
 const initialState = [];
 
-function projectReducer(pages = initialState, action) {
+function projectReducer(projects = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
