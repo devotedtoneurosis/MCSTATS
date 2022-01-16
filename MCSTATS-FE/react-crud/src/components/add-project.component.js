@@ -12,7 +12,7 @@ class AddProject extends Component {
     this.state = {
       project_id: null,
       project_name: "",
-      game_id: null,
+      game_id: "",
 
       submitted: false,
     };
