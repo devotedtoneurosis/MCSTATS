@@ -73,7 +73,7 @@ class AddProject extends Component {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="title">Title</label>
+              <label htmlFor="project_name">Title</label>
               <input
                 type="text"
                 className="form-control"
@@ -82,10 +82,7 @@ class AddProject extends Component {
                 value={this.state.title}
                 onChange={this.onChangeName}
               />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="title">Steam Game ID</label>
+              <label htmlFor="game_id">Steam Game ID</label>
               <input
                 type="text"
                 className="form-control"
@@ -95,6 +92,7 @@ class AddProject extends Component {
                 onChange={this.onChangeGameId}
               />
             </div>
+
 
             <button onClick={this.saveProject} className="btn btn-success">
               Submit
