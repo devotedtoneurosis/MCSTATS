@@ -6,7 +6,7 @@ import ProjectDataService from "../services/projects.service";
 class Project extends Component {
   constructor(props) {
     super(props);
-    this.onChangeTitle = this.onChangeProjectName.bind(this);
+    this.onChangeProjectName = this.onChangeProjectName.bind(this);
     this.getProject = this.getProject.bind(this);
     this.removeProject = this.removeProject.bind(this);
 
@@ -20,7 +20,7 @@ class Project extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
+    console.log(this.props.match.params);
     this.getProject(this.props.match.params.project_id);
   }
 
