@@ -76,27 +76,7 @@ class ProjectList extends Component {
     const { projects } = this.props;
 
     return (
-      <Router>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <Link to={"/"} className="navbar-brand">
-          MCAPI
-        </Link>
-        <div className="navbar-nav mr-auto">
-        <li className="nav-item">
-            <Link to={"/projects"} className="nav-link">
-              All Projects
-            </Link>
-          </li>
-        </div>
-      </nav>
 
-      <div className="container mt-3">
-        <Routes>
-          <Route exact path="/projects" element={<ProjectsList/>} />
-          <Route exact path="/addproject" element={<AddProject/>} />
-          <Route exact path="/socialcriterialist/:id" element={<KeywordsList/>} />
-        </Routes>
-      </div>
 
       <div className="list row">
         <div className="col-md-8">
@@ -190,7 +170,6 @@ class ProjectList extends Component {
         </div>
       </div>
 
-      </Router>
     );
   }
 }
