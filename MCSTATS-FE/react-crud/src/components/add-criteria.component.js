@@ -90,4 +90,11 @@ class AddCriteria extends Component {
   }
 }
 
-export default connect(null, { createCriteria })(AddCriteria);
+const mapStateToProps = (state) => {
+  return {
+    criterias: state.currentProject,
+  };
+};
+
+
+export default connect(mapStateToProps, { createCriteria })(AddCriteria);
