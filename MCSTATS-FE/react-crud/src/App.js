@@ -8,7 +8,8 @@ import PagesList from "./components/pages-list.component";
 import StatsList from "./components/stat-list.component";
 import ProjectsList from "./components/project-list.component";
 import AddProject from "./components/add-project.component";
-import KeywordsList from "./components/criteria.component";
+import Keyword from "./components/criteria.component";
+import KeywordsList from "./components/criteria-list.component";
 
 class App extends Component {
   render() {
@@ -21,22 +22,7 @@ class App extends Component {
           <div className="navbar-nav mr-auto">
           <li className="nav-item">
               <Link to={"/projects"} className="nav-link">
-                Projects
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/socialcriterias"} className="nav-link">
-                Keywords
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/pages"} className="nav-link">
-                Pages
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/stat"} className="nav-link">
-                Stat Timeline
+                All Projects
               </Link>
             </li>
           </div>
@@ -47,7 +33,8 @@ class App extends Component {
             <Route exact path="/" element={<ProjectsList/>} />
             <Route exact path="/projects" element={<ProjectsList/>} />
             <Route exact path="/addproject" element={<AddProject/>} />
-            <Route exact path="/socialcriterias" element={<KeywordsList/>} />
+            <Route exact path="/socialcriterias" element={<Keyword/>} />
+            <Route exact path="/socialcriterialist" element={<KeywordsList/>} />
             <Route exact path="/pages" element={<PagesList/>} />
             <Route exact path="/stat" element={<StatsList/>} />
             <Route path="/pages/:id" element={<Page/>} />

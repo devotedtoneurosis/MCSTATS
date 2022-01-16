@@ -1,57 +1,58 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
-  retrieveProjects,
-  findProjectsByName,
-  deleteAllProjects,
-} from "../actions/projects";
+  retrieveCriterias,
+  findCriteriasByProjectId,
+  deleteAllCriterias,
+} from "../actions/criterias";
 import { Link } from "react-router-dom";
 
-class ProjectList extends Component {
+class CriteriaList extends Component {
   constructor(props) {
     super(props);
-    this.onChangeProjectTitle = this.onChangeProjectTitle.bind(this);
+    this.onChangeCriteriaTitle = this.onChangeCriteriaTitle.bind(this);
     this.refreshData = this.refreshData.bind(this);
-    this.setActiveProject = this.setActiveProject.bind(this);
-    this.findProjectsByName = this.findProjectsByName.bind(this);
-    this.removeAllProjects = this.removeAllProjects.bind(this);
+    this.setActiveCriteria = this.setActiveCriteria.bind(this);
+    this.findCriteriasByProjectId = this.findCriteriaById.bind(this);
+    this.removeAllCriterias = this.removeAllCriterias.bind(this);
 
     this.state = {
       currentProject: null,
+      currentCriteria: null,
       currentIndex: -1,
       searchTitle: "",
     };
   }
 
   componentDidMount() {
-    this.props.retrieveProjects();
+    this.props.retrieveCriterias();
   }
 
-  onChangeProjectTitle(e) {
-    const searchTitle = e.target.value;
+  onChangeSearchCriteriaTitle(e) {
+    const searchCriteriaTitle = e.target.value;
 
     this.setState({
-      searchTitle: searchTitle,
+      searchCriteriaTitle: searchCriteriaTitle,
     });
   }
 
   refreshData() {
     this.setState({
-      currentProject: null,
+      currentCriteria: null,
       currentIndex: -1,
     });
   }
 
-  setActiveProject(project, index) {
+  setActiveCriteria(criteria, index) {
     this.setState({
-      currentProject: project,
+      currentCriteria: criteria,
       currentIndex: index,
     });
   }
 
-  removeAllProjects() {
+  removeAllCriterias() {
     this.props
-      .deleteAllProjects()
+      .deleteAllCriterias()
       .then((response) => {
         console.log(response);
         this.refreshData();
@@ -61,14 +62,14 @@ class ProjectList extends Component {
       });
   }
 
-  findProjectsByName() {
+  findCriteriasByProjectId() {
     this.refreshData();
 
-    this.props.findProjectsByName(this.state.searchTitle);
+    this.props.findCriteriasByProjectId(this.state.searchTitle);
   }
 
   render() {
-    const { searchTitle, currentProject, currentIndex } = this.state;
+    const { searchTitle, currentProject, currentCriteria, currentIndex } = this.state;
     const { projects } = this.props;
 
     return (
@@ -80,13 +81,13 @@ class ProjectList extends Component {
               className="form-control"
               placeholder="Search by title"
               value={searchTitle}
-              onChange={this.onChangeSearchTitle}
+              onChange={this.onChangeSearchCriteriaTitle}
             />
             <div className="input-group-append">
               <button
                 className="btn btn-outline-secondary"
                 type="button"
-                onClick={this.findProjectsByName}
+                onClick={this.findCriteriasByName}
               >
                 Search
               </button>
@@ -94,27 +95,27 @@ class ProjectList extends Component {
           </div>
         </div>
         <div className="col-md-6">
-          <h4>Projects List</h4>
+          <h4>Keywords List</h4>
 
           <ul className="list-group">
-            {projects &&
-              projects.map((project, index) => (
+            {criterias &&
+              criterias.map((criteria, index) => (
                 <li
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
                   }
-                  onClick={() => this.setActiveProject(project, index)}
+                  onClick={() => this.setActiveCriteria(criteria, index)}
                   key={index}
                 >
-                  {project.project_name}
+                  {criteria.criteria_name}
                 </li>
               ))}
           </ul>
 
           <button
             className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllProjects}
+            onClick={this.removeAllCriterias}
           >
             Remove All
           </button>
@@ -122,18 +123,12 @@ class ProjectList extends Component {
         <div className="col-md-6">
           {currentProject ? (
             <div>
-              <h4>Project</h4>
+              <h4>Keyword</h4>
               <div>
                 <label>
-                  <strong>Title:</strong>
+                  <strong>Keyword:</strong>
                 </label>{" "}
-                {currentProject.project_name}
-              </div>
-              <div>
-                <label>
-                  <strong>GameID:</strong>
-                </label>{" "}
-                {currentProject.game_id}
+                {currentCriteria.keyword}
               </div>
 
               <Link
@@ -142,23 +137,12 @@ class ProjectList extends Component {
               >
                 Edit
               </Link>
-              <Link
-                to={"/socialcriterialist/" + currentProject.project_id}
-                className="badge badge-warning"
-              >
-                Criteria
-              </Link>
-              <Link
-                to={"/stat/" + currentProject.project_id}
-                className="badge badge-warning"
-              >
-                Timeline
-              </Link>
+
             </div>
           ) : (
             <div>
               <br />
-              <p>Please click on a Project...</p>
+              <p>Please click on a Keyword...</p>
             </div>
           )}
         </div>
@@ -169,12 +153,12 @@ class ProjectList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    projects: state.projects,
+    criterias: state.projects,
   };
 };
 
 export default connect(mapStateToProps, {
-  retrieveProjects,
-  findProjectsByName,
-  deleteAllProjects,
-})(ProjectList);
+  retrieveCriterias,
+  findCriteriasByName,
+  deleteAllCriterias,
+})(CriteriaList);
