@@ -20,6 +20,7 @@ class Project extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props);
     this.getProject(this.props.match.params.project_id);
   }
 
