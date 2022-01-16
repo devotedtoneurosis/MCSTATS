@@ -54,7 +54,7 @@ class AddProject extends Component {
     this.setState({
       project_id: null,
       name: "",
-      game_id: null,
+      game_id: "",
 
       submitted: false,
     });
