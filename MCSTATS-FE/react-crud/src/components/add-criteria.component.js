@@ -20,7 +20,7 @@ class AddCriteria extends Component {
 
   componentDidMount() {
     console.log(this.props.match.params.id);
-    project_id = this.props.match.params.id;
+    this.state.project_id = this.props.match.params.id;
   }
 
   onChangeKeyword(e) {
