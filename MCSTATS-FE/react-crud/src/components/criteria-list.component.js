@@ -74,26 +74,6 @@ class CriteriaList extends Component {
 
     return (
       <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search by title"
-              value={searchTitle}
-              onChange={this.onChangeSearchCriteriaTitle}
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={this.findCriteriasByName}
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
         <div className="col-md-6">
           <h4>Keywords List</h4>
 
@@ -159,6 +139,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   retrieveCriterias,
-  findCriteriasByName,
   deleteAllCriterias,
 })(CriteriaList);
