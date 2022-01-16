@@ -26,7 +26,7 @@ class AddCriteria extends Component {
 
   saveCriteria() {
     const { project_id, keyword } = this.state;
-    console.log("Project id:"+project_id);
+    console.log("Project id:"+currentProject.project_id);
     this.props
       .createCriteria(project_id, keyword)
       .then((data) => {
