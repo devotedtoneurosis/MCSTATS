@@ -12,7 +12,6 @@ class AddCriteria extends Component {
     this.state = {
       currentProject: null,
       criteria_id: null,
-      project_id: null,
       keyword: "",
 
       submitted: false,
@@ -21,7 +20,7 @@ class AddCriteria extends Component {
 
   onChangeKeyword(e) {
     this.setState({
-      title: e.target.value,
+      keyword: e.target.value,
     });
   }
 
