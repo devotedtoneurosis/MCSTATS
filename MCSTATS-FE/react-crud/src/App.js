@@ -31,9 +31,14 @@ class App extends Component {
 
         <div className="container mt-3">
           <Routes>
-            <Route exact path="/projects" element={<ProjectsList/>} />
+            <Route exact path="/" element={<ProjectsList/>} />
+            <Route exact path="/addproject" element={<AddProject/>} />
+            <Route exact path="/socialcriterialist/:id" element={<KeywordsList/>} />
           </Routes>
         </div>
+
+
+
       </Router>
     );
   }
