@@ -97,8 +97,17 @@ class ProjectList extends Component {
                 Search
               </button>
             </div>
+            
+            <Link
+                to={"/addproject/"}
+                className="btn btn-outline-secondary"
+              >
+                Add Project
+              </Link>
+
           </div>
         </div>
+
         <div className="col-md-6">
           <h4>Projects List</h4>
 
