@@ -107,7 +107,7 @@ class ProjectList extends Component {
                   onClick={() => this.setActiveProject(project, index)}
                   key={index}
                 >
-                  {project.title}
+                  {project.project_name}
                 </li>
               ))}
           </ul>
