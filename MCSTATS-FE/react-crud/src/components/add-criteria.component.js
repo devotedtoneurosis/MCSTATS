@@ -19,8 +19,8 @@ class AddCriteria extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match.params.redirectParam);
-    project_id = this.props.match.params.redirectParam
+    console.log(this.props.params.redirectParam);
+    project_id = this.props.params.redirectParam;
   }
 
   onChangeKeyword(e) {
