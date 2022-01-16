@@ -7,7 +7,7 @@ import {
 } from "../actions/projects";
 import { Link } from "react-router-dom";
 
-class Projects extends Component {
+class ProjectList extends Component {
   constructor(props) {
     super(props);
     this.onChangeProjectTitle = this.onChangeProjectTitle.bind(this);
