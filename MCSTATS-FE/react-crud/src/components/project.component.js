@@ -61,7 +61,7 @@ class Projects extends Component {
       });
   }
 
-  findByProjectsByName() {
+  findProjectsByName() {
     this.refreshData();
 
     this.props.findProjectsByName(this.state.searchTitle);
