@@ -5,20 +5,20 @@ class ProjectsDataService {
     return http.get("/projects");
   }
 
-  get(project_id) {
-    return http.get(`/projects/${project_id}`);
+  get(id) {
+    return http.get(`/projects/${id}`);
   }
 
   create(data) {
     return http.post("/projects", data);
   }
 
-  update(project_id, data) {
-    return http.put(`/projects/${project_id}`, data);
+  update(id, data) {
+    return http.put(`/projects/${id}`, data);
   }
 
-  delete(project_id) {
-    return http.delete(`/projects/${project_id}`);
+  delete(id) {
+    return http.delete(`/projects/${id}`);
   }
 
   deleteAll() {

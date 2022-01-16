@@ -8,9 +8,9 @@ import {
 
 import ProjectsDataService from "../services/projects.service";
 
-export const createProject = (name) => async (dispatch) => {
+export const createProject = (project_name) => async (dispatch) => {
   try {
-    const res = await ProjectsDataService.create({ name });
+    const res = await ProjectsDataService.create({ project_name });
 
     dispatch({
       type: CREATE_PROJECT,
