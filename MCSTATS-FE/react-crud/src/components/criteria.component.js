@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
   retrieveCriterias,
-  findCriteriasByName,
+  findByProjectId,
   deleteAllCriterias,
 } from "../actions/criterias";
 import { Link } from "react-router-dom";
