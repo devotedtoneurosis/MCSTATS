@@ -102,7 +102,7 @@ class ProjectList extends Component {
                 to={"/addproject/"}
                 className="btn btn-outline-secondary"
               >
-                Add Project
+                Create New Project
               </Link>
 
           </div>
@@ -153,19 +153,19 @@ class ProjectList extends Component {
 
               <Link
                 to={"/projects/" + currentProject.project_id}
-                className="badge badge-warning"
+                className="btn btn-outline-secondary"
               >
                 Edit
               </Link>
               <Link
                 to={"/socialcriterialist/" + currentProject.project_id}
-                className="badge badge-warning"
+                className="btn btn-outline-secondary"
               >
                 Criteria
               </Link>
               <Link
                 to={"/stat/" + currentProject.project_id}
-                className="badge badge-warning"
+                className="btn btn-outline-secondary"
               >
                 Timeline
               </Link>

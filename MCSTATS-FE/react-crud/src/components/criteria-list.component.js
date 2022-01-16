@@ -77,9 +77,12 @@ class CriteriaList extends Component {
       
       <div className="list row">
         <div className="col-md-6">
-            <Link to={"/socialcriterias"} className="nav-link">
-              Add Keyword
-            </Link>
+            <Link
+                to={"/socialcriterias/" + currentProject.project_id}
+                className="btn btn-outline-secondary"
+              >
+                Add Keyword
+              </Link>
         </div>
         <div className="col-md-6">
           <h4>Keywords List</h4>
