@@ -7,8 +7,8 @@ class AddProject extends Component {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.savePage = this.savePage.bind(this);
-    this.newPage = this.newPage.bind(this);
+    this.saveProject = this.saveProject.bind(this);
+    this.newProject = this.newProject.bind(this);
 
     this.state = {
       id: null,
@@ -102,7 +102,7 @@ class AddProject extends Component {
               />
             </div>
 
-            <button onClick={this.savePage} className="btn btn-success">
+            <button onClick={this.saveProject} className="btn btn-success">
               Submit
             </button>
           </div>
