@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createKeyword} from "../actions/criterias";
+import { createCriteria } from "../actions/criterias";
 
 class AddCriteria extends Component {
   constructor(props) {
