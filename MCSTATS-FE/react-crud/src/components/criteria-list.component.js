@@ -26,7 +26,7 @@ class CriteriaList extends Component {
 
   componentDidMount() {
     this.props.retrieveCriterias();
-    console.log("PROJ"+currentProject);
+    console.log("PROJ"+this.props.currentProject);
   }
 
   onChangeSearchCriteriaTitle(e) {
