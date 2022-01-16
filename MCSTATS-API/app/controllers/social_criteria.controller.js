@@ -137,8 +137,8 @@ exports.deleteAll = (req, res) => {
 };
 
 // Find all published SocialCriterias
-exports.findAllPublished = (req, res) => {
-  SocialCriteria.findAll({ where: { published: true } })
+exports.findByProjectId = (req, res) => {
+  SocialCriteria.findAll({ where: { project_id: req.project_id } })
     .then(data => {
       res.send(data);
     })

@@ -11,6 +11,9 @@ module.exports = app => {
   
     // Retrieve a single SocialCriteria with id
     router.get("/:id", social_criterias.findOne);
+
+    // Retrieve SocialCriterias by project id
+    router.get("/project_id=:id", social_criterias.findByProjectId);
   
     // Update a SocialCriteria with id
     router.put("/:id", social_criterias.update);

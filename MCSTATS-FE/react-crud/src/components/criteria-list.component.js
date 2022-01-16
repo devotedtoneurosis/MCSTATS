@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
   retrieveCriterias,
-  findCriteriasByProjectId,
+  findByProjectId,
   deleteAllCriterias,
 } from "../actions/criterias";
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ class CriteriaList extends Component {
     this.onChangeSearchCriteriaTitle = this.onChangeSearchCriteriaTitle.bind(this);
     this.refreshData = this.refreshData.bind(this);
     this.setActiveCriteria = this.setActiveCriteria.bind(this);
-    this.findCriteriasByProjectId = this.findCriteriasByProjectId.bind(this);
+    this.findByProjectId = this.findByProjectId.bind(this);
     this.removeAllCriterias = this.removeAllCriterias.bind(this);
 
     this.state = {
@@ -62,10 +62,10 @@ class CriteriaList extends Component {
       });
   }
 
-  findCriteriasByProjectId() {
+  findByProjectId() {
     this.refreshData();
 
-    this.props.findCriteriasByProjectId(this.state.searchTitle);
+    this.props.findByProjectId(this.state.searchTitle);
   }
 
   render() {
