@@ -23,15 +23,16 @@ class AddProject extends Component {
     });
   }
 
+
   saveProject() {
-    const { project_name } = this.state;
+    const { name } = this.state;
 
     this.props
-      .createProject(project_name)
+      .createProject(name)
       .then((data) => {
         this.setState({
-          project_id: data.id,
-          project_name: data.name,
+          project_id: data.project_id,
+          project_name: data.project_name,
 
           submitted: true,
         });
