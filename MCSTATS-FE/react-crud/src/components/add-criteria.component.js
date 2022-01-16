@@ -10,12 +10,16 @@ class AddCriteria extends Component {
     this.newCriteria = this.newCriteria.bind(this);
 
     this.state = {
-      currentProject: null,
+      project_id: null,
       criteria_id: null,
       keyword: "",
 
       submitted: false,
     };
+  }
+
+  componentDidMount() {
+    project_id = this.props.match.params.project_id;
   }
 
   onChangeKeyword(e) {
@@ -26,7 +30,7 @@ class AddCriteria extends Component {
 
   saveCriteria() {
     const { project_id, keyword } = this.state;
-    console.log("Project id:"+currentProject.project_id);
+    console.log("Project id:"+project_id);
     this.props
       .createCriteria(project_id, keyword)
       .then((data) => {
@@ -54,8 +58,7 @@ class AddCriteria extends Component {
   }
 
   render() {
-    const { currentProject, keyword } = this.state;
-    
+
     return (
       <div className="submit-form">
         {this.state.submitted ? (
@@ -90,11 +93,5 @@ class AddCriteria extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    criterias: state.currentProject,
-  };
-};
 
-
-export default connect(mapStateToProps, { createCriteria })(AddCriteria);
+export default connect(null, { createCriteria })(AddCriteria);
