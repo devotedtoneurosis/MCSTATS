@@ -5,7 +5,7 @@ import { createProject} from "../actions/projects";
 class AddProject extends Component {
   constructor(props) {
     super(props);
-    this.onChangeTitle = this.onChangeName.bind(this);
+    this.onChangeName = this.onChangeName.bind(this);
     this.saveProject = this.saveProject.bind(this);
     this.newProject = this.newProject.bind(this);
 
