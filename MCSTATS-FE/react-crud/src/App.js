@@ -7,6 +7,7 @@ import Page from "./components/page.component";
 import PagesList from "./components/pages-list.component";
 import StatsList from "./components/stat-list.component";
 import ProjectsList from "./components/project.component";
+import AddProject from "./components/add-project.component";
 import KeywordsList from "./components/criteria.component";
 
 class App extends Component {
@@ -45,6 +46,7 @@ class App extends Component {
           <Routes>
             <Route exact path="/" element={<ProjectsList/>} />
             <Route exact path="/projects" element={<ProjectsList/>} />
+            <Route exact path="/addproject" element={<AddProject/>} />
             <Route exact path="/socialcriterias" element={<KeywordsList/>} />
             <Route exact path="/pages" element={<PagesList/>} />
             <Route exact path="/stat" element={<StatsList/>} />
