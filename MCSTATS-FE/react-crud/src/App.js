@@ -35,8 +35,8 @@ class App extends Component {
             <Route exact path="/projects" element={<ProjectsList/>} />
             <Route exact path="/addproject" element={<AddProject/>} />
             <Route exact path="/socialcriterias/" element={<Keyword/>} />
-            <Route exact path="/socialcriterialist/:project_id" element={<KeywordsList/>} />
-            <Route exact path="/addcriteria/:project_id" element={<AddKeyword/>} />
+            <Route exact path="/socialcriterialist/:id" element={<KeywordsList/>} />
+            <Route exact path="/addcriteria/:id" element={<AddKeyword/>} />
             <Route exact path="/pages" element={<PagesList/>} />
             <Route exact path="/stat" element={<StatsList/>} />
             <Route path="/pages/:id" element={<Page/>} />
