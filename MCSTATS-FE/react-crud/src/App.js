@@ -6,7 +6,7 @@ import "./App.css";
 import Page from "./components/page.component";
 import PagesList from "./components/pages-list.component";
 import StatsList from "./components/stat-list.component";
-import ProjectsList from "./components/project.component";
+import ProjectsList from "./components/project-list.component";
 import AddProject from "./components/add-project.component";
 import KeywordsList from "./components/criteria.component";
 
