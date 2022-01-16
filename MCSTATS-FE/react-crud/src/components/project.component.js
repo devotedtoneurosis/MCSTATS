@@ -120,14 +120,14 @@ class Projects extends Component {
           </button>
         </div>
         <div className="col-md-6">
-          {currentPage ? (
+          {currentProject ? (
             <div>
               <h4>Project</h4>
               <div>
                 <label>
                   <strong>Title:</strong>
                 </label>{" "}
-                {currentPage.title}
+                {currentProject.title}
               </div>
               <div>
                 <label>
@@ -169,6 +169,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   retrieveProjects,
-  findPagesByTitle,
+  findProjectsByTitle,
   deleteAllProjects,
 })(Projects);
