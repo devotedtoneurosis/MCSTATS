@@ -18,7 +18,11 @@ class AddCriteria extends Component {
     };
   }
 
-
+  componentDidMount() {
+    console.log("Props:"+this.props.match);
+    this.state.project_id = this.props.match.params.id;
+    console.log("Project id:"+this.state.project_id);
+  }
 
   onChangeKeyword(e) {
     this.setState({
@@ -30,7 +34,7 @@ class AddCriteria extends Component {
     const { project_id, keyword } = this.state;
     console.log("Project id:"+project_id);
     this.props
-      .createCriteria(this.props.match.params.project_id, keyword)
+      .createCriteria(project_id, keyword)
       .then((data) => {
         this.setState({
           project_id: data.project_id,
