@@ -11,38 +11,28 @@ class AddProject extends Component {
     this.newProject = this.newProject.bind(this);
 
     this.state = {
-      id: null,
-      title: "",
-      description: "",
-      published: false,
+      project_id: null,
+      project_name: "",
 
       submitted: false,
     };
   }
 
-  onChangeTitle(e) {
+  onChangeName(e) {
     this.setState({
-      title: e.target.value,
-    });
-  }
-
-  onChangeDescription(e) {
-    this.setState({
-      description: e.target.value,
+      name: e.target.value,
     });
   }
 
   saveProject() {
-    const { title, description } = this.state;
+    const { name } = this.state;
 
     this.props
-      .createProject(title, description)
+      .createProject(name)
       .then((data) => {
         this.setState({
-          id: data.id,
-          title: data.title,
-          description: data.description,
-          published: data.published,
+          project_id: data.id,
+          project_name: data.name,
 
           submitted: true,
         });
@@ -55,10 +45,8 @@ class AddProject extends Component {
 
   newProject() {
     this.setState({
-      id: null,
-      title: "",
-      description: "",
-      published: false,
+      project_id: null,
+      name: "",
 
       submitted: false,
     });
@@ -81,24 +69,11 @@ class AddProject extends Component {
               <input
                 type="text"
                 className="form-control"
-                id="title"
+                name="name"
                 required
                 value={this.state.title}
                 onChange={this.onChangeTitle}
                 name="title"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="description">Description</label>
-              <input
-                type="text"
-                className="form-control"
-                id="description"
-                required
-                value={this.state.description}
-                onChange={this.onChangeDescription}
-                name="description"
               />
             </div>
 
