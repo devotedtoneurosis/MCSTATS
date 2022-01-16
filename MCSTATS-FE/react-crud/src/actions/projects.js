@@ -8,7 +8,7 @@ import {
 
 import ProjectsDataService from "../services/projects.service";
 
-export const createProject = (project_namen) => async (dispatch) => {
+export const createProject = (project_name) => async (dispatch) => {
   try {
     const res = await ProjectsDataService.create({ project_name });
 
@@ -81,7 +81,7 @@ export const deleteAllProjects = () => async (dispatch) => {
 
 export const findProjectsByName = (project_name) => async (dispatch) => {
   try {
-    const res = await ProjectsDataService.findByProjectName(title);
+    const res = await ProjectsDataService.findByProjectName(project_name);
 
     dispatch({
       type: RETRIEVE_PROJECTS,
