@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createCriteria} from "../actions/criterias";
+import { createKeyword} from "../actions/criterias";
 
 class AddCriteria extends Component {
   constructor(props) {
@@ -89,4 +89,4 @@ class AddCriteria extends Component {
   }
 }
 
-export default connect(null, { createKeyword })(AddKeyword);
+export default connect(null, { createKeyword })(AddCriteria);
