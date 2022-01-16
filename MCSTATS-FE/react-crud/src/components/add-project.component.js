@@ -12,6 +12,7 @@ class AddProject extends Component {
     this.state = {
       project_id: null,
       project_name: "",
+      game_id: null,
 
       submitted: false,
     };
@@ -19,20 +20,26 @@ class AddProject extends Component {
 
   onChangeName(e) {
     this.setState({
-      name: e.target.value,
+      project_name: e.target.value,
     });
   }
 
+  onChangeGameId(e) {
+    this.setState({
+      game_id: e.target.value,
+    });
+  }
 
   saveProject() {
-    const { name } = this.state;
+    const { project_name, game_id } = this.state;
 
     this.props
-      .createProject(name)
+      .createProject(project_name, game_id)
       .then((data) => {
         this.setState({
           project_id: data.project_id,
           project_name: data.project_name,
+          game_id: data.game_id,
 
           submitted: true,
         });
@@ -47,6 +54,7 @@ class AddProject extends Component {
     this.setState({
       project_id: null,
       name: "",
+      game_id: null,
 
       submitted: false,
     });
@@ -69,11 +77,22 @@ class AddProject extends Component {
               <input
                 type="text"
                 className="form-control"
-                name="name"
+                name="project_name"
                 required
                 value={this.state.title}
                 onChange={this.onChangeTitle}
-                name="title"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="title">Steam Game ID</label>
+              <input
+                type="text"
+                className="form-control"
+                name="game_id"
+                required
+                value={this.state.game_id}
+                onChange={this.onChangeGameId}
               />
             </div>
 

@@ -14,8 +14,8 @@ exports.create = (req, res) => {
 
   // Create a Project
   const project = {
-    project_name: req.body.title,
-    game_id: req.body.description
+    project_name: req.body.project_id,
+    game_id: req.body.game_id
   };
 
   // Save Project in the database
