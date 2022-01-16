@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { BrowserRouter as Router, Routes ,Route, Link } from "react-router-dom";
 import {
   retrieveProjects,
   findProjectsByName,
   deleteAllProjects,
 } from "../actions/projects";
 import { Link } from "react-router-dom";
+
+import StatsList from "./components/stat-list.component";
+import AddProject from "./components/add-project.component";
+import KeywordsList from "./components/criteria-list.component";
 
 class ProjectList extends Component {
   constructor(props) {
@@ -72,6 +77,33 @@ class ProjectList extends Component {
     const { projects } = this.props;
 
     return (
+      <Router>
+      <nav className="navbar navbar-expand navbar-dark bg-dark">
+        <Link to={"/"} className="navbar-brand">
+          MCAPI
+        </Link>
+        <div className="navbar-nav mr-auto">
+        <li className="nav-item">
+            <Link to={"/projects"} className="nav-link">
+              All Projects
+            </Link>
+          </li>
+        </div>
+      </nav>
+
+      <div className="container mt-3">
+        <Routes>
+          <Route exact path="/" element={<ProjectsList/>} />
+          <Route exact path="/projects" element={<ProjectsList/>} />
+          <Route exact path="/addproject" element={<AddProject/>} />
+          <Route exact path="/socialcriterialist/:id" element={<KeywordsList/>} />
+          <Route exact path="/addcriteria/:id" element={<AddKeyword/>} />
+          <Route exact path="/pages" element={<PagesList/>} />
+          <Route exact path="/stat" element={<StatsList/>} />
+          <Route path="/pages/:id" element={<Page/>} />
+        </Routes>
+      </div>
+
       <div className="list row">
         <div className="col-md-8">
           <div className="input-group mb-3">
@@ -163,6 +195,8 @@ class ProjectList extends Component {
           )}
         </div>
       </div>
+
+      </Router>
     );
   }
 }
