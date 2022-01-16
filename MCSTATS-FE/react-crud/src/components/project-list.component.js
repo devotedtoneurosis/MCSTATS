@@ -137,7 +137,7 @@ class ProjectList extends Component {
               </div>
 
               <Link
-                to={"/projects/" + currentProject.id}
+                to={"/projects/" + currentProject.project_id}
                 className="badge badge-warning"
               >
                 Edit

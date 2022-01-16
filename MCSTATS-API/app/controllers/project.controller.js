@@ -14,7 +14,7 @@ exports.create = (req, res) => {
 
   // Create a Project
   const project = {
-    project_name: req.body.project_id,
+    project_name: req.body.project_name,
     game_id: req.body.game_id
   };
 
