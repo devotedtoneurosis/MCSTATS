@@ -13,7 +13,7 @@ class Criterias extends Component {
     this.onChangeCriteriaTitle = this.onChangeCriteriaTitle.bind(this);
     this.refreshData = this.refreshData.bind(this);
     this.setActiveCriteria = this.setActiveCriteria.bind(this);
-    this.findCriteriasByProjectId = this.findCriteriasByProjectId.bind(this);
+    this.findByProjectId = this.findByProjectId.bind(this);
     this.removeAllCriterias = this.removeAllCriterias.bind(this);
 
     this.state = {
@@ -61,10 +61,10 @@ class Criterias extends Component {
       });
   }
 
-  findCriteriasByProjectId() {
+  findByProjectId() {
     this.refreshData();
 
-    this.props.findCriteriasByProjectId(this.state.project_id);
+    this.props.findByProjectId(this.state.project_id);
   }
 
   render() {
@@ -86,7 +86,7 @@ class Criterias extends Component {
               <button
                 className="btn btn-outline-secondary"
                 type="button"
-                onClick={this.findCriteriasByProjectId}
+                onClick={this.findByProjectId}
               >
                 Search
               </button>
@@ -169,6 +169,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   retrieveCriterias,
-  findCriteriasByProjectId,
+  findByProjectId,
   deleteAllCriterias,
 })(Criterias);

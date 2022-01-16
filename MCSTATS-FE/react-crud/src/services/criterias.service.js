@@ -25,8 +25,8 @@ class CriteriasDataService {
     return http.delete(`/criterias`);
   }
 
-  findByTitle(title) {
-    return http.get(`/criterias?keyword=${title}`);
+  findByProjectId(projectid) {
+    return http.get(`/criterias?project_id=${projectid}`);
   }
 }
 
