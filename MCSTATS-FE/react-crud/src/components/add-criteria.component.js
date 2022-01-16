@@ -80,7 +80,7 @@ class AddCriteria extends Component {
               />
             </div>
 
-            <button onClick={this.savePage} className="btn btn-success">
+            <button onClick={this.saveCriteria} className="btn btn-success">
               Submit
             </button>
           </div>
