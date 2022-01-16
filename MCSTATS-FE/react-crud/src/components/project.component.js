@@ -1,127 +1,174 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateProject, deleteProject } from "../actions/projects";
-import ProjectDataService from "../services/projects.service";
+import {
+  retrieveProjects,
+  findProjectsByName,
+  deleteAllProjects,
+} from "../actions/projects";
+import { Link } from "react-router-dom";
 
-class Project extends Component {
+class Projects extends Component {
   constructor(props) {
     super(props);
-    this.onChangeProjectName = this.onChangeProjectName.bind(this);
-    this.getProject = this.getProject.bind(this);
-    this.removeProject = this.removeProject.bind(this);
+    this.onChangeProjectTitle = this.onChangeProjectTitle.bind(this);
+    this.refreshData = this.refreshData.bind(this);
+    this.setActiveProject = this.setActiveProject.bind(this);
+    this.findByTitle = this.findByTitle.bind(this);
+    this.removeAllProjects = this.removeAllProjects.bind(this);
 
     this.state = {
-      currentProject: {
-        project_id: null,
-        project_name: "",
-      },
-      message: "",
+      currentProject: null,
+      currentIndex: -1,
+      searchTitle: "",
     };
   }
 
   componentDidMount() {
-    console.log(this.props.match.params);
-    this.getProject(this.props.match.params.project_id);
+    this.props.retrieveProjects();
   }
 
-  onChangeProjectName(e) {
-    const title = e.target.value;
+  onChangeProjectTitle(e) {
+    const searchTitle = e.target.value;
 
-    this.setState(function (prevState) {
-      return {
-        currentProject: {
-          ...prevState.currentProject,
-          project_name: title,
-        },
-      };
+    this.setState({
+      searchTitle: searchTitle,
     });
   }
 
-  updateContent() {
-    this.props
-      .updateProject(this.state.currentProject.project_id, this.state.currentPage)
-      .then((reponse) => {
-        console.log(reponse);
-        
-        this.setState({ message: "The project was updated successfully!" });
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+  refreshData() {
+    this.setState({
+      currentProject: null,
+      currentIndex: -1,
+    });
   }
 
-  getProject(id) {
-    ProjectDataService.get(id)
+  setActiveProject(project, index) {
+    this.setState({
+      currentProject: project,
+      currentIndex: index,
+    });
+  }
+
+  removeAllProjects() {
+    this.props
+      .deleteAllProjects()
       .then((response) => {
-        this.setState({
-          currentProject: response.data,
-        });
-        console.log(response.data);
+        console.log(response);
+        this.refreshData();
       })
       .catch((e) => {
         console.log(e);
       });
   }
 
-  removeProject() {
-    this.props
-      .deletePage(this.state.currentProject.project_id)
-      .then(() => {
-        this.props.history.push("/Projects");
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }
+  findByTitle() {
+    this.refreshData();
 
+    this.props.findProjectsByTitle(this.state.searchTitle);
+  }
 
   render() {
-    const { currentProject } = this.state;
+    const { searchTitle, currentPage, currentIndex } = this.state;
+    const { projects } = this.props;
 
     return (
-      <div>
-        {currentProject ? (
-          <div className="edit-form">
-            <h4>Project</h4>
-            <form>
-              <div className="form-group">
-                <label htmlFor="project_name">Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  value={currentProject.project_name}
-                  onChange={this.onChangeProjectName}
-                />
+      <div className="list row">
+        <div className="col-md-8">
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Search by title"
+              value={searchTitle}
+              onChange={this.onChangeSearchTitle}
+            />
+            <div className="input-group-append">
+              <button
+                className="btn btn-outline-secondary"
+                type="button"
+                onClick={this.findByTitle}
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6">
+          <h4>Projects List</h4>
+
+          <ul className="list-group">
+            {projects &&
+              projects.map((project, index) => (
+                <li
+                  className={
+                    "list-group-item " +
+                    (index === currentIndex ? "active" : "")
+                  }
+                  onClick={() => this.setActiveProject(project, index)}
+                  key={index}
+                >
+                  {project.title}
+                </li>
+              ))}
+          </ul>
+
+          <button
+            className="m-3 btn btn-sm btn-danger"
+            onClick={this.removeAllProjects}
+          >
+            Remove All
+          </button>
+        </div>
+        <div className="col-md-6">
+          {currentPage ? (
+            <div>
+              <h4>Project</h4>
+              <div>
+                <label>
+                  <strong>Title:</strong>
+                </label>{" "}
+                {currentPage.title}
+              </div>
+              <div>
+                <label>
+                  <strong>Description:</strong>
+                </label>{" "}
+                {currentProject.description}
+              </div>
+              <div>
+                <label>
+                  <strong>Status:</strong>
+                </label>{" "}
+                {currentProject.published ? "Published" : "Pending"}
               </div>
 
-            </form>
-
-            <button
-              className="badge badge-danger mr-2"
-              onClick={this.removeProject}
-            >
-              Delete
-            </button>
-
-            <button
-              type="submit"
-              className="badge badge-success"
-              onClick={this.updateContent}
-            >
-              Update
-            </button>
-
-            <p>{this.state.message}</p>
-          </div>
-        ) : (
-          <div>
-            <br />
-            <p>Please click on a Project...</p>
-          </div>
-        )}
+              <Link
+                to={"/projects/" + currentProject.id}
+                className="badge badge-warning"
+              >
+                Edit
+              </Link>
+            </div>
+          ) : (
+            <div>
+              <br />
+              <p>Please click on a Project...</p>
+            </div>
+          )}
+        </div>
       </div>
     );
   }
 }
 
-export default connect(null, { updateProject, deleteProject })(Project);
+const mapStateToProps = (state) => {
+  return {
+    projects: state.projects,
+  };
+};
+
+export default connect(mapStateToProps, {
+  retrieveProjects,
+  findPagesByTitle,
+  deleteAllProjects,
+})(Projects);

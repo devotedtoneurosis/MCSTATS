@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes ,Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import AddPage from "./components/add-page.component";
 import Page from "./components/page.component";
 import PagesList from "./components/pages-list.component";
 import StatsList from "./components/stat-list.component";
