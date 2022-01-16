@@ -2,31 +2,31 @@ import http from "../http-common";
 
 class CriteriasDataService {
   getAll() {
-    return http.get("/criterias");
+    return http.get("/social_criterias");
   }
 
   get(id) {
-    return http.get(`/criterias/${id}`);
+    return http.get(`/social_criterias/${id}`);
   }
 
   create(data) {
-    return http.post("/criterias", data);
+    return http.post("/social_criterias", data);
   }
 
   update(id, data) {
-    return http.put(`/criterias/${id}`, data);
+    return http.put(`/social_criterias/${id}`, data);
   }
 
   delete(id) {
-    return http.delete(`/criterias/${id}`);
+    return http.delete(`/social_criterias/${id}`);
   }
 
   deleteAll() {
-    return http.delete(`/criterias`);
+    return http.delete(`/social_criterias`);
   }
 
   findByProjectId(projectid) {
-    return http.get(`/criterias?project_id=${projectid}`);
+    return http.get(`/social_criterias/project_id/${projectid}`);
   }
 }
 
