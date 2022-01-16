@@ -133,13 +133,7 @@ class ProjectList extends Component {
                 <label>
                   <strong>GameID:</strong>
                 </label>{" "}
-                {currentProject.description}
-              </div>
-              <div>
-                <label>
-                  <strong>Status:</strong>
-                </label>{" "}
-                {currentProject.published ? "Published" : "Pending"}
+                {currentProject.game_id}
               </div>
 
               <Link
