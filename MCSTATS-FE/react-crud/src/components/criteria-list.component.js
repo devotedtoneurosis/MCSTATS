@@ -73,7 +73,13 @@ class CriteriaList extends Component {
     const { criterias } = this.props;
 
     return (
+      
       <div className="list row">
+        <div className="col-md-6">
+            <Link to={"/socialcriterias"} className="nav-link">
+              Add Keyword
+            </Link>
+        </div>
         <div className="col-md-6">
           <h4>Keywords List</h4>
 
