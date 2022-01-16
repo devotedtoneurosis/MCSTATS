@@ -28,7 +28,7 @@ class AddCriteria extends Component {
     const { project_id, keyword } = this.state;
 
     this.props
-      .createPage(project_id, keyword)
+      .createCriteria(project_id, keyword)
       .then((data) => {
         this.setState({
           project_id: data.project_id,
