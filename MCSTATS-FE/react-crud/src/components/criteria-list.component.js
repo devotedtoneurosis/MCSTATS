@@ -69,7 +69,7 @@ class CriteriaList extends Component {
   }
 
   render() {
-    const { currentCriteria, currentCriteria, currentIndex } = this.state;
+    const { currentProject, currentCriteria, currentIndex } = this.state;
     const { criterias } = this.props;
 
     return (
