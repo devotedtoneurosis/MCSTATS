@@ -127,11 +127,11 @@ class ProjectList extends Component {
                 <label>
                   <strong>Title:</strong>
                 </label>{" "}
-                {currentProject.title}
+                {currentProject.project_name}
               </div>
               <div>
                 <label>
-                  <strong>Description:</strong>
+                  <strong>GameID:</strong>
                 </label>{" "}
                 {currentProject.description}
               </div>
@@ -171,4 +171,4 @@ export default connect(mapStateToProps, {
   retrieveProjects,
   findProjectsByName,
   deleteAllProjects,
-})(Projects);
+})(ProjectList);
