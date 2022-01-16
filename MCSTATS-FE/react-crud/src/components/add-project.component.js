@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createProject} from "../actions/pages";
+import { createProject} from "../actions/projects";
 
 class AddProject extends Component {
   constructor(props) {
