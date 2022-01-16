@@ -89,4 +89,4 @@ class AddCriteria extends Component {
   }
 }
 
-export default connect(null, { createKeyword })(AddCriteria);
+export default connect(null, { createCriteria })(AddCriteria);
