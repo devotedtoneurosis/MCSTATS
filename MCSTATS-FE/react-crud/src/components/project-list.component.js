@@ -6,7 +6,6 @@ import {
   findProjectsByName,
   deleteAllProjects,
 } from "../actions/projects";
-import { Link } from "react-router-dom";
 
 import StatsList from "./components/stat-list.component";
 import AddProject from "./components/add-project.component";
