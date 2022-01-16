@@ -25,7 +25,6 @@ class ProjectList extends Component {
 
   componentDidMount() {
     this.props.retrieveProjects();
-    console.log("PROJ"+currentProject.project_id);
   }
 
   onChangeProjectTitle(e) {
