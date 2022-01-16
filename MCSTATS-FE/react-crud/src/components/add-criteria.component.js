@@ -10,6 +10,7 @@ class AddCriteria extends Component {
     this.newCriteria = this.newCriteria.bind(this);
 
     this.state = {
+      currentProject: null,
       criteria_id: null,
       project_id: null,
       keyword: "",
@@ -43,18 +44,19 @@ class AddCriteria extends Component {
       });
   }
 
-  newPage() {
+  newCriteria() {
     this.setState({
-      id: null,
-      title: "",
-      description: "",
-      published: false,
+      criteria_id: null,
+      project_id: null,
+      keyword: "",
 
       submitted: false,
     });
   }
 
   render() {
+    const { currentProject } = this.state;
+    
     return (
       <div className="submit-form">
         {this.state.submitted ? (
