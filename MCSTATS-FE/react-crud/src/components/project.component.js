@@ -68,7 +68,7 @@ class Projects extends Component {
   }
 
   render() {
-    const { searchTitle, currentPage, currentIndex } = this.state;
+    const { searchTitle, currentProject, currentIndex } = this.state;
     const { projects } = this.props;
 
     return (
