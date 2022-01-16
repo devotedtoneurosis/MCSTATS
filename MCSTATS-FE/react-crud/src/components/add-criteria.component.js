@@ -20,10 +20,6 @@ class AddCriteria extends Component {
 
 
 
-  componentDidMount() {
-    this.props.match.params.project_id;
-  }
-
   onChangeKeyword(e) {
     this.setState({
       keyword: e.target.value,
@@ -34,7 +30,7 @@ class AddCriteria extends Component {
     const { project_id, keyword } = this.state;
     console.log("Project id:"+project_id);
     this.props
-      .createCriteria(project_id, keyword)
+      .createCriteria(this.props.match.params.project_id, keyword)
       .then((data) => {
         this.setState({
           project_id: data.project_id,
