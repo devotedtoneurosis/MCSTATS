@@ -80,7 +80,7 @@ class AddProject extends Component {
                 name="project_name"
                 required
                 value={this.state.title}
-                onChange={this.onChangeTitle}
+                onChange={this.onChangeName}
               />
             </div>
 
