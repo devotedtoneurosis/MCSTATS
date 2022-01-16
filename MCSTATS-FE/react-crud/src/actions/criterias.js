@@ -79,9 +79,9 @@ export const deleteAllCriterias = () => async (dispatch) => {
   }
 };
 
-export const findCriteriasByTitle = (title) => async (dispatch) => {
+export const findCriteriasByProjectId = (projectid) => async (dispatch) => {
   try {
-    const res = await CriteriasDataService.findByTitle(title);
+    const res = await CriteriasDataService.findByProjectId(projectid);
 
     dispatch({
       type: RETRIEVE_CRITERIAS,
