@@ -5,28 +5,28 @@ class ProjectsDataService {
     return http.get("/projects");
   }
 
-  get(id) {
-    return http.get(`/projects/${id}`);
+  get(project_id) {
+    return http.get(`/projects/${project_id}`);
   }
 
   create(data) {
     return http.post("/projects", data);
   }
 
-  update(id, data) {
-    return http.put(`/projects/${id}`, data);
+  update(project_id, data) {
+    return http.put(`/projects/${project_id}`, data);
   }
 
-  delete(id) {
-    return http.delete(`/projects/${id}`);
+  delete(project_id) {
+    return http.delete(`/projects/${project_id}`);
   }
 
   deleteAll() {
     return http.delete(`/projects`);
   }
 
-  findByTitle(title) {
-    return http.get(`/projects?project_name=${title}`);
+  findByTitle(project_name) {
+    return http.get(`/projects?project_name=${project_name}`);
   }
 }
 

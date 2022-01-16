@@ -8,9 +8,9 @@ import {
 
 import ProjectsDataService from "../services/projects.service";
 
-export const createProject = (title, description) => async (dispatch) => {
+export const createProject = (project_namen) => async (dispatch) => {
   try {
-    const res = await ProjectsDataService.create({ title, description });
+    const res = await ProjectsDataService.create({ project_name });
 
     dispatch({
       type: CREATE_PROJECT,
@@ -36,9 +36,9 @@ export const retrieveProjects = () => async (dispatch) => {
   }
 };
 
-export const updateProject = (id, data) => async (dispatch) => {
+export const updateProject = (project_id, data) => async (dispatch) => {
   try {
-    const res = await ProjectsDataService.update(id, data);
+    const res = await ProjectsDataService.update(project_id, data);
 
     dispatch({
       type: UPDATE_PROJECT,
@@ -51,13 +51,13 @@ export const updateProject = (id, data) => async (dispatch) => {
   }
 };
 
-export const deleteProject = (id) => async (dispatch) => {
+export const deleteProject = (project_id) => async (dispatch) => {
   try {
-    await ProjectsDataService.delete(id);
+    await ProjectsDataService.delete(project_id);
 
     dispatch({
       type: DELETE_PROJECT,
-      payload: { id },
+      payload: { project_id },
     });
   } catch (err) {
     console.log(err);
@@ -79,9 +79,9 @@ export const deleteAllProjects = () => async (dispatch) => {
   }
 };
 
-export const findProjectsByTitle = (title) => async (dispatch) => {
+export const findProjectsByName = (project_name) => async (dispatch) => {
   try {
-    const res = await ProjectsDataService.findByTitle(title);
+    const res = await ProjectsDataService.findByProjectName(title);
 
     dispatch({
       type: RETRIEVE_PROJECTS,
