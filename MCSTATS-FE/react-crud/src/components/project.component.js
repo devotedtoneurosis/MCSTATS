@@ -13,7 +13,7 @@ class Projects extends Component {
     this.onChangeProjectTitle = this.onChangeProjectTitle.bind(this);
     this.refreshData = this.refreshData.bind(this);
     this.setActiveProject = this.setActiveProject.bind(this);
-    this.findByTitle = this.findByTitle.bind(this);
+    this.findProjectsByName = this.findProjectsByName.bind(this);
     this.removeAllProjects = this.removeAllProjects.bind(this);
 
     this.state = {
@@ -61,10 +61,10 @@ class Projects extends Component {
       });
   }
 
-  findByTitle() {
+  findByProjectsByName() {
     this.refreshData();
 
-    this.props.findProjectsByTitle(this.state.searchTitle);
+    this.props.findProjectsByName(this.state.searchTitle);
   }
 
   render() {
@@ -86,7 +86,7 @@ class Projects extends Component {
               <button
                 className="btn btn-outline-secondary"
                 type="button"
-                onClick={this.findByTitle}
+                onClick={this.findProjectsByName}
               >
                 Search
               </button>
@@ -169,6 +169,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   retrieveProjects,
-  findProjectsByTitle,
+  findProjectsByName,
   deleteAllProjects,
 })(Projects);
