@@ -7,8 +7,8 @@ import {
   deleteAllProjects,
 } from "../actions/projects";
 
-import AddProject from "./components/add-project.component";
-import KeywordsList from "./components/criteria-list.component";
+import AddProject from "./add-project.component";
+import KeywordsList from "./criteria-list.component";
 
 class ProjectList extends Component {
   constructor(props) {
