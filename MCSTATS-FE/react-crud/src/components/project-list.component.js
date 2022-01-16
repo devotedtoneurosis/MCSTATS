@@ -9,6 +9,7 @@ import {
 
 import AddProject from "./add-project.component";
 import KeywordsList from "./criteria-list.component";
+import ProjectsList from "./project-list.component";
 
 class ProjectList extends Component {
   constructor(props) {
