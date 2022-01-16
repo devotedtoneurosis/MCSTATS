@@ -19,7 +19,7 @@ class AddCriteria extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
+    console.log(this.props.params);
     project_id = this.props.match.params.project_id;
   }
 
