@@ -79,7 +79,7 @@ export const deleteAllCriterias = () => async (dispatch) => {
   }
 };
 
-export const findCriteriasByProjectId = (projectid) => async (dispatch) => {
+export const findByProjectId = (projectid) => async (dispatch) => {
   try {
     const res = await CriteriasDataService.findByProjectId(projectid);
 
