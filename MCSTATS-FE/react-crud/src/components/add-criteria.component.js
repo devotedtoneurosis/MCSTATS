@@ -55,7 +55,7 @@ class AddCriteria extends Component {
   }
 
   render() {
-    const { currentProject } = this.state;
+    const { currentProject, keyword } = this.state;
     
     return (
       <div className="submit-form">
