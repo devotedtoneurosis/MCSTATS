@@ -140,7 +140,7 @@ class CriteriaList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  console.log(this.props);
   return {
     project_id: this.props.match.params.id,
   };

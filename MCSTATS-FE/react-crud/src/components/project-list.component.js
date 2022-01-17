@@ -21,7 +21,6 @@ class ProjectList extends Component {
       currentProject: null,
       currentIndex: -1,
       searchTitle: "",
-      parentCallback: null,
     };
   }
 
@@ -31,7 +30,6 @@ class ProjectList extends Component {
 
   sendData(project) {
     console.log(this.props);
-    this.state.parentCallback(project);
   }
 
   onChangeProjectTitle(e) {
@@ -191,7 +189,6 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     projects: state.projects,
-    parentCallback: state.parentCallback,
   };
 };
 
