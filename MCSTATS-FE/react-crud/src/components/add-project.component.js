@@ -79,7 +79,7 @@ class AddProject extends Component {
                 className="form-control"
                 name="project_name"
                 required
-                value={this.state.title}
+                value={this.state.project_name}
                 onChange={this.onChangeName}
               />
               <label htmlFor="game_id">Steam Game ID</label>
