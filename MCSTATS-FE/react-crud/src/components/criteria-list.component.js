@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 class CriteriaList extends Component {
   constructor(props) {
     super(props);
-    this.onChangeSearchCriteriaTitle = this.onChangeSearchCriteriaTitle.bind(this);
     this.refreshData = this.refreshData.bind(this);
     this.setActiveCriteria = this.setActiveCriteria.bind(this);
     this.findByProjectId = this.findByProjectId.bind(this);
