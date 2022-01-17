@@ -33,7 +33,7 @@ class ProjectList extends Component {
 
   projectCallback(pid){
     console.log("trying callback with:"+pid);
-
+    this.props.projectCallback(pid);
   }
 
 
