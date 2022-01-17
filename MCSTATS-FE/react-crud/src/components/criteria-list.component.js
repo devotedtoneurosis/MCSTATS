@@ -20,7 +20,6 @@ class CriteriaList extends Component {
       currentCriteria: null,
       currentIndex: -1,
       searchTitle: "",
-      project_id: "",
     };
   }
 
@@ -63,9 +62,9 @@ class CriteriaList extends Component {
   }
 
   findByProjectId() {
-    console.log(this.project_id);
+    console.log(this.props.project_id);
     this.refreshData(); 
-    this.props.findByProjectId(this.project_id);
+    this.props.findByProjectId(this.props.project_id);
   }
 
   render() {
@@ -121,7 +120,7 @@ class CriteriaList extends Component {
               </div>
 
               <Link
-                to={"/projects/" + currentProject.project_id}
+                to={"/projects/"}
                 className="badge badge-warning"
               >
                 Edit
@@ -140,14 +139,8 @@ class CriteriaList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    project_id: state.project_id,
-  };
-};
 
-export default connect(mapStateToProps, {
+export default connect(null, {
   retrieveCriterias,
   findByProjectId,
   deleteAllCriterias,
