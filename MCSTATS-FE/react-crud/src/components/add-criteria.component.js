@@ -32,10 +32,9 @@ class AddCriteria extends Component {
     const { keyword } = this.state;
     console.log("Project id:"+this.project_id);
     this.props
-      .createCriteria(project_id, keyword)
+      .createCriteria(this.project_id, keyword)
       .then((data) => {
         this.setState({
-          project_id: data.project_id,
           keyword: data.keyword,
 
           submitted: true,
