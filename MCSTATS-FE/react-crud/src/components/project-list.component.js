@@ -66,7 +66,6 @@ class ProjectList extends Component {
       currentProject: project,
       currentIndex: index,
     });
-    this.projectCallback(project.project_id);
   }
 
   removeAllProjects() {
@@ -181,6 +180,7 @@ class ProjectList extends Component {
                 Criteria
               </Link>
               <Link
+                onClick={this.projectCallback(project.project_id)}
                 to={"/stat/" + currentProject.project_id}
                 className="btn btn-outline-secondary"
               >
