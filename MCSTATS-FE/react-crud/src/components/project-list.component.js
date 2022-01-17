@@ -180,7 +180,7 @@ class ProjectList extends Component {
                 Criteria
               </Link>
               <Link
-                onClick={this.projectCallback(project.project_id)}
+                onClick={this.projectCallbackcurrentProject.project_id)}
                 to={"/stat/" + currentProject.project_id}
                 className="btn btn-outline-secondary"
               >
