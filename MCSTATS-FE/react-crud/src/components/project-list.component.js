@@ -58,7 +58,7 @@ class ProjectList extends Component {
       currentProject: project,
       currentIndex: index,
     });
-    this.projectCallback(currentProject.project_id)
+    this.projectCallback(project.project_id)
   }
 
   removeAllProjects() {
