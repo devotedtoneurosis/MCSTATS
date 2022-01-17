@@ -8,9 +8,9 @@ import {
 
 import CriteriasDataService from "../services/criterias.service";
 
-export const createCriteria = (project_id, keyword) => async (dispatch) => {
+export const createCriteria = (keyword) => async (dispatch) => {
   try {
-    const res = await CriteriasDataService.create({ project_id, keyword });
+    const res = await CriteriasDataService.create({ keyword });
 
     dispatch({
       type: CREATE_CRITERIA,

@@ -27,9 +27,11 @@ class CriteriaList extends Component {
     this.setState({
       project_id: this.props.project_id,
     });
-    console.log("Initial set:"+this.state.project_id);
-    this.findByProjectId();
+    console.log("Initial set:"+this.props.project_id);
+    this.props.findByProjectId(this.props.project_id);
   }
+
+ 
 
   refreshData() {
     this.setState({
@@ -58,9 +60,6 @@ class CriteriaList extends Component {
       }); 
   }
 
-  findByProjectId() {
-    this.props.findByProjectId(this.state.project_id);
-  }
 
   render() {
     const { currentProject, currentCriteria, currentIndex } = this.state;
