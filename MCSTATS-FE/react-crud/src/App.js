@@ -39,7 +39,7 @@ class App extends Component {
             <Route exact path="/" element={<ProjectsList/>} />
             <Route exact path="/addproject" element={<AddProject/>} />
             <Route exact path="/socialcriterialist/:id" element={<KeywordsList/>} />
-            <Route exact path="/addproject/:id" element={<AddCriteria/>} />
+            <Route exact path="/addcriteria/:id" element={<AddCriteria/>} />
           </Routes>
         </div>
 

@@ -76,7 +76,7 @@ class CriteriaList extends Component {
       <div className="list row">
         <div className="col-md-6">
             <Link
-                to={"/add-criteria"}
+                to={"/addcriteria"+this.project_id}
                 className="btn btn-outline-secondary"
               >
                 Add Keyword
