@@ -3,15 +3,19 @@ import { BrowserRouter as Router, Routes ,Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import Page from "./components/page.component";
-import PagesList from "./components/pages-list.component";
-import StatsList from "./components/stat-list.component";
 import ProjectsList from "./components/project-list.component";
 import AddProject from "./components/add-project.component";
 import KeywordsList from "./components/criteria-list.component";
-import AddKeyword from "./components/add-criteria.component";
+
 
 class App extends Component {
+
+  updateActiveProject(proj) {
+    console.log("triggered callback:"+proj)
+    this.setState({
+      currentProject: proj,
+    });
+  }
 
   render() {
     return (
@@ -31,9 +35,9 @@ class App extends Component {
 
         <div className="container mt-3">
           <Routes>
-            <Route exact path="/" element={<ProjectsList/>} />
-            <Route exact path="/addproject" element={<AddProject/>} />
-            <Route exact path="/socialcriterialist/:id" element={<KeywordsList/>} />
+            <Route exact path="/" element={<ProjectsList/>} parentCallback = {this.updateActiveProject}/>
+            <Route exact path="/addproject" element={<AddProject/>} parentCallback = {this.updateActiveProject}/>
+            <Route exact path="/socialcriterialist/:id" element={<KeywordsList/>} parentCallback = {this.updateActiveProject}/>
           </Routes>
         </div>
 

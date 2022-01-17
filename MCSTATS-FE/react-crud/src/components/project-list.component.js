@@ -31,6 +31,10 @@ class ProjectList extends Component {
     this.props.retrieveProjects();
   }
 
+  sendData(project) {
+    this.props.parentCallback(project);
+  }
+
   onChangeProjectTitle(e) {
     const searchTitle = e.target.value;
 
@@ -51,6 +55,7 @@ class ProjectList extends Component {
       currentProject: project,
       currentIndex: index,
     });
+    this.sendData(project);
   }
 
   removeAllProjects() {
