@@ -7,7 +7,6 @@ import {
   deleteAllProjects,
 } from "../actions/projects";
 
-]
 
 class ProjectList extends Component {
   constructor(props) {
