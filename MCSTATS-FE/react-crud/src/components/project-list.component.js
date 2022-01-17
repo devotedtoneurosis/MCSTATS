@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { PropTypes } from 'react'
 import {
   retrieveProjects,
   findProjectsByName,
@@ -16,11 +17,11 @@ class ProjectList extends Component {
     this.setActiveProject = this.setActiveProject.bind(this);
     this.findProjectsByName = this.findProjectsByName.bind(this);
     this.removeAllProjects = this.removeAllProjects.bind(this);
-    this.projectCallback = this.project_callback.bind(this);
+    this.projectCallback = this.projectCallback.bind(this);
 
     this.state = {
       currentProject: null,
-      projectCallback: null,
+      project_id: -1,
       currentIndex: -1,
       searchTitle: "",
     };
@@ -28,6 +29,12 @@ class ProjectList extends Component {
 
   componentDidMount() {
     this.props.retrieveProjects();
+  }
+
+  projectCallback(pid){
+    this.setState({
+      project_id: pid
+    });
   }
 
   goToCriteriaPage() {
@@ -57,7 +64,6 @@ class ProjectList extends Component {
       currentProject: project,
       currentIndex: index,
     });
-    this.projectCallback(project.project_id);
   }
 
   removeAllProjects() {
