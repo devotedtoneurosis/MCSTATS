@@ -62,8 +62,8 @@ class CriteriaList extends Component {
   }
 
   findByProjectId() {
-    this.refreshData();
-
+    this.refreshData(); 
+    console.log(this.props);
     this.props.findByProjectId(this.props.match.params.id);
   }
 
@@ -147,5 +147,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   retrieveCriterias,
+  findByProjectId,
   deleteAllCriterias,
 })(CriteriaList);
