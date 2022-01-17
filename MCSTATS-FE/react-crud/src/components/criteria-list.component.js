@@ -133,8 +133,14 @@ class CriteriaList extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    criterias: state.criterias,
+  };
+};
 
-export default connect(null, {
+export default connect(mapStateToProps, {
   findByProjectId,
   findByProjectId,
   deleteAllCriterias,
