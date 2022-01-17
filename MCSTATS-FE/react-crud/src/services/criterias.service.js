@@ -10,6 +10,7 @@ class CriteriasDataService {
   }
 
   create(project_id,data) {
+    console.log("PRRR"+project_id);
     return http.post(`/social_criterias/project_id/${project_id}`, data);
   }
 
