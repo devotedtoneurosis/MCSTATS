@@ -29,7 +29,8 @@ class CriteriaList extends Component {
   }
 
   findByProjectId() {
-
+    this.props.findByProjectId(this.props.project_id);
+    this.refreshData();
   }
 
   refreshData() {
@@ -134,7 +135,7 @@ class CriteriaList extends Component {
 
 
 export default connect(null, {
-  retrieveCriterias,
+  findByProjectId,
   findByProjectId,
   deleteAllCriterias,
 })(CriteriaList);
