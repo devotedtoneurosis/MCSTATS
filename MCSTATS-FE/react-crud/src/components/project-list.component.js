@@ -30,7 +30,7 @@ class ProjectList extends Component {
 
   goToCriteriaPage() {
       this.props.navigation.navigate('socialcriterialist', {
-      project_id: currentProject.id,
+      currentProject: currentProject,
     });
   }
 
@@ -97,19 +97,21 @@ class ProjectList extends Component {
                 className="btn btn-outline-secondary"
                 type="button"
                 onClick={this.findProjectsByName}
+                onChange={defaultValue}
               >
                 Search
               </button>
             </div>
             
-            <Link
+
+
+          </div>
+          <Link
                 to={"/addproject/"}
                 className="btn btn-outline-secondary"
               >
                 Create New Project
               </Link>
-
-          </div>
         </div>
 
         <div className="col-md-6">
