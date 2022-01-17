@@ -19,11 +19,15 @@ class CriteriaList extends Component {
     this.state = {
       currentCriteria: null,
       currentIndex: -1,
+      project_id: -1,
       searchTitle: "",
     };
   }
 
   componentDidMount() {
+    this.setState({
+      project_id: this.props.project_id,
+    });
     this.findByProjectId();
   }
 
@@ -62,9 +66,8 @@ class CriteriaList extends Component {
   }
 
   findByProjectId() {
-    console.log(this.props.project_id);
-    this.refreshData(); 
-    this.props.findByProjectId(this.props.project_id);
+    console.log(this.state.project_id);
+    this.props.findByProjectId(this.state.project_id);
   }
 
   render() {
