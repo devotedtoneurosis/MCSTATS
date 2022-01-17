@@ -29,7 +29,7 @@ class AddCriteria extends Component {
   }
 
   saveCriteria() {
-    console.log("Saving criteria for proejct:"+this.state.project_id);
+    console.log("Saving criteria for project:"+this.state.project_id);
     const { keyword } = this.state;
     this.props
       .createCriteria(keyword)

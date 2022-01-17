@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new SocialCriteria
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
+  if (!req.body.keyword) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -14,8 +14,8 @@ exports.create = (req, res) => {
 
   // Create a SocialCriteria
   const socialcriteria = {
-    keyword: req.body.title,
-    project_id: req.body.description
+    keyword: req.body.keyword,
+    project_id: req.body.project_id
   };
 
   // Save SocialCriteria in the database
