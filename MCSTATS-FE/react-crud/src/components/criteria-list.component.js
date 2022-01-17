@@ -42,6 +42,7 @@ class CriteriaList extends Component {
   refreshData() {
     this.setState({
       currentCriteria: null,
+      project_id: this.state.project_id,
       currentIndex: -1,
     });
   }
