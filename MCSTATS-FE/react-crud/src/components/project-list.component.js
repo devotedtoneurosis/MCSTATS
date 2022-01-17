@@ -16,6 +16,7 @@ class ProjectList extends Component {
     this.setActiveProject = this.setActiveProject.bind(this);
     this.findProjectsByName = this.findProjectsByName.bind(this);
     this.removeAllProjects = this.removeAllProjects.bind(this);
+    this.projectCallback = this.project_callback.bind(this);
 
     this.state = {
       currentProject: null,
@@ -56,7 +57,7 @@ class ProjectList extends Component {
       currentProject: project,
       currentIndex: index,
     });
-    this.props.project_callback(project.project_id);
+    this.projectCallback(project.project_id);
   }
 
   removeAllProjects() {
