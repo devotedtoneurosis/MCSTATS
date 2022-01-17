@@ -76,7 +76,7 @@ class CriteriaList extends Component {
       <div className="list row">
         <div className="col-md-6">
             <Link
-                to={"/addcriteria/"+this.project_id}
+                to={"/addcriteria/"+this.props.match.params.id}
                 className="btn btn-outline-secondary"
               >
                 Add Keyword
@@ -139,15 +139,8 @@ class CriteriaList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    criterias: state.criterias,
-    project_id: state.project_id,
-  };
-};
 
-export default connect(mapStateToProps, {
+export default connect(null, {
   retrieveCriterias,
   findByProjectId,
   deleteAllCriterias,
