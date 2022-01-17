@@ -20,7 +20,7 @@ class CriteriaList extends Component {
       currentCriteria: null,
       currentIndex: -1,
       searchTitle: "",
-      project_id: this.params.project_id,
+      project_id: "",
     };
   }
 
@@ -140,8 +140,14 @@ class CriteriaList extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    project_id: state.project_id,
+  };
+};
 
-export default connect(null, {
+export default connect(mapStateToProps, {
   retrieveCriterias,
   findByProjectId,
   deleteAllCriterias,
