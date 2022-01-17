@@ -38,7 +38,6 @@ class AddProject extends Component {
       .createProject(project_name, game_id)
       .then((data) => {
         this.setState({
-          project_id: data.project_id,
           project_name: data.project_name,
           game_id: data.game_id,
 
