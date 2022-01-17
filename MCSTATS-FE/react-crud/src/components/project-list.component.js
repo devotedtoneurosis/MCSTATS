@@ -168,6 +168,7 @@ class ProjectList extends Component {
               </Link>
               <Link
                 to={"/socialcriterialist/"}
+                className="btn btn-outline-secondary"
               >
                 Criteria
               </Link>

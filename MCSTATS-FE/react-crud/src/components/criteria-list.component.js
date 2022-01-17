@@ -24,9 +24,6 @@ class CriteriaList extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      project_id: this.props.project_id,
-    });
     console.log("Initial set:"+this.props.project_id);
     this.props.findByProjectId(this.props.project_id);
   }
