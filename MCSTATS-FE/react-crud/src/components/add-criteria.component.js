@@ -11,7 +11,7 @@ class AddCriteria extends Component {
 
     this.state = {
       criteria_id: null,
-      project_id: null,
+      project_id: -1,
       keyword: "",
 
       submitted: false,

@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Project
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.project_name) {
+  if (!req.body.title) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -14,7 +14,7 @@ exports.create = (req, res) => {
 
   // Create a Project
   const project = {
-    project_name: req.body.project_name,
+    project_name: req.body.project_id,
     game_id: req.body.game_id
   };
 
@@ -33,8 +33,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Projects from the database.
 exports.findAll  = (req, res) => {
-  const project_name = req.query.project_name;
-  var condition = project_name ? { project_name: { [Op.like]: `%${project_name}%` } } : null;
+  const title = req.query.title;
+  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
   Project.findAll({ where: condition })
     .then(data => {
@@ -71,10 +71,10 @@ exports.findOne = (req, res) => {
 
 // Update a Project by the id in the request
 exports.update = (req, res) => {
-    const id = req.params.project_id;
+    const id = req.params.id;
 
     Project.update(req.body, {
-      where: { project_id: id }
+      where: { id: id }
     })
       .then(num => {
         if (num == 1) {
@@ -96,10 +96,10 @@ exports.update = (req, res) => {
 
 // Delete a Project with the specified id in the request
 exports.delete = (req, res) => {
-    const id = req.params.project_id;
+    const id = req.params.id;
 
     Project.destroy({
-      where: { project_id: id }
+      where: { id: id }
     })
       .then(num => {
         if (num == 1) {
