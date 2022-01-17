@@ -6,6 +6,7 @@ import {
   findProjectsByName,
   deleteAllProjects,
 } from "../actions/projects";
+import { withNavigation } from ‘react-navigation’;
 
 
 class ProjectList extends Component {
@@ -55,7 +56,6 @@ class ProjectList extends Component {
       currentProject: project,
       currentIndex: index,
     });
-    this.sendData(project);
   }
 
   removeAllProjects() {
