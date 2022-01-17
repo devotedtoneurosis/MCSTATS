@@ -11,6 +11,7 @@ class AddCriteria extends Component {
 
     this.state = {
       criteria_id: null,
+      project_id: null,
       keyword: "",
 
       submitted: false,
@@ -18,20 +19,20 @@ class AddCriteria extends Component {
   }
 
   componentDidMount() {
-    console.log("Props:"+this.props.project_id);
   }
 
   onChangeKeyword(e) {
     this.setState({
       keyword: e.target.value,
+      project_id: this.props.project_id,
     });
   }
 
   saveCriteria() {
+    console.log("Saving criteria for proejct:"+this.state.project_id);
     const { keyword } = this.state;
-    console.log("Project id:"+String(this.props.project_id));
     this.props
-      .createCriteria(String(this.props.project_id), keyword)
+      .createCriteria(keyword)
       .then((data) => {
         this.setState({
           keyword: data.keyword,
@@ -48,6 +49,7 @@ class AddCriteria extends Component {
   newCriteria() {
     this.setState({
       criteria_id: null,
+      project_id: this.props.project_id,
       keyword: "",
 
       submitted: false,
