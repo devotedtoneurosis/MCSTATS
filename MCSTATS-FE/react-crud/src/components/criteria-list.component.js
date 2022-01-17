@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
-  retrieveCriterias,
   findByProjectId,
   deleteAllCriterias,
 } from "../actions/criterias";
@@ -68,14 +67,12 @@ class CriteriaList extends Component {
     return (
       
       <div className="list row">
-        <div className="col-md-6">
-            <Link
-                to={"/addcriteria/"}
-                className="btn btn-outline-secondary"
-              >
-                Add Keyword
-              </Link>
-        </div>
+        <Link
+            to={"/addcriteria/"}
+            className="btn btn-outline-secondary"
+          >
+          Add Keyword
+        </Link>
         <div className="col-md-6">
           <h4>Keywords List</h4>
 
@@ -90,7 +87,7 @@ class CriteriaList extends Component {
                   onClick={() => this.setActiveCriteria(criteria, index)}
                   key={index}
                 >
-                  {criteria.criteria_name}
+                  {criteria.keyword}
                 </li>
               ))}
           </ul>
@@ -141,7 +138,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  findByProjectId,
   findByProjectId,
   deleteAllCriterias,
 })(CriteriaList);
