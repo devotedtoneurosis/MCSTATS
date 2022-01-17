@@ -10,11 +10,18 @@ import AddCriteria from "./components/add-criteria.component";
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
 
-  updateActiveProject(proj) {
-    console.log("triggered callback:"+proj)
+    this.state = {
+      project_id:-1,
+    };
+  }
+
+  updateActiveProject(proj_id) {
+    console.log("triggered callback:"+proj_id)
     this.setState({
-      currentProject: proj,
+      project_id: proj_id,
     });
   }
 
@@ -36,10 +43,10 @@ class App extends Component {
 
         <div className="container mt-3">
           <Routes>
-            <Route exact path="/" element={<ProjectsList/>} />
+            <Route exact path="/" element={<ProjectsList />} />
             <Route exact path="/addproject" element={<AddProject/>} />
-            <Route exact path="/socialcriterialist/:id" element={<KeywordsList/>} />
-            <Route exact path="/addcriteria/:id" element={<AddCriteria/>} />
+            <Route exact path="/socialcriterialist/" element={<KeywordsList project_id={this.state.project_id} project_callback={this.updateActiveProject}/>} />
+            <Route exact path="/addcriteria/" element={<AddCriteria project_id={this.state.project_id} project_callback={this.updateActiveProject}/>} />
           </Routes>
         </div>
 
