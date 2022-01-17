@@ -65,16 +65,19 @@ class CriteriaList extends Component {
     const { criterias } = this.props;
 
     return (
-      
+
       <div className="list row">
-        <Link
-            to={"/addcriteria/"}
-            className="btn btn-outline-secondary"
-          >
-          Add Keyword
-        </Link>
+        <div className="col-md-8">
+          <Link
+                to={"/addcriteria/"}
+                className="btn btn-outline-secondary"
+              >
+                Create New Keyword
+              </Link>
+        </div>
+
         <div className="col-md-6">
-          <h4>Keywords List</h4>
+          <h4>Keyword List</h4>
 
           <ul className="list-group">
             {criterias &&
@@ -94,7 +97,7 @@ class CriteriaList extends Component {
 
           <button
             className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllCriterias}
+            onClick={this.removeAllCriteria}
           >
             Remove All
           </button>
@@ -107,16 +110,15 @@ class CriteriaList extends Component {
                 <label>
                   <strong>Keyword:</strong>
                 </label>{" "}
-                {currentCriteria.keyword}
+                {currentProject.project_name}
               </div>
 
               <Link
-                to={"/projects/"}
-                className="badge badge-warning"
+                to={"/criterias/" + currentProject}
+                className="btn btn-outline-secondary"
               >
                 Edit
               </Link>
-
             </div>
           ) : (
             <div>
@@ -126,6 +128,8 @@ class CriteriaList extends Component {
           )}
         </div>
       </div>
+      
+      
     );
   }
 }
