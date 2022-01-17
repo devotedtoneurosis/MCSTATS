@@ -30,9 +30,9 @@ class ProjectList extends Component {
   }
 
   goToCriteriaPage() {
-      this.props.navigation.navigate('socialcriterialist', {
+    /*  this.props.navigation.navigate('socialcriterialist', {
       currentProject: this.state.currentProject,
-    });
+    });*/
   }
 
 
@@ -56,7 +56,7 @@ class ProjectList extends Component {
       currentProject: project,
       currentIndex: index,
     });
-    this.props.projectCallback(project.project_id);
+    this.props.project_callback(project.project_id);
   }
 
   removeAllProjects() {
