@@ -28,9 +28,12 @@ class ProjectList extends Component {
     this.props.retrieveProjects();
   }
 
-  sendData(project) {
-    console.log(this.props);
+  goToCriteriaPage() {
+      this.props.navigation.navigate('socialcriterialist', {
+      project_id: currentProject.id,
+    });
   }
+
 
   onChangeProjectTitle(e) {
     const searchTitle = e.target.value;
@@ -161,7 +164,7 @@ class ProjectList extends Component {
               </Link>
               <Link
                 to={"/socialcriterialist/" + currentProject.project_id}
-                className="btn btn-outline-secondary"
+                onClick={this.goToCriteriaPage()}
               >
                 Criteria
               </Link>
