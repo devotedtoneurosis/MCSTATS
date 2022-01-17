@@ -10,7 +10,6 @@ class AddCriteria extends Component {
     this.newCriteria = this.newCriteria.bind(this);
 
     this.state = {
-      project_id: null,
       criteria_id: null,
       keyword: "",
 
@@ -30,8 +29,8 @@ class AddCriteria extends Component {
   }
 
   saveCriteria() {
-    const { project_id, keyword } = this.state;
-    console.log("Project id:"+project_id);
+    const { keyword } = this.state;
+    console.log("Project id:"+this.project_id);
     this.props
       .createCriteria(project_id, keyword)
       .then((data) => {
@@ -51,7 +50,6 @@ class AddCriteria extends Component {
   newCriteria() {
     this.setState({
       criteria_id: null,
-      project_id: null,
       keyword: "",
 
       submitted: false,
@@ -94,5 +92,10 @@ class AddCriteria extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    project_id: state.project_id,
+  };
+};
 
-export default connect(null, { createCriteria })(AddCriteria);
+export default connect(mapStateToProps, { createCriteria })(AddCriteria);

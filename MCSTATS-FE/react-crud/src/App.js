@@ -6,6 +6,7 @@ import "./App.css";
 import ProjectsList from "./components/project-list.component";
 import AddProject from "./components/add-project.component";
 import KeywordsList from "./components/criteria-list.component";
+import AddCriteria from "./components/add-criteria.component";
 
 
 class App extends Component {
@@ -38,6 +39,7 @@ class App extends Component {
             <Route exact path="/" element={<ProjectsList/>} />
             <Route exact path="/addproject" element={<AddProject/>} />
             <Route exact path="/socialcriterialist/:id" element={<KeywordsList/>} />
+            <Route exact path="/addproject/:id" element={<AddCriteria/>} />
           </Routes>
         </div>
 
