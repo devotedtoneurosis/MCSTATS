@@ -97,7 +97,6 @@ class ProjectList extends Component {
                 className="btn btn-outline-secondary"
                 type="button"
                 onClick={this.findProjectsByName}
-                onChange={defaultValue}
               >
                 Search
               </button>
