@@ -28,21 +28,14 @@ class CriteriaList extends Component {
     this.setState({
       project_id: this.props.project_id,
     });
+    console.log("Initial set:"+this.state.project_id);
     this.findByProjectId();
-  }
-
-  onChangeSearchCriteriaTitle(e) {
-    const searchCriteriaTitle = e.target.value;
-
-    this.setState({
-      searchCriteriaTitle: searchCriteriaTitle,
-    });
   }
 
   refreshData() {
     this.setState({
       currentCriteria: null,
-      project_id: this.state.project_id,
+      project_id: this.props.project_id,
       currentIndex: -1,
     });
   }
@@ -67,8 +60,6 @@ class CriteriaList extends Component {
   }
 
   findByProjectId() {
-    this.refreshData();
-    console.log(this.state.project_id);
     this.props.findByProjectId(this.state.project_id);
   }
 
