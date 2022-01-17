@@ -36,11 +36,6 @@ class ProjectList extends Component {
 
   }
 
-  goToCriteriaPage() {
-    /*  this.props.navigation.navigate('socialcriterialist', {
-      currentProject: this.state.currentProject,
-    });*/
-  }
 
 
   onChangeProjectTitle(e) {
@@ -63,6 +58,7 @@ class ProjectList extends Component {
       currentProject: project,
       currentIndex: index,
     });
+    this.projectCallback(currentProject.project_id)
   }
 
   removeAllProjects() {
@@ -171,7 +167,7 @@ class ProjectList extends Component {
                 Edit
               </Link>
               <Link
-                to={"/socialcriterialist/" + currentProject.project_id}
+                to={"/socialcriterialist/"}
                 onClick={this.goToCriteriaPage()}
               >
                 Criteria
