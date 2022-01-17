@@ -66,6 +66,7 @@ class CriteriaList extends Component {
   }
 
   findByProjectId() {
+    this.refreshData();
     console.log(this.state.project_id);
     this.props.findByProjectId(this.state.project_id);
   }
