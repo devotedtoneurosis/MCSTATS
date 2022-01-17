@@ -18,8 +18,7 @@ class AddCriteria extends Component {
   }
 
   componentDidMount() {
-    console.log("Props:"+this.props.id);
-    this.state.project_id = this.props.match.params.id;
+    console.log("Props:"+this.props.project_id);
   }
 
   onChangeKeyword(e) {
@@ -30,9 +29,9 @@ class AddCriteria extends Component {
 
   saveCriteria() {
     const { keyword } = this.state;
-    console.log("Project id:"+this.project_id);
+    console.log("Project id:"+this.props.project_id);
     this.props
-      .createCriteria(this.project_id, keyword)
+      .createCriteria(this.props.project_id, keyword)
       .then((data) => {
         this.setState({
           keyword: data.keyword,
@@ -91,10 +90,5 @@ class AddCriteria extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    project_id: state.project_id,
-  };
-};
 
-export default connect(mapStateToProps, { createCriteria })(AddCriteria);
+export default connect(null, { createCriteria })(AddCriteria);
