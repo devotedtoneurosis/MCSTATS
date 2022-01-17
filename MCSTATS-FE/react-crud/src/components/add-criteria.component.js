@@ -29,12 +29,10 @@ class AddCriteria extends Component {
   }
 
   saveCriteria() {
-    const { keyword } = this.state;
-    console.log("Saving criteria for project:"+keyword.project_id);
-    keyword.project_id = this.props.project_id;
-    console.log("B:Saving criteria for project:"+keyword.project_id);
+    const { project_id,keyword } = this.state;
+    console.log("Saving criteria for project:"+project_id);
     this.props
-      .createCriteria(keyword)
+      .createCriteria(project_id,keyword)
       .then((data) => {
         this.setState({
           keyword: data.keyword,
