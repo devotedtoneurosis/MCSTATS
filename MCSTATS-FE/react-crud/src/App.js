@@ -12,7 +12,7 @@ import AddCriteria from "./components/add-criteria.component";
 class App extends Component {
   constructor(props) {
     super(props);
-
+    this.updateActiveProject = this.updateActiveProject.bind(this);
     this.state = {
       project_id:-1,
     };
@@ -45,8 +45,8 @@ class App extends Component {
           <Routes>
             <Route exact path="/" element={<ProjectsList />} />
             <Route exact path="/addproject" element={<AddProject/>} />
-            <Route exact path="/socialcriterialist/" element={<KeywordsList project_id={this.state.project_id} project_callback={this.updateActiveProject}/>} />
-            <Route exact path="/addcriteria/" element={<AddCriteria project_id={this.state.project_id} project_callback={this.updateActiveProject}/>} />
+            <Route exact path="/socialcriterialist/" element={<KeywordsList project_id={this.state.project_id} projectCallback={this.updateActiveProject}/>} />
+            <Route exact path="/addcriteria/" element={<AddCriteria project_id={this.state.project_id} projectCallback={this.updateActiveProject}/>} />
           </Routes>
         </div>
 
