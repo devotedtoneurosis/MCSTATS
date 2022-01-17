@@ -17,7 +17,6 @@ class CriteriaList extends Component {
     this.removeAllCriterias = this.removeAllCriterias.bind(this);
 
     this.state = {
-      currentProject: null,
       currentCriteria: null,
       currentIndex: -1,
       searchTitle: "",
@@ -66,7 +65,7 @@ class CriteriaList extends Component {
   findByProjectId() {
     this.refreshData();
 
-    this.props.findByProjectId(this.state.searchTitle);
+    this.props.findByProjectId(this.props.match.params.id);
   }
 
   render() {
