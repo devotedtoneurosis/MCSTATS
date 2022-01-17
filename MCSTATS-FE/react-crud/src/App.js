@@ -45,8 +45,8 @@ class App extends Component {
           <Routes>
             <Route exact path="/" element={<ProjectsList projectCallback={this.updateActiveProject}/>} />
             <Route exact path="/addproject" element={<AddProject/>} />
-            <Route exact path="/socialcriterialist/" element={<KeywordsList project_id={this.state.project_id} projectCallback={this.updateActiveProject}/>} />
-            <Route exact path="/addcriteria/" element={<AddCriteria project_id={this.state.project_id} projectCallback={this.updateActiveProject}/>} />
+            <Route exact path="/socialcriterialist/" element={<KeywordsList project_id={this.state.project_id} />} />
+            <Route exact path="/addcriteria/" element={<AddCriteria project_id={this.state.project_id} />} />
           </Routes>
         </div>
 

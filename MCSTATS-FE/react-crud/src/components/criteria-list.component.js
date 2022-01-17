@@ -20,6 +20,7 @@ class CriteriaList extends Component {
       currentCriteria: null,
       currentIndex: -1,
       searchTitle: "",
+      project_id: this.project_id.bind(this),
     };
   }
 
