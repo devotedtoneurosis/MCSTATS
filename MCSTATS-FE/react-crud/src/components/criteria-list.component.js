@@ -62,9 +62,9 @@ class CriteriaList extends Component {
   }
 
   findByProjectId() {
-    console.log(this.props);
+    console.log(this.project_id);
     this.refreshData(); 
-    this.props.findByProjectId(this.props.match.params.id);
+    this.props.findByProjectId(this.project_id);
   }
 
   render() {
@@ -141,7 +141,8 @@ class CriteriaList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    criterias: state.projects,
+    criterias: state.criterias,
+    project_id: state.project_id,
   };
 };
 
