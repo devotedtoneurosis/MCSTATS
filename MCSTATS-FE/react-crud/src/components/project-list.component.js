@@ -36,7 +36,6 @@ class ProjectList extends Component {
     this.setState({
       project_id: pid
     });
-    this.projectCallback(pid);
   }
 
   goToCriteriaPage() {
