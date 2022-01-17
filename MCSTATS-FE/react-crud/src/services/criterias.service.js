@@ -9,8 +9,8 @@ class CriteriasDataService {
     return http.get(`/social_criterias/${id}`);
   }
 
-  create(data) {
-    return http.post("/social_criterias", data);
+  create(project_id,data) {
+    return http.post(`/social_criterias/project_id/${project_id}`, data);
   }
 
   update(id, data) {
@@ -21,12 +21,12 @@ class CriteriasDataService {
     return http.delete(`/social_criterias/${id}`);
   }
 
-  deleteAll() {
-    return http.delete(`/social_criterias`);
+  deleteAll(project_id) {
+    return http.delete(`/social_criterias/project_id/${project_id}`);
   }
 
-  findByProjectId(projectid) {
-    return http.get(`/social_criterias/project_id/${projectid}`);
+  findByProjectId(project_id) {
+    return http.get(`/social_criterias/project_id/${project_id}`);
   }
 }
 

@@ -8,9 +8,9 @@ import {
 
 import CriteriasDataService from "../services/criterias.service";
 
-export const createCriteria = (title, description) => async (dispatch) => {
+export const createCriteria = (project_id, keyword) => async (dispatch) => {
   try {
-    const res = await CriteriasDataService.create({ title, description });
+    const res = await CriteriasDataService.create({ project_id, keyword });
 
     dispatch({
       type: CREATE_CRITERIA,
@@ -64,9 +64,9 @@ export const deleteCriteria = (id) => async (dispatch) => {
   }
 };
 
-export const deleteAllCriterias = () => async (dispatch) => {
+export const deleteAllCriterias = (project_id) => async (dispatch) => {
   try {
-    const res = await CriteriasDataService.deleteAll();
+    const res = await CriteriasDataService.deleteAll(project_id);
 
     dispatch({
       type: DELETE_ALL_CRITERIAS,
@@ -79,9 +79,9 @@ export const deleteAllCriterias = () => async (dispatch) => {
   }
 };
 
-export const findByProjectId = (projectid) => async (dispatch) => {
+export const findByProjectId = (project_id) => async (dispatch) => {
   try {
-    const res = await CriteriasDataService.findByProjectId(projectid);
+    const res = await CriteriasDataService.findByProjectId(project_id);
 
     dispatch({
       type: RETRIEVE_CRITERIAS,
