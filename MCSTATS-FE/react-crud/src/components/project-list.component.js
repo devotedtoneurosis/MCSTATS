@@ -168,7 +168,6 @@ class ProjectList extends Component {
               </Link>
               <Link
                 to={"/socialcriterialist/"}
-                onClick={this.goToCriteriaPage()}
               >
                 Criteria
               </Link>
