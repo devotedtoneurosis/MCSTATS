@@ -30,7 +30,7 @@ class ProjectList extends Component {
   }
 
   sendData(project) {
-    console.log(this.state.parentCallback);
+    console.log(this.props);
     this.state.parentCallback(project);
   }
 
@@ -188,6 +188,7 @@ class ProjectList extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     projects: state.projects,
     parentCallback: state.parentCallback,
