@@ -32,6 +32,7 @@ class ProjectList extends Component {
   }
 
   projectCallback(pid){
+    console.log("trying callback with:"+pid);
     this.setState({
       project_id: pid
     });
