@@ -7,9 +7,7 @@ import {
   deleteAllProjects,
 } from "../actions/projects";
 
-import AddProject from "./add-project.component";
-import KeywordsList from "./criteria-list.component";
-import ProjectsList from "./project-list.component";
+]
 
 class ProjectList extends Component {
   constructor(props) {
@@ -24,6 +22,7 @@ class ProjectList extends Component {
       currentProject: null,
       currentIndex: -1,
       searchTitle: "",
+      parentCallback: null,
     };
   }
 
@@ -192,6 +191,7 @@ class ProjectList extends Component {
 const mapStateToProps = (state) => {
   return {
     projects: state.projects,
+    parentCallback: state.parentCallback,
   };
 };
 
