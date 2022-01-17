@@ -72,7 +72,7 @@ class ProjectList extends Component {
   findProjectsByName() {
     this.refreshData();
 
-    this.props.findProjectsByName(this.state.searchTitle);
+    this.props.findProjectsByName(this.props.match.params.id);
   }
 
   render() {
