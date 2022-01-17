@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter as Router, Routes ,Route, Link } from "react-router-dom";
 import {
   retrieveProjects,
   findProjectsByName,
@@ -19,6 +18,7 @@ class ProjectList extends Component {
 
     this.state = {
       currentProject: null,
+      projectCallback: null,
       currentIndex: -1,
       searchTitle: "",
     };
@@ -55,6 +55,7 @@ class ProjectList extends Component {
       currentProject: project,
       currentIndex: index,
     });
+    this.props.projectCallback(project.project_id);
   }
 
   removeAllProjects() {
