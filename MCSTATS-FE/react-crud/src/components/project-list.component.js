@@ -30,7 +30,7 @@ class ProjectList extends Component {
 
   goToCriteriaPage() {
       this.props.navigation.navigate('socialcriterialist', {
-      currentProject: currentProject,
+      currentProject: this.state.currentProject,
     });
   }
 
