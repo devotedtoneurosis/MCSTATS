@@ -32,7 +32,7 @@ class ProjectList extends Component {
   }
 
   sendData(project) {
-    this.match.params.parentCallback(project);
+    this.match.parentCallback(project);
   }
 
   onChangeProjectTitle(e) {
