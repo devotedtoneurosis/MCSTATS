@@ -103,18 +103,18 @@ class CriteriaList extends Component {
           </button>
         </div>
         <div className="col-md-6">
-          {currentProject ? (
+          {currentCriteria ? (
             <div>
               <h4>Keyword</h4>
               <div>
                 <label>
                   <strong>Keyword:</strong>
                 </label>{" "}
-                {currentProject.project_name}
+                {currentCriteria.keyword}
               </div>
 
               <Link
-                to={"/criterias/" + currentProject}
+                to={"/criterias/" + currentCriteria}
                 className="btn btn-outline-secondary"
               >
                 Edit
