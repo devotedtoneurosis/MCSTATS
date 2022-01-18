@@ -74,13 +74,13 @@ def main():
         for subreddit in SUBRE_LIST:
             subreddit = reddit.subreddit(subreddit)
             for submission in subreddit.stream.submissions():
-                process_submission(submission,usedThreads,termList.terms)
+                process_submission(conn,submission,usedThreads,termList.terms)
             print("------completed subreddit")
         print("---reddit threads logged.")
 
         #scrape 4chan
         for board in BOARD_LIST:
-            grab_four_chan(board,usedThreads,termList)
+            grab_four_chan(conn,board,usedThreads,termList)
         print("---4chan threads logged.")
 
 
@@ -88,7 +88,7 @@ def main():
     
     print("All Projects Done.")
 
-def grab_four_chan(board,usedThre,termList):
+def grab_four_chan(conn,board,usedThre,termList):
     board = basc_py4chan.Board(board)
     threads = board.get_all_threads()
     for thread in threads:
@@ -97,9 +97,9 @@ def grab_four_chan(board,usedThre,termList):
             for term in termList:
                 if term.upper() in post.html_comment.upper() and thread.url not in usedThre:
                     print("----4chan entry found")
-                    insert_record(thread.url,datetime.now(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),thread.replies)
+                    insert_record(conn,thread.url,datetime.now(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),thread.replies)
 
-def process_submission(submission,usedThre,termList):
+def process_submission(conn,submission,usedThre,termList):
     count = 0
     for comment in submission.comments:
         print(comment)
@@ -108,7 +108,7 @@ def process_submission(submission,usedThre,termList):
                 print(term)
                 if term.upper() in comment.body.upper() and submission.title not in usedThre:
                     usedThre.append(submission.title)
-                    insert_record(submission.url, datetime.utcfromtimestamp(submission.created_utc), submission.title, comment.body, submission.score)
+                    insert_record(conn,submission.url, datetime.utcfromtimestamp(submission.created_utc), submission.title, comment.body, submission.score)
 
 def grab_projects(conn):
     cursor = conn.cursor()
