@@ -63,7 +63,7 @@ def main():
         parseDict = parse_json['response']
         player_count = parseDict['player_count']
         print("------players:"+str(player_count))
-        insert_playercount(project.id,player_count)
+        insert_playercount(conn,project.id,player_count)
         print("------steam stats logged.")
 
         #grab terms
