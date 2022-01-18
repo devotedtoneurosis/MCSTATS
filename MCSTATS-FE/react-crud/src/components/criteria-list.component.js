@@ -25,6 +25,7 @@ class CriteriaList extends Component {
   componentDidMount() {
     console.log("Initial set:"+this.props.project_id);
     this.props.findByProjectId(this.props.project_id);
+    this.refreshData();
   }
 
   findByProjectId() {
@@ -48,7 +49,8 @@ class CriteriaList extends Component {
   }
 
   removeAllCriterias() {
-    const { project_id } = this.props.project_id;
+    const { project_id } = this.state.project_id;
+    console.log("PROJ:"+project_id);
     this.props
       .deleteAllCriterias(project_id)
       .then((response) => {
