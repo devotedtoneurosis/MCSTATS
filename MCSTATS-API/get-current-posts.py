@@ -51,7 +51,7 @@ def main():
     projects = grab_projects(conn)
 
     #work through projects
-    for project in projects:
+    for project in projects.projectList:
         print("Working on project:"+project.id)
 
         #log hourly app stats     
