@@ -102,7 +102,7 @@ def grab_four_chan(board,usedThre,termList):
 def process_submission(submission,usedThre,termList):
     count = 0
     for comment in submission.comments:
-        print(".", end = '') #for checking progress
+        print(".", end = "") #for checking progress
         if not isinstance(comment, MoreComments):
             for term in termList:
                 if term.upper() in comment.body.upper() and submission.title not in usedThre:
