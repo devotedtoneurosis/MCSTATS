@@ -89,7 +89,6 @@ def main():
     print("All Projects Done.")
 
 def grab_four_chan(board,usedThre,termList):
-    compTxt=""
     board = basc_py4chan.Board(board)
     threads = board.get_all_threads()
     for thread in threads:
@@ -99,19 +98,16 @@ def grab_four_chan(board,usedThre,termList):
                 if term.upper() in post.html_comment.upper() and thread.url not in usedThre:
                     print("----4chan entry found")
                     insert_record(thread.url,datetime.now(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),thread.replies)
-    return compTxt
 
 def process_submission(submission,usedThre,termList):
     count = 0
-    compTxt=""
     for comment in submission.comments:
-        print(".")
+        print(".", end = '') #for checking progress
         if not isinstance(comment, MoreComments):
             for term in termList:
                 if term.upper() in comment.body.upper() and submission.title not in usedThre:
                     usedThre.append(submission.title)
                     insert_record(submission.url, datetime.utcfromtimestamp(submission.created_utc), submission.title, comment.body, submission.score)
-    return compTxt
 
 def grab_projects(conn):
     cursor = conn.cursor()
