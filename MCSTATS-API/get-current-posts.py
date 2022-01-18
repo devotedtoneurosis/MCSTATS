@@ -158,7 +158,7 @@ def insert_playercount(project_id,playercount):
     
     #only if weight is greater
     now = datetime.now()
-    sqlCm = "INSERT INTO steam_stat (project_id, timestamp, player_count) VALUES (%s,%s, %s)"
+    sqlCm = "INSERT INTO stats (project_id, timestamp, player_count) VALUES (%s,%s, %s)"
     sqlVal = (project_id,now, playercount)
     cursor.execute(sqlCm, sqlVal)
     conn.commit()
