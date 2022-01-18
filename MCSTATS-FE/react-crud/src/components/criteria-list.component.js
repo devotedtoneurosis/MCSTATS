@@ -48,8 +48,9 @@ class CriteriaList extends Component {
   }
 
   removeAllCriterias() {
+    const { project_id } = this.state;
     this.props
-      .deleteAllCriterias()
+      .deleteAllCriterias(project_id)
       .then((response) => {
         console.log(response);
         this.refreshData();
