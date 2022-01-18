@@ -122,6 +122,9 @@ def grab_projects(conn):
         projectObj.game_id = project[2]
         projectList.projectList.append(projectObj)
 
+    conn.commit()
+    cursor.close()
+
     return projectList
 
 def grab_terms(conn,projid):
@@ -132,6 +135,9 @@ def grab_terms(conn,projid):
     termList = TermList()
     for term in termReadList:
         termList.terms.append(term[1])
+
+    conn.commit()
+    cursor.close()
 
     return termList
     
@@ -148,12 +154,11 @@ def insert_record(conn,url,date,title,preview,weight):
         conn.commit()
         print("----Record inserted")
 
+    conn.commit()
+    cursor.close()
 
-def insert_playercount(project_id,playercount):
-    conn = mysql.connector.connect(host='localhost',
-                                    database='mcstats',
-                                    user='devotedtoneurosis',
-                                    password='6:AkMhR6(5>pj,#a')
+
+def insert_playercount(conn,project_id,playercount):
     cursor = conn.cursor()
     
     #only if weight is greater
@@ -162,6 +167,7 @@ def insert_playercount(project_id,playercount):
     sqlVal = (project_id,now, playercount,now,now)
     cursor.execute(sqlCm, sqlVal)
     conn.commit()
+    cursor.close()
     print("----Record inserted")
 
 if __name__ == "__main__":
