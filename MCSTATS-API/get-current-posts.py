@@ -62,9 +62,9 @@ def main():
         parse_json = json.loads(data)
         parseDict = parse_json['response']
         player_count = parseDict['player_count']
-        print("--players:"+str(player_count))
+        print("------players:"+str(player_count))
         insert_playercount(project.id,player_count)
-        print("--steam stats logged.")
+        print("------steam stats logged.")
 
         #grab terms
         termList = grab_terms(conn,project.id)
@@ -74,12 +74,12 @@ def main():
             subreddit = reddit.subreddit(subreddit)
             for submission in subreddit.stream.submissions():
                 process_submission(submission,usedThreads,termList)
-        print("--reddit threads logged.")
+        print("---reddit threads logged.")
 
         #scrape 4chan
         for board in BOARD_LIST:
             grab_four_chan(board,usedThreads,termList)
-        print("--4chan threads logged.")
+        print("---4chan threads logged.")
 
 
         print("project: "+project.id+" complete.")
@@ -126,7 +126,9 @@ def grab_projects(conn):
 
 def grab_terms(conn,projid):
     cursor = conn.cursor()
-    cursor.execute("select * from socialcriteria where project_id like ?",projid)
+    sqlCm = "select * from socialcriteria where project_id like %s"
+    sqlVal = projid
+    cursor.execute(sqlCm,sqlVal)
     termReadList = cursor.fetchall()
 
     termList = TermList()
