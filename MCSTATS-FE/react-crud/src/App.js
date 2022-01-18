@@ -34,8 +34,8 @@ class App extends Component {
           </Link>
           <div className="navbar-nav mr-auto">
           <li className="nav-item">
-              <Link to={"/projects"} className="nav-link">
-                My Projects
+              <Link to={"/"} className="nav-link">
+                Home
               </Link>
             </li>
           </div>

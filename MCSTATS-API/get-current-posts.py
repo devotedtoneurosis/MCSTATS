@@ -100,13 +100,13 @@ def process_submission(submission,usedThre,termList):
 def grab_projects(conn):
     cursor = conn.cursor()
     cursor.execute("select * from projects")
-    projectList = cursor.fetchAll()
+    projectList = cursor.fetchall()
     return projectList
 
 def grab_terms(conn,projid):
     cursor = conn.cursor()
     cursor.execute("select * from socialcriteria where project_id like ?",projid)
-    projectList = cursor.fetchAll()
+    projectList = cursor.fetchall()
     return projectList
     
 def insert_record(conn,url,date,title,preview,weight):    
