@@ -21,8 +21,8 @@ module.exports = app => {
     // Delete a SocialCriteria with id
     router.delete("/:id", social_criterias.delete);
   
-    // Delete all SocialCriteria
-    router.delete("/", social_criterias.deleteAll);
+    // Delete all SocialCriteria for project
+    router.delete("/project_id/:id", social_criterias.deleteAll);
   
     app.use('/api/social_criterias', router);
   };

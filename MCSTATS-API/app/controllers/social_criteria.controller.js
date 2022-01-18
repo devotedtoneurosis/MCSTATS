@@ -121,8 +121,10 @@ exports.delete = (req, res) => {
 
 // Delete all SocialCriterias from the database.
 exports.deleteAll = (req, res) => {
+  const id = req.params.id;
+
   SocialCriteria.destroy({
-        where: {},
+        where: { project_id: id },
         truncate: false
       })
         .then(nums => {
