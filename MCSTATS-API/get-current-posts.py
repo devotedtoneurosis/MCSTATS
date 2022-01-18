@@ -132,7 +132,7 @@ def grab_terms(conn,projid):
 
     termList = TermList()
     for term in termReadList:
-        termList.terms.append(term[1])s
+        termList.terms.append(term[1])
 
     return termList
     
