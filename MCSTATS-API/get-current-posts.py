@@ -60,7 +60,6 @@ def main():
         response_API = requests.get('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v0001/?appid='+str(project.game_id))
         data = response_API.text
         parse_json = json.loads(data)
-        print("---state response:"+parse_json);
         player_count = parse_json['player_count']
         insert_playercount(project.id,player_count)
         print("--steam stats logged.")
@@ -148,7 +147,7 @@ def insert_record(conn,url,date,title,preview,weight):
         print("----Record inserted")
 
 
-def insert_playercount(playercount):
+def insert_playercount(project_id,playercount):
     conn = mysql.connector.connect(host='localhost',
                                     database='mcstats',
                                     user='devotedtoneurosis',
@@ -157,8 +156,8 @@ def insert_playercount(playercount):
     
     #only if weight is greater
     now = datetime.now()
-    sqlCm = "INSERT INTO steam_stat (timestamp, player_count) VALUES (%s, %s)"
-    sqlVal = (now, playercount)
+    sqlCm = "INSERT INTO steam_stat (project_id, timestamp, player_count) VALUES (%s,%s, %s)"
+    sqlVal = (project_id,now, playercount)
     cursor.execute(sqlCm, sqlVal)
     conn.commit()
     print("----Record inserted")
