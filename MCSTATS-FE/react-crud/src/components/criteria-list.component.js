@@ -97,7 +97,7 @@ class CriteriaList extends Component {
 
           <button
             className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllCriteria}
+            onClick={this.removeAllCriterias}
           >
             Remove All
           </button>
