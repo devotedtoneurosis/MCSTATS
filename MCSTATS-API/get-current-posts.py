@@ -61,6 +61,7 @@ def main():
         data = response_API.text
         parse_json = json.loads(data)
         for response in parse_json['response']:
+            print(str(response))
             parse_resp = json.loads(response)
             print(response['player_count'])
             player_count = response['player_count']
