@@ -73,7 +73,7 @@ def main():
         for subreddit in SUBRE_LIST:
             subreddit = reddit.subreddit(subreddit)
             for submission in subreddit.stream.submissions():
-                process_submission(submission,usedThreads,termList)
+                process_submission(submission,usedThreads,termList.terms)
         print("---reddit threads logged.")
 
         #scrape 4chan
@@ -104,7 +104,7 @@ def process_submission(submission,usedThre,termList):
     compTxt=""
     for comment in submission.comments:
         if not isinstance(comment, MoreComments):
-            for term in termList.terms:
+            for term in termList:
                 if term.upper() in comment.body.upper() and submission.title not in usedThre:
                     usedThre.append(submission.title)
                     insert_record(submission.url, datetime.utcfromtimestamp(submission.created_utc), submission.title, comment.body, submission.score)
@@ -134,7 +134,7 @@ def grab_terms(conn,projid):
 
     termList = TermList()
     for term in termReadList:
-        termList.terms.append(term[1])
+        termList.terms.append(term[2])
 
     conn.commit()
     cursor.close()
