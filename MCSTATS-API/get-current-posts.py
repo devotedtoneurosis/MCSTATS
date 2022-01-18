@@ -76,7 +76,7 @@ def main():
             subreddit = reddit.subreddit(subreddit)
             for submission in subreddit.stream.submissions():
                 if submission is not None and submission.title is not None:
-                    print(submission.title)
+                    print(submission.title.encode('ascii','ignore'))
                     process_submission(conn,submission,usedThreads,termList.terms)
             print("------completed subreddit")
         print("---reddit threads logged.")
@@ -108,10 +108,10 @@ def process_submission(conn,submission,usedThre,termList):
         print(comment)
         if not isinstance(comment, MoreComments):
             for term in termList:
-                if term.upper() in comment.body.upper() and submission.title not in usedThre:
+                if term.upper() in comment.body.upper() and submission.title.encode('ascii','ignore') not in usedThre:
                     print("Match found!")
-                    usedThre.append(submission.title)
-                    insert_record(conn,submission.url, datetime.utcfromtimestamp(submission.created_utc), submission.title, comment.body, submission.score)
+                    usedThre.append(submission.title.encode('ascii','ignore'))
+                    insert_record(conn,submission.url, datetime.utcfromtimestamp(submission.created_utc), submission.title.encode('ascii','ignore'), comment.body.encode('ascii','ignore'), submission.score)
 
 def grab_projects(conn):
     cursor = conn.cursor()
