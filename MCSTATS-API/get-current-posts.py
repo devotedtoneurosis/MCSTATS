@@ -74,7 +74,7 @@ def main():
         for subreddit in SUBRE_LIST:
             subreddit = reddit.subreddit(subreddit)
             for submission in subreddit.stream.submissions():
-                print(submission)
+                print(submission.title)
                 process_submission(conn,submission,usedThreads,termList.terms)
             print("------completed subreddit")
         print("---reddit threads logged.")
