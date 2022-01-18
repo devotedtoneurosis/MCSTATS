@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from ast import IsNot
 from urllib.parse import quote_plus
 from praw.models import MoreComments
 
@@ -74,8 +75,9 @@ def main():
         for subreddit in SUBRE_LIST:
             subreddit = reddit.subreddit(subreddit)
             for submission in subreddit.stream.submissions():
-                print(submission.title)
-                process_submission(conn,submission,usedThreads,termList.terms)
+                if submission is not None and submission.title is not None:
+                    print(submission.title)
+                    process_submission(conn,submission,usedThreads,termList.terms)
             print("------completed subreddit")
         print("---reddit threads logged.")
 
