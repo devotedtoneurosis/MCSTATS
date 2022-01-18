@@ -33,7 +33,7 @@ class AddProject extends Component {
 
   saveProject() {
     const { project_name, game_id } = this.state;
-
+    console.log("PN:"+project_name);
     this.props
       .createProject(project_name, game_id)
       .then((data) => {
@@ -73,7 +73,7 @@ class AddProject extends Component {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="project_name">Title</label>
+              <label htmlFor="project_name">Project Name</label>
               <input
                 type="text"
                 className="form-control"
