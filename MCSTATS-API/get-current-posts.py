@@ -117,7 +117,7 @@ def grab_projects(conn):
     for project in projectReadList:
         projectObj = Project()
         projectObj.id = project[0]
-        projectObj.game_id = project[1]
+        projectObj.game_id = project[2]
         projectList.projectList.append(projectObj)
 
     return projectList
