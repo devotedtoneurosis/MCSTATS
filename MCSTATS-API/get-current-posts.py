@@ -61,7 +61,8 @@ def main():
         data = response_API.text
         parse_json = json.loads(data)
         for response in parse_json['response']:
-            player_count = response['player_count']
+            print(response[0])
+            player_count = response[0]
         print("--players:"+str(player_count))
         insert_playercount(project.id,player_count)
         print("--steam stats logged.")
