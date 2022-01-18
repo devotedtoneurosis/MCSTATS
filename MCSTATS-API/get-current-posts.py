@@ -126,9 +126,7 @@ def grab_projects(conn):
 
 def grab_terms(conn,projid):
     cursor = conn.cursor()
-    sqlCm = "select * from socialcriteria where project_id like %s"
-    sqlVal = projid
-    cursor.execute(sqlCm,sqlVal)
+    cursor.execute("select * from social_criterias where url like ?", projid)
     termReadList = cursor.fetchall()
 
     termList = TermList()
