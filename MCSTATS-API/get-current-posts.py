@@ -18,6 +18,15 @@ SUBRE_LIST = ["gaming","games","truegaming","monstertamerworld","nintendo","poke
 
 HTML_HEAD = "<!DOCTYPE html><html lang=\"en\"><head>  <title>Control Center</title>  <meta charset=\"utf-8\">  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>  <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js\"></script></head><body style=\"background-color:lightgray;\">"
 
+class Project:
+    id=-1
+
+class ProjectList:
+    projectList = []
+
+class TermList:
+    terms = []
+
 def main():    
     #declarations
     now = time.time()
@@ -100,14 +109,26 @@ def process_submission(submission,usedThre,termList):
 def grab_projects(conn):
     cursor = conn.cursor()
     cursor.execute("select * from projects")
-    projectList = cursor.fetchall()
+    projectReadList = cursor.fetchall()
+
+    projectList = ProjectList()
+    for project in projectReadList:
+        projectObj = Project()
+        projectObj.id = project[0]
+        projectList.projectList.append(projectObj)
+
     return projectList
 
 def grab_terms(conn,projid):
     cursor = conn.cursor()
     cursor.execute("select * from socialcriteria where project_id like ?",projid)
-    projectList = cursor.fetchall()
-    return projectList
+    termReadList = cursor.fetchall()
+
+    termList = TermList()
+    for term in termReadList:
+        termList.terms.append(term[1])
+
+    return termList
     
 def insert_record(conn,url,date,title,preview,weight):    
     cursor = conn.cursor()
