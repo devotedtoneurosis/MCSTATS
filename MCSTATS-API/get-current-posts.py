@@ -56,6 +56,7 @@ def main():
         print("Working on project:"+str(project.id))
 
         #log hourly app stats     
+        print("---Checking steam stats for "+str(project.game_id))
         response_API = requests.get('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v0001/?appid='+str(project.game_id))
         data = response_API.text
         parse_json = json.loads(data)
