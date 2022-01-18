@@ -20,7 +20,7 @@ HTML_HEAD = "<!DOCTYPE html><html lang=\"en\"><head>  <title>Control Center</tit
 
 class Project:
     id=-1
-    gameid=-1
+    game_id=-1
 
 class ProjectList:
     projectList = []
@@ -116,7 +116,7 @@ def grab_projects(conn):
     for project in projectReadList:
         projectObj = Project()
         projectObj.id = project[0]
-        projectObj.gameid = project[1]
+        projectObj.game_id = project[1]
         projectList.projectList.append(projectObj)
 
     return projectList
