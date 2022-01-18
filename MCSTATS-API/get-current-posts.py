@@ -68,12 +68,14 @@ def main():
 
         #grab terms
         termList = grab_terms(conn,project.id)
+        print("---Grabbed terms")
 
         #scrape reddit
         for subreddit in SUBRE_LIST:
             subreddit = reddit.subreddit(subreddit)
             for submission in subreddit.stream.submissions():
                 process_submission(submission,usedThreads,termList.terms)
+            print("------completed subreddit")
         print("---reddit threads logged.")
 
         #scrape 4chan
@@ -103,6 +105,7 @@ def process_submission(submission,usedThre,termList):
     count = 0
     compTxt=""
     for comment in submission.comments:
+        print(".")
         if not isinstance(comment, MoreComments):
             for term in termList:
                 if term.upper() in comment.body.upper() and submission.title not in usedThre:
