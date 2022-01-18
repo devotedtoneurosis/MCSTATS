@@ -17,7 +17,6 @@ class CriteriaList extends Component {
     this.state = {
       currentCriteria: null,
       currentIndex: -1,
-      project_id: -1,
       searchTitle: "",
     };
   }
@@ -25,7 +24,6 @@ class CriteriaList extends Component {
   componentDidMount() {
     console.log("Initial set:"+this.props.project_id);
     this.props.findByProjectId(this.props.project_id);
-    this.refreshData();
   }
 
   findByProjectId() {
@@ -36,7 +34,6 @@ class CriteriaList extends Component {
   refreshData() {
     this.setState({
       currentCriteria: null,
-      project_id: this.props.project_id,
       currentIndex: -1,
     });
   }
@@ -49,10 +46,9 @@ class CriteriaList extends Component {
   }
 
   removeAllCriterias() {
-    const { project_id } = this.state.project_id;
-    console.log("PROJ:"+project_id);
+    console.log("PROJ:"+this.props.project_id);
     this.props
-      .deleteAllCriterias(project_id)
+      .deleteAllCriterias(this.props.project_id)
       .then((response) => {
         console.log(response);
         this.refreshData();
