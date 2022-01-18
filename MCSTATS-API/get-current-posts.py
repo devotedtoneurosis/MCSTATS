@@ -127,12 +127,12 @@ def grab_projects(conn):
 def grab_terms(conn,projid):
     print("Grabbing terms for:"+str(projid))
     cursor = conn.cursor()
-    cursor.execute("select * from social_criterias where project_id = ?", (projid))
+    cursor.execute("select * from social_criterias where project_id = %s", (projid))
     termReadList = cursor.fetchall()
 
     termList = TermList()
     for term in termReadList:
-        termList.terms.append(term[1])
+        termList.terms.append(term[1])s
 
     return termList
     
