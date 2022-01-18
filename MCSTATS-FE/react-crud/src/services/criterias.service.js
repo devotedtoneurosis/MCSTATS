@@ -22,12 +22,12 @@ class CriteriasDataService {
   }
 
   deleteAll(project_id) {
-    return http.delete(`/social_criterias/projects/${project_id}`);
+    return http.delete(`/social_criterias/project_id/${project_id}`);
   }
 
   findByProjectId(project_id) {
     console.log("Checking api for proj:"+project_id);
-    return http.get(`/social_criterias/projects/${project_id}`);
+    return http.get(`/social_criterias/project_id/${project_id}`);
   }
 }
 
