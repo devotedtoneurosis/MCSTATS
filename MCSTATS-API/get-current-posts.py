@@ -125,9 +125,8 @@ def grab_projects(conn):
     return projectList
 
 def grab_terms(conn,projid):
-    print("Grabbing terms for:"+str(projid))
     cursor = conn.cursor()
-    cursor.execute("select * from social_criterias where project_id = %s", (projid))
+    cursor.execute("select * from social_criterias where project_id = ?", (projid))
     termReadList = cursor.fetchall()
 
     termList = TermList()
