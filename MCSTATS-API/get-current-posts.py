@@ -74,6 +74,7 @@ def main():
         for subreddit in SUBRE_LIST:
             subreddit = reddit.subreddit(subreddit)
             for submission in subreddit.stream.submissions():
+                print(submission)
                 process_submission(conn,submission,usedThreads,termList.terms)
             print("------completed subreddit")
         print("---reddit threads logged.")
@@ -105,8 +106,8 @@ def process_submission(conn,submission,usedThre,termList):
         print(comment)
         if not isinstance(comment, MoreComments):
             for term in termList:
-                print(term)
                 if term.upper() in comment.body.upper() and submission.title not in usedThre:
+                    print("Match found!")
                     usedThre.append(submission.title)
                     insert_record(conn,submission.url, datetime.utcfromtimestamp(submission.created_utc), submission.title, comment.body, submission.score)
 
@@ -141,7 +142,8 @@ def grab_terms(conn,projid):
 
     return termList
     
-def insert_record(conn,url,date,title,preview,weight):    
+def insert_record(conn,url,date,title,preview,weight): 
+    print("inserting record:"+url)
     cursor = conn.cursor()
     
     #only if weight is greater
