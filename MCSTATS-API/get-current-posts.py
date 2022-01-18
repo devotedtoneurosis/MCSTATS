@@ -20,6 +20,7 @@ HTML_HEAD = "<!DOCTYPE html><html lang=\"en\"><head>  <title>Control Center</tit
 
 class Project:
     id=-1
+    gameid=-1
 
 class ProjectList:
     projectList = []
@@ -52,10 +53,10 @@ def main():
 
     #work through projects
     for project in projects.projectList:
-        print("Working on project:"+project.id)
+        print("Working on project:"+str(project.id))
 
         #log hourly app stats     
-        response_API = requests.get('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v0001/?appid='+project.game_id)
+        response_API = requests.get('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v0001/?appid='+str(project.game_id))
         data = response_API.text
         parse_json = json.loads(data)
         player_count = parse_json['player_count']
@@ -115,6 +116,7 @@ def grab_projects(conn):
     for project in projectReadList:
         projectObj = Project()
         projectObj.id = project[0]
+        projectObj.gameid = project[1]
         projectList.projectList.append(projectObj)
 
     return projectList
