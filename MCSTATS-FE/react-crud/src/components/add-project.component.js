@@ -33,7 +33,7 @@ class AddProject extends Component {
 
   saveProject() {
     const { project_name, game_id } = this.state;
-    console.log("PN:"+project_name);
+
     this.props
       .createProject(project_name, game_id)
       .then((data) => {
