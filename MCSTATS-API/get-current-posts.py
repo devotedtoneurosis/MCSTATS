@@ -60,11 +60,9 @@ def main():
         response_API = requests.get('https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v0001/?appid='+str(project.game_id))
         data = response_API.text
         parse_json = json.loads(data)
-        for response in parse_json['response']:
-            print(str(response))
-            parse_resp = json.loads(response)
-            print(response['player_count'])
-            player_count = response['player_count']
+        parse_resp = json.loads(parse_json['response'])
+        print(parse_resp)
+        player_count = parse_resp['player_count']
         print("--players:"+str(player_count))
         insert_playercount(project.id,player_count)
         print("--steam stats logged.")
