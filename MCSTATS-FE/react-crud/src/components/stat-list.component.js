@@ -56,7 +56,7 @@ class StatsList extends Component {
     this.state.statDistribution = []
     for (let i = 0; i < yearIndex.length; i++) {
       var ind = 0;
-      for (let x = 0; x < this.state.stats.length; x++) {
+      for (let x = 0; x < this.state.stats.Length; x++) {
         if (this.state.stats[i].timestamp.timetuple().tm_yday == i){
           this.state.statDistribution[i,ind] = this.state.stats[i];
           ind++;
@@ -68,7 +68,7 @@ class StatsList extends Component {
     this.state.pageDistribution = []
     for (let i = 0; i < yearIndex.length; i++) {
       var ind = 0;
-      for (let x = 0; x < this.state.pages.length; x++) {
+      for (let x = 0; x < this.state.pages.Length; x++) {
         if (this.state.pages[i].timestamp.timetuple().tm_yday == i){
           this.state.pageDistribution[i,ind] = this.state.pages[i];
           ind++;
