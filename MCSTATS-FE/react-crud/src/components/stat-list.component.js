@@ -18,10 +18,8 @@ class StatsList extends Component {
     this.retrievePagesByProject = this.retrievePagesByProject.bind(this);
 
     this.state = {
-      currentStat: null,
-      currentStatIndex: -1,
-      currentPage: null,
-      currentPageIndex: -1,
+      pages: [],
+      stats: [],
       statDistribution: [],
       pageDistribution: [],
       yearIndex: -1,
@@ -83,10 +81,7 @@ class StatsList extends Component {
       console.log("pages are null...");
     }
 
-    this.setState({
-      currentStatIndex: -1,
-      currentPageIndex: -1,
-    });
+
   }
 
 
