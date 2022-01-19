@@ -44,7 +44,13 @@ class StatsList extends Component {
   }
 
   refreshData() {
+    this.setState({
+      pages: state.pages,
+      stats: state.stats,
+    });
+
     console.log(this.props);
+
     
     //initialize intervals
     var yearIndex = new Array(365);
@@ -108,6 +114,7 @@ class StatsList extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log("State:"+state);
   return {
     pages: state.pages,
     stats: state.stats,
