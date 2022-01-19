@@ -144,7 +144,7 @@ def grab_terms(conn,projid):
 
     return termList
     
-def insert_record(conn,url,date,title,preview,weight): 
+def insert_record(conn,url,date,title,preview,weight,projid): 
     print("------inserting record:"+url)
     cursor = conn.cursor()
     
@@ -152,7 +152,7 @@ def insert_record(conn,url,date,title,preview,weight):
     cursor.execute("select * from pages where url like ? and weight > ?",url,weight)
     if cursor.rowcount < 1:
         now = datetime.now()
-        sqlCm = "INSERT INTO pages (url,date,title,preview,weight,createdAt,updatedAt) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        sqlCm = "INSERT INTO pages (url,date,title,preview,weight,createdAt,updatedAt,project_id) VALUES (%s, %s, %s, %s, %s, %s, %s,%s)"
         sqlVal = (url, date, title, preview, weight,now, now)
         cursor.execute(sqlCm, sqlVal)
         conn.commit()

@@ -17,8 +17,8 @@ exports.findAll  = (req, res) => {
 };
 
 
-// Retrieve all Stats from the database by project
-exports.findAllByProject  = (req, res) => {
+// Find all published SocialCriterias
+exports.findByProjectId = (req, res) => {
   const id = req.params.id;
 
   Stat.findAll({ where: { project_id: id } })
@@ -28,7 +28,7 @@ exports.findAllByProject  = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Stats."
+          err.message || "Some error occurred while retrieving SocialCriterias."
       });
     });
 };

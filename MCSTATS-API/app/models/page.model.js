@@ -5,6 +5,9 @@ module.exports = (sequelize, Sequelize) => {
       primaryKey: true,
       autoIncrement: true
     },
+  project_id: {
+      type: Sequelize.INTEGER
+    },
 	url: {
       type: Sequelize.STRING(1024)
     },

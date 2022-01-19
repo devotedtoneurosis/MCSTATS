@@ -137,18 +137,18 @@ exports.deleteAll = (req, res) => {
         });
 };
 
-// Find all published Pages
-exports.findAllByProject= (req, res) => {
+// Find all published SocialCriterias
+exports.findByProjectId = (req, res) => {
   const id = req.params.id;
-  
-    Page.findAll({ where: { project_id: id } })
+
+  Page.findAll({ where: { project_id: id } })
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving pages."
+          err.message || "Some error occurred while retrieving SocialCriterias."
       });
     });
 };
