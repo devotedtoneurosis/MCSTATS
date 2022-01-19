@@ -91,26 +91,7 @@ class StatsList extends Component {
         <div className="col-md-6">
           <h4>Trend View</h4>
 
-          <Line
-            datasetIdKey='id'
-            data={{
-              labels: ['1', '8', '15', '22', '29', '5', '12', '19'],
-              datasets: [
-                {
-                  id: 1,
-                  type: 'bar',
-                  label: 'Steam Players',
-                  data: [5, 6, 7, 7, 7],
-                },
-                {
-                  id: 2,
-                  type: 'bubble',
-                  label: 'Posts',
-                  data: [3, 2, 1, 1, 1],
-                },
-              ],
-            }}
-          />
+          
 
         </div>
       </div>
