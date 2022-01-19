@@ -3,36 +3,90 @@ import { connect } from "react-redux";
 import { Line } from 'react-chartjs-2';
 import {
   retrieveStats,
-  retrievePages,
 } from "../actions/stats";
+import {
+  retrievePages,
+} from "../actions/pages";
 import { Link } from "react-router-dom";
+
 
 class StatsList extends Component {
   constructor(props) {
     super(props);
     this.refreshData = this.refreshData.bind(this);
+    this.retrieveStats = this.retrieveStats.bind(this);
+    this.retrievePages = this.retrievePages.bind(this);
 
     this.state = {
+      stats: null,
+      pages: null,
       currentStat: null,
-      currentIndex: -1,
+      currentStatIndex: -1,
+      currentPage: null,
+      currentPageIndex: -1,
+      statDistribution: null,
+      pageDistribution: null,
+      yearIndex: null,
     };
   }
 
   componentDidMount() {
+    this.retrieveStats();
+    this.retrievePages();
+    this.refreshData();
+  }
+
+  retrieveStats() {
     this.props.retrieveStats();
+  }
+
+  retrievePages() {
     this.props.retrievePages();
   }
 
   refreshData() {
+
+    //initialize intervals
+    yearIndex = [];
+    for (let d=0;d<365;d++) {
+      yearIndex[d] = d;
+    }
+
+    //gather stat interval
+    statDistribution = []
+    for (let i = 0; i < yearIndex.length; i++) {
+      ind = 0;
+      for (let x = 0; x < stats.length; x++) {
+        if (stats[i].timestamp.timetuple().tm_yday == i){
+          statDistribution[i,ind] = stats[i];
+          ind++;
+        }
+      }
+    }
+
+    //gather page interval
+    pageDistribution = []
+    for (let i = 0; i < yearIndex.length; i++) {
+      ind = 0;
+      for (let x = 0; x < pages.length; x++) {
+        if (pages[i].timestamp.timetuple().tm_yday == i){
+          pageDistribution[i,ind] = pages[i];
+          ind++;
+        }
+      }
+    }
+
     this.setState({
-      currentIndex: -1,
+      statDistribution: statDistribution,
+      pageDistribution: pageDistribution,
+      currentStatIndex: -1,
+      currentPageIndex: -1,
     });
   }
 
 
   render() {
-    const { currentIndex } = this.state;
-    const { stats } = this.props;
+    const { stats,pages } = this.props;
 
     return (
       <div className="list row">
@@ -42,18 +96,18 @@ class StatsList extends Component {
           <Line
             datasetIdKey='id'
             data={{
-              labels: ['Jan', 'Feb', 'March', 'April', 'May'],
+              labels: ['1', '8', '15', '22', '29', '5', '12', '19'],
               datasets: [
                 {
                   id: 1,
                   type: 'bar',
-                  label: '',
+                  label: 'Steam Players',
                   data: [5, 6, 7, 7, 7],
                 },
                 {
                   id: 2,
                   type: 'bubble',
-                  label: '',
+                  label: 'Posts',
                   data: [3, 2, 1, 1, 1],
                 },
               ],

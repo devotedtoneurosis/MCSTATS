@@ -72,6 +72,7 @@ def main():
         print("---Grabbed terms")
 
         #scrape reddit
+        print("---Starting Reddit scan")
         for subreddit in SUBRE_LIST:
             subreddit = reddit.subreddit(subreddit)
             for submission in subreddit.hot(limit=25):
@@ -81,6 +82,7 @@ def main():
         print("---reddit threads logged.")
 
         #scrape 4chan
+        print("---Starting 4chan scan")
         for board in BOARD_LIST:
             grab_four_chan(conn,board,usedThreads,termList)
         print("---4chan threads logged.")
@@ -143,7 +145,7 @@ def grab_terms(conn,projid):
     return termList
     
 def insert_record(conn,url,date,title,preview,weight): 
-    print("inserting record:"+url)
+    print("------inserting record:"+url)
     cursor = conn.cursor()
     
     #only if weight is greater

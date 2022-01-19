@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import ProjectsList from "./components/project-list.component";
+import StatList from "./components/stat-list.component";
 import AddProject from "./components/add-project.component";
 import KeywordsList from "./components/criteria-list.component";
 import AddCriteria from "./components/add-criteria.component";
@@ -47,6 +48,7 @@ class App extends Component {
             <Route exact path="/addproject" element={<AddProject/>} />
             <Route exact path="/socialcriterialist/" element={<KeywordsList project_id={this.state.project_id} />} />
             <Route exact path="/addcriteria/" element={<AddCriteria project_id={this.state.project_id} />} />
+            <Route exact path="/timeline/" element={<StatList project_id={this.state.project_id} />} />
           </Routes>
         </div>
 
