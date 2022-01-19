@@ -47,31 +47,32 @@ class StatsList extends Component {
   refreshData() {
 
     //initialize intervals
-    var yearIndex = [];
-    for (let d=0;d<365;d++) {
-      yearIndex[d] = d;
-    }
+    var yearIndex = new Array(365);
 
-    //gather stat interval
-    this.state.statDistribution = []
-    for (let i = 0; i < yearIndex.length; i++) {
-      var ind = 0;
-      for (let x = 0; x < this.state.stats.Length; x++) {
-        if (this.state.stats[i].timestamp.timetuple().tm_yday == i){
-          this.state.statDistribution[i,ind] = this.state.stats[i];
-          ind++;
+    if(this.state.stats != null){
+      //gather stat interval
+      this.state.statDistribution = [];
+      for (let i = 0; i < yearIndex.length; i++) {
+        var ind = 0;
+        for (let x = 0; x < this.state.stats.length; x++) {
+          if (this.state.stats[i].timestamp.timetuple().tm_yday == i){
+            this.state.statDistribution[i,ind] = this.state.stats[i];
+            ind++;
+          }
         }
       }
     }
 
-    //gather page interval
-    this.state.pageDistribution = []
-    for (let i = 0; i < yearIndex.length; i++) {
-      var ind = 0;
-      for (let x = 0; x < this.state.pages.Length; x++) {
-        if (this.state.pages[i].timestamp.timetuple().tm_yday == i){
-          this.state.pageDistribution[i,ind] = this.state.pages[i];
-          ind++;
+    if(this.state.pages != null){
+      //gather page interval
+      this.state.pageDistribution = [];
+      for (let i = 0; i < yearIndex.length; i++) {
+        var ind = 0;
+        for (let x = 0; x < this.state.pages.length; x++) {
+          if (this.state.pages[i].timestamp.timetuple().tm_yday == i){
+            this.state.pageDistribution[i,ind] = this.state.pages[i];
+            ind++;
+          }
         }
       }
     }
