@@ -24,9 +24,9 @@ class StatsList extends Component {
       currentStatIndex: -1,
       currentPage: null,
       currentPageIndex: -1,
-      statDistribution: null,
-      pageDistribution: null,
-      yearIndex: null,
+      statDistribution: [],
+      pageDistribution: [],
+      yearIndex: -1,
     };
   }
 
@@ -55,7 +55,7 @@ class StatsList extends Component {
     //gather stat interval
     statDistribution = []
     for (let i = 0; i < yearIndex.length; i++) {
-      ind = 0;
+      var ind = 0;
       for (let x = 0; x < stats.length; x++) {
         if (stats[i].timestamp.timetuple().tm_yday == i){
           statDistribution[i,ind] = stats[i];
@@ -67,7 +67,7 @@ class StatsList extends Component {
     //gather page interval
     pageDistribution = []
     for (let i = 0; i < yearIndex.length; i++) {
-      ind = 0;
+      var ind = 0;
       for (let x = 0; x < pages.length; x++) {
         if (pages[i].timestamp.timetuple().tm_yday == i){
           pageDistribution[i,ind] = pages[i];
