@@ -10,8 +10,6 @@ import { Link } from "react-router-dom";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 
-
-
 class StatsList extends Component {
   constructor(props) {
     super(props);
@@ -67,6 +65,8 @@ class StatsList extends Component {
           }
         }
       }
+    }else{
+      console.log("stats are null...");
     }
 
     if(this.state.pages != null){
@@ -81,6 +81,8 @@ class StatsList extends Component {
           }
         }
       }
+    }else{
+      console.log("pages are null...");
     }
 
     this.setState({
@@ -94,7 +96,7 @@ class StatsList extends Component {
 
   render() {
     const { stats,pages } = this.props;
-
+    console.log("STATS:"+stats);
     
 
     return (
