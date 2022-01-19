@@ -92,7 +92,7 @@ class StatsList extends Component {
 
     return (
 
-      <LineChart width={500} height={300} data={}>
+      <LineChart width={500} height={300} data="">
         <XAxis dataKey="name"/>
         <YAxis/>
         <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
