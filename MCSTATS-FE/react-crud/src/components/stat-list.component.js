@@ -144,14 +144,13 @@ class StatsList extends Component {
     };
 
     return (
-      <div className="list row">
-        <div className="col-md-6">
-          <h4>Trend View</h4>
 
-          <Line options={options} data={data} />;
+      <div>
+        <h4>Trend View</h4>
 
-        </div>
+        <Line options={options} data={data} />;
       </div>
+
     );
   }
 }
