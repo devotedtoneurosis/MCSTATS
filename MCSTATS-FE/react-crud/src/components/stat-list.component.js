@@ -31,21 +31,21 @@ class StatsList extends Component {
   componentDidMount() {
     this.retrieveStatsByProject(this.props.project_id);
     this.retrievePagesByProject(this.props.project_id);
-    this.refreshData();
   }
 
   retrieveStatsByProject(projid) {
     this.props.retrieveStatsByProject(projid);
+    this.refreshData();
     console.log("Stats retrieved");
   }
 
   retrievePagesByProject(projid) {
     this.props.retrievePagesByProject(projid);
+    this.refreshData();
     console.log("Pages retrieved");
   }
 
   refreshData() {
-
     console.log(this.props);
     
     //initialize intervals
@@ -112,7 +112,14 @@ class StatsList extends Component {
   }
 }
 
-export default connect(null, {
+const mapStateToProps = (state) => {
+  return {
+    pages: state.pages,
+    stats: state.stats,
+  };
+};
+
+export default connect(mapStateToProps, {
   retrieveStatsByProject,
   retrievePagesByProject,
 })(StatsList);

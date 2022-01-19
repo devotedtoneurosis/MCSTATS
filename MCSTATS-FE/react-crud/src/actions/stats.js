@@ -12,7 +12,6 @@ import {
         type: RETRIEVE_STATS,
         payload: res.data,
       });
-      console.log("DISPATCH:"+res.data);
     } catch (err) {
       console.log(err);
     }
