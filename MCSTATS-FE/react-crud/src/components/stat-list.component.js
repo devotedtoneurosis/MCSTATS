@@ -18,8 +18,6 @@ class StatsList extends Component {
     this.retrievePagesByProject = this.retrievePagesByProject.bind(this);
 
     this.state = {
-      stats: null,
-      pages: null,
       currentStat: null,
       currentStatIndex: -1,
       currentPage: null,
