@@ -31,18 +31,6 @@ class StatsList extends Component {
     this.props.retrievePagesByProject(this.props.project_id);
   }
 
-  retrieveStatsByProject(projid) {
-    this.props.retrieveStatsByProject(projid);
-    this.refreshData();
-    console.log("Stats retrieved");
-  }
-
-  retrievePagesByProject(projid) {
-    this.props.retrievePagesByProject(projid);
-    this.refreshData();
-    console.log("Pages retrieved");
-  }
-
   refreshData() {
     this.setState({
       pages: this.state.pages,
