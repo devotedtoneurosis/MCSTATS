@@ -10,7 +10,7 @@ module.exports = app => {
     router.get("/", pages.findAll);
   
     // Retrieve all pages by project
-    router.get("/project_id/:id", pages.findAllByProject);
+    router.get("/project_id/:id", pages.findByProjectId);
   
     // Retrieve a single Page with id
     router.get("/:id", pages.findOne);
