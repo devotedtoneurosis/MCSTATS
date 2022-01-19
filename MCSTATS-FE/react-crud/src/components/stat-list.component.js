@@ -7,7 +7,7 @@ import {
   retrievePages,
 } from "../actions/pages";
 import { Link } from "react-router-dom";
-import { LineChart } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 
 
@@ -92,7 +92,7 @@ class StatsList extends Component {
 
     return (
 
-      <LineChart width={500} height={300} data={data}>
+      <LineChart width={500} height={300} data={}>
         <XAxis dataKey="name"/>
         <YAxis/>
         <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
