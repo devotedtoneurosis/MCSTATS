@@ -47,38 +47,36 @@ class StatsList extends Component {
   refreshData() {
 
     //initialize intervals
-    yearIndex = [];
+    var yearIndex = [];
     for (let d=0;d<365;d++) {
       yearIndex[d] = d;
     }
 
     //gather stat interval
-    statDistribution = []
+    this.state.statDistribution = []
     for (let i = 0; i < yearIndex.length; i++) {
       var ind = 0;
-      for (let x = 0; x < stats.length; x++) {
-        if (stats[i].timestamp.timetuple().tm_yday == i){
-          statDistribution[i,ind] = stats[i];
+      for (let x = 0; x < this.state.stats.length; x++) {
+        if (this.state.stats[i].timestamp.timetuple().tm_yday == i){
+          this.state.statDistribution[i,ind] = this.state.stats[i];
           ind++;
         }
       }
     }
 
     //gather page interval
-    pageDistribution = []
+    this.state.pageDistribution = []
     for (let i = 0; i < yearIndex.length; i++) {
       var ind = 0;
-      for (let x = 0; x < pages.length; x++) {
-        if (pages[i].timestamp.timetuple().tm_yday == i){
-          pageDistribution[i,ind] = pages[i];
+      for (let x = 0; x < this.state.pages.length; x++) {
+        if (this.state.pages[i].timestamp.timetuple().tm_yday == i){
+          this.state.pageDistribution[i,ind] = this.state.pages[i];
           ind++;
         }
       }
     }
 
     this.setState({
-      statDistribution: statDistribution,
-      pageDistribution: pageDistribution,
       currentStatIndex: -1,
       currentPageIndex: -1,
     });
