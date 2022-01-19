@@ -83,25 +83,30 @@ class StatsList extends Component {
 
   render() {
     const { stats,pages } = this.props;
+    export const data = {
+      labels,
+      datasets: [
+        {
+          label: 'Dataset 1',
+          data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+          borderColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+        {
+          label: 'Dataset 2',
+          data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+          borderColor: 'rgb(53, 162, 235)',
+          backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+      ],
+    };
 
     return (
       <div className="list row">
         <div className="col-md-6">
           <h4>Trend View</h4>
 
-          <Line
-            data={{
-              labels: ['1', '8', '15', '22', '29', '5', '12', '19'],
-              datasets: [
-                {
-                  id: 1,
-                  type: 'bar',
-                  label: 'Steam Players',
-                  data: [5, 6, 7, 7, 7],
-                },
-              ],
-            }}
-          />
+          <Line options={options} data={data} />;
 
         </div>
       </div>
