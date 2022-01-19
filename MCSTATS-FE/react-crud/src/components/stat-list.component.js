@@ -114,14 +114,7 @@ class StatsList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    pages: state.pages,
-    stats: state.stats,
-  };
-};
-
-export default connect(mapStateToProps, {
+export default connect(null, {
   retrieveStatsByProject,
   retrievePagesByProject,
 })(StatsList);
