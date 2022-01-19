@@ -114,7 +114,7 @@ class StatsList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("State:"+state);
+  console.log("State:"+state.data);
   return {
     pages: state.pages,
     stats: state.stats,
