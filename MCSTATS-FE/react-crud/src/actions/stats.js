@@ -15,4 +15,5 @@ import {
     } catch (err) {
       console.log(err);
     }
+    console.log("DISPATCH:"+res.data);
   };
