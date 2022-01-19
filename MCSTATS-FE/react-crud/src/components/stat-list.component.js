@@ -7,16 +7,6 @@ import {
   retrievePages,
 } from "../actions/pages";
 import { Link } from "react-router-dom";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
 
@@ -148,7 +138,7 @@ class StatsList extends Component {
       <div>
         <h4>Trend View</h4>
 
-        <Line options={options} data={data} />;
+        <Line />;
       </div>
 
     );
