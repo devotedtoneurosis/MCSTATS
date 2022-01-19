@@ -39,13 +39,17 @@ class StatsList extends Component {
   }
 
   retrieveStats() {
+    console.log("Stats retrieved");
   }
 
   retrievePages() {
+    console.log("Pages retrieved");
   }
 
   refreshData() {
 
+    console.log(this.props);
+    
     //initialize intervals
     var yearIndex = new Array(365);
 
@@ -114,4 +118,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   retrieveStats,
+  retrievePages,
 })(StatsList);
