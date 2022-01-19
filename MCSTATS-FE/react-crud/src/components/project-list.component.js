@@ -174,7 +174,7 @@ class ProjectList extends Component {
               </Link>
               <Link
                 onClick={this.projectCallback(currentProject.project_id)}
-                to={"/stat/" + currentProject.project_id}
+                to={"/timeline/"}
                 className="btn btn-outline-secondary"
               >
                 Timeline
