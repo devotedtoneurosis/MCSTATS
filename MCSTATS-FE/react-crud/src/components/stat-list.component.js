@@ -31,18 +31,18 @@ class StatsList extends Component {
   }
 
   componentDidMount() {
-    this.retrieveStatsByProject();
-    this.retrievePagesByProject();
+    this.retrieveStatsByProject(this.props.project_id);
+    this.retrievePagesByProject(this.props.project_id);
     this.refreshData();
   }
 
-  retrieveStatsByProject() {
-    this.props.retrieveStatsByProject(this.props.project_id);
+  retrieveStatsByProject(projid) {
+    this.props.retrieveStatsByProject(projid);
     console.log("Stats retrieved");
   }
 
-  retrievePagesByProject() {
-    this.props.retrievePagesByProject(this.props.project_id);
+  retrievePagesByProject(projid) {
+    this.props.retrievePagesByProject(projid);
     console.log("Pages retrieved");
   }
 
@@ -97,7 +97,7 @@ class StatsList extends Component {
   render() {
     const { stats,pages } = this.props;
     console.log("STATS:"+stats);
-    
+    console.log("PAGES:"+pages);
 
     return (
 

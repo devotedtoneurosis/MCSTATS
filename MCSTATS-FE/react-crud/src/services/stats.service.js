@@ -5,8 +5,8 @@ class StatsDataService {
     return http.get("/stats");
   }
 
-  findByProject(project_id) {
-    return http.get(`/stats/project_id/${project_id}`);
+  findByProject(id) {
+    return http.get(`/stats/project_id/${id}`);
   }
 }
 
