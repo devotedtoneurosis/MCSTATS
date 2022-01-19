@@ -74,7 +74,7 @@ def main():
         #scrape reddit
         for subreddit in SUBRE_LIST:
             subreddit = reddit.subreddit(subreddit)
-            for submission in subreddit.stream.submissions():
+            for submission in subreddit.submissions():
                 if submission is not None and submission.title is not None:
                     print(submission.title.encode('ascii','ignore'))
                     process_submission(conn,submission,usedThreads,termList.terms)

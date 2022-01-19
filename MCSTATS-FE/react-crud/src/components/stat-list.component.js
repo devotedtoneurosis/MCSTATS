@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Line } from 'react-chartjs-2';
 import {
   retrieveStats,
+  retrievePages,
 } from "../actions/stats";
 import { Link } from "react-router-dom";
 
@@ -18,6 +20,7 @@ class StatsList extends Component {
 
   componentDidMount() {
     this.props.retrieveStats();
+    this.props.retrievePages();
   }
 
   refreshData() {
@@ -34,22 +37,29 @@ class StatsList extends Component {
     return (
       <div className="list row">
         <div className="col-md-6">
-          <h4>Stats List</h4>
+          <h4>Trend View</h4>
 
-          <ul className="list-group">
-            {stats &&
-              stats.map((page, index) => (
-                <li
-                  className={
-                    "list-group-item " +
-                    (index === currentIndex ? "active" : "")
-                  }
-                  key={index}
-                >
-                  {stats.title}
-                </li>
-              ))}
-          </ul>
+          <Line
+            datasetIdKey='id'
+            data={{
+              labels: ['Jan', 'Feb', 'March', 'April', 'May'],
+              datasets: [
+                {
+                  id: 1,
+                  type: 'bar',
+                  label: '',
+                  data: [5, 6, 7, 7, 7],
+                },
+                {
+                  id: 2,
+                  type: 'bubble',
+                  label: '',
+                  data: [3, 2, 1, 1, 1],
+                },
+              ],
+            }}
+          />
+
         </div>
       </div>
     );
