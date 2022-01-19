@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
-  retrieveStats,
+  retrieveStatsByProject,
 } from "../actions/stats";
 import {
-  retrievePages,
+  retrievePagesByProject,
 } from "../actions/pages";
 import { Link } from "react-router-dom";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
@@ -14,8 +14,8 @@ class StatsList extends Component {
   constructor(props) {
     super(props);
     this.refreshData = this.refreshData.bind(this);
-    this.retrieveStats = this.retrieveStats.bind(this);
-    this.retrievePages = this.retrievePages.bind(this);
+    this.retrieveStatsByProject = this.retrieveStatsByProject.bind(this);
+    this.retrievePagesByProject = this.retrievePagesByProject.bind(this);
 
     this.state = {
       stats: null,
@@ -31,18 +31,18 @@ class StatsList extends Component {
   }
 
   componentDidMount() {
-    this.retrieveStats();
-    this.retrievePages();
+    this.retrieveStatsByProject();
+    this.retrievePagesByProject();
     this.refreshData();
   }
 
-  retrieveStats() {
-    this.props.retrieveStats(this.props.project_id);
+  retrieveStatsByProject() {
+    this.props.retrieveStatsByProject(this.props.project_id);
     console.log("Stats retrieved");
   }
 
-  retrievePages() {
-    this.props.retrievePages(this.props.project_id);
+  retrievePagesByProject() {
+    this.props.retrievePagesByProject(this.props.project_id);
     console.log("Pages retrieved");
   }
 
@@ -122,6 +122,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  retrieveStats,
-  retrievePages,
+  retrieveStatsByProject,
+  retrievePagesByProject,
 })(StatsList);

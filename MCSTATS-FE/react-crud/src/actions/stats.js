@@ -4,9 +4,9 @@ import {
   
   import StatsDataService from "../services/stats.service";
 
-  export const retrieveStats = (project_id) => async (dispatch) => {
+  export const retrieveStatsByProject = (project_id) => async (dispatch) => {
     try {
-      const res = await StatsDataService.getAllByProject(project_id);
+      const res = await StatsDataService.findByProject(project_id);
   
       dispatch({
         type: RETRIEVE_STATS,
