@@ -25,8 +25,9 @@ class PagesDataService {
     return http.delete(`/pages`);
   }
 
-  findByProject(id) {
-    return http.get(`/pages/project_id/${id}`);
+  findByProject(project_id) {
+    console.log("Checking api for proj:"+project_id);
+    return http.get(`/pages/project_id/${project_id}`);
   }
 }
 

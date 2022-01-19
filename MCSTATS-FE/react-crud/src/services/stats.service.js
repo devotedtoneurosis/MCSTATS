@@ -5,8 +5,9 @@ class StatsDataService {
     return http.get("/stats");
   }
 
-  findByProject(id) {
-    return http.get(`/stats/project_id/${id}`);
+  findByProject(project_id) {
+    console.log("Checking api for proj:"+project_id);
+    return http.get(`/stats/project_id/${project_id}`);
   }
 }
 
