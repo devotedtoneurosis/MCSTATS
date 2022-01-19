@@ -25,8 +25,8 @@ class PagesDataService {
     return http.delete(`/pages`);
   }
 
-  findByTitle(title) {
-    return http.get(`/pages?title=${title}`);
+  findByProject(project_id) {
+    return http.get(`/pages/project_id/${project_id}`);
   }
 }
 

@@ -10,7 +10,7 @@ module.exports = app => {
     router.get("/", pages.findAll);
   
     // Retrieve all published Pages
-    router.get("/published", pages.findAllPublished);
+    router.get("/project_id/:id", pages.findAllByProject);
   
     // Retrieve a single Page with id
     router.get("/:id", pages.findOne);

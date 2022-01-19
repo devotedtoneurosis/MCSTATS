@@ -138,8 +138,10 @@ exports.deleteAll = (req, res) => {
 };
 
 // Find all published Pages
-exports.findAllPublished = (req, res) => {
-    Page.findAll({ where: { published: true } })
+exports.findAllByProject= (req, res) => {
+  const id = req.params.id;
+  
+    Page.findAll({ where: { project_id: id } })
     .then(data => {
       res.send(data);
     })

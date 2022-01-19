@@ -5,6 +5,9 @@ module.exports = app => {
   
     // Retrieve all Stats
     router.get("/", stats.findAll);
+
+    // Retrieve all Stats by project
+    router.get("/project_id/:id", stats.findAllByProject);
   
     app.use('/api/stats', router);
   };

@@ -79,9 +79,9 @@ export const deleteAllPages = () => async (dispatch) => {
   }
 };
 
-export const findPagesByTitle = (title) => async (dispatch) => {
+export const retrievePagesByProject = (project_id) => async (dispatch) => {
   try {
-    const res = await PagesDataService.findByTitle(title);
+    const res = await PagesDataService.findByProject(project_id);
 
     dispatch({
       type: RETRIEVE_PAGES,

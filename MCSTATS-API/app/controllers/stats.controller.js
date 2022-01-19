@@ -15,3 +15,21 @@ exports.findAll  = (req, res) => {
       });
     });
 };
+
+
+// Retrieve all Stats from the database by project
+exports.findAllByProject  = (req, res) => {
+  const id = req.params.id;
+
+  Stat.findAll({ where: { project_id: id } })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Stats."
+      });
+    });
+};
+

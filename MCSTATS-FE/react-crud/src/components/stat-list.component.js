@@ -39,10 +39,12 @@ class StatsList extends Component {
   }
 
   retrieveStats() {
+    this.props.retrieveStats(this.props.project_id);
     console.log("Stats retrieved");
   }
 
   retrievePages() {
+    this.props.retrievePages(this.props.project_id);
     console.log("Pages retrieved");
   }
 
