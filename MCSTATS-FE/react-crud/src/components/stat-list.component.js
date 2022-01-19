@@ -45,8 +45,8 @@ class StatsList extends Component {
 
   refreshData() {
     this.setState({
-      pages: state.pages,
-      stats: state.stats,
+      pages: this.state.pages,
+      stats: this.state.stats,
     });
 
     console.log(this.props);
