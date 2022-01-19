@@ -117,6 +117,7 @@ class StatsList extends Component {
 const mapStateToProps = (state) => {
   return {
     pages: state.pages,
+    stats: state.stats,
   };
 };
 
