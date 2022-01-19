@@ -97,7 +97,7 @@ def grab_four_chan(conn,board,usedThre,termList):
     for thread in threads:
         posts = thread.all_posts
         for post in posts:
-            for term in termList:
+            for term in termList.terms:
                 if term.upper() in post.html_comment.upper() and thread.url not in usedThre:
                     print("----4chan entry found")
                     insert_record(conn,thread.url,datetime.now(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),thread.replies)
