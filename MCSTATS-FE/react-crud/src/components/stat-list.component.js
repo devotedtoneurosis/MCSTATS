@@ -124,7 +124,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {
+export default connect(null, {
   retrieveStatsByProject,
   retrievePagesByProject,
 })(StatsList);
