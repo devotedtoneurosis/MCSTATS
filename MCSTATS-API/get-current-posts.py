@@ -152,7 +152,7 @@ def insert_record(conn,url,date,title,preview,weight,projid):
     print("select * from pages where url like '"+url+"'")
     cursor.execute("select * from pages where url like '"+url+"'")
     rows = cursor.fetchall()
-    print("ROWS:"+len(rows))
+    print("ROWS:"+str(len(rows)))
     if len(rows) < 1:       
         now = datetime.now()
         sqlCm = "INSERT INTO pages (url,date,title,preview,weight,createdAt,updatedAt,project_id) VALUES (%s, %s, %s, %s, %s, %s, %s,%s)"
