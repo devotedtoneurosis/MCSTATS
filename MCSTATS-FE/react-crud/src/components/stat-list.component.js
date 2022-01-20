@@ -119,12 +119,12 @@ const mapStateToProps = (state) => {
   console.log("State:"+state.stats);
   console.log("State:"+state.pages);
   return {
-    pages: state.pages,
-    stats: state.stats,
+    pages: retrievePagesByProject(this.props.project_id),
+    stats: retrieveStatsByProject(this.props.project_id),
   };
 };
 
-export default connect(null, {
+export default connect(mapStateToProps, {
   retrieveStatsByProject,
   retrievePagesByProject,
 })(StatsList);
