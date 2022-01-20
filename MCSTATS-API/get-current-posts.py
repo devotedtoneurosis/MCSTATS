@@ -84,7 +84,7 @@ def main():
         #scrape 4chan
         print("---Starting 4chan scan")
         for board in BOARD_LIST:
-            grab_four_chan(conn,board,usedThreads,termList)
+            grab_four_chan(conn,board,usedThreads,termList,project.id)
         print("---4chan threads logged.")
 
 
@@ -92,7 +92,7 @@ def main():
     
     print("All Projects Done.")
 
-def grab_four_chan(conn,board,usedThre,termList):
+def grab_four_chan(conn,board,usedThre,termList,projid):
     board = basc_py4chan.Board(board)
     threads = board.get_all_threads()
     for thread in threads:
@@ -101,7 +101,7 @@ def grab_four_chan(conn,board,usedThre,termList):
             for term in termList.terms:
                 if term.upper() in post.html_comment.upper() and thread.url not in usedThre:
                     print("------4chan entry found")
-                    insert_record(conn,thread.url,datetime.now(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),len(posts))
+                    insert_record(conn,thread.url,datetime.now(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),len(posts),projid)
 
 def process_submission(conn,submission,usedThre,termList,projid):
     count = 0
@@ -153,7 +153,7 @@ def insert_record(conn,url,date,title,preview,weight,projid):
     if cursor.rowcount < 1:
         now = datetime.now()
         sqlCm = "INSERT INTO pages (url,date,title,preview,weight,createdAt,updatedAt,project_id) VALUES (%s, %s, %s, %s, %s, %s, %s,%s)"
-        sqlVal = (url, date, title, preview, weight,now, now)
+        sqlVal = (url, date, title, preview, weight,now, now,projid)
         cursor.execute(sqlCm, sqlVal)
         conn.commit()
         print("------Record inserted")
