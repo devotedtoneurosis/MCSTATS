@@ -29,6 +29,7 @@ class StatsList extends Component {
   componentDidMount() {
     this.retrieveStatsByProject();
     this.retrievePagesByProject(); 
+    this.updateStatistics();
   }
 
   retrieveStatsByProject() {
@@ -58,38 +59,38 @@ class StatsList extends Component {
     //initialize intervals
     var yearIndex = new Array(365);
 
-    // if(this.state.stats != null){
-    //   //gather stat interval
-    //   this.state.statDistribution = [];
-    //   for (let i = 0; i < yearIndex.length; i++) {
-    //     var ind = 0;
-    //     for (let x = 0; x < this.state.stats.length; x++) {
-    //       console.log(this.state.stats[i]);
-    //       if (this.state.stats[i].timestamp.timetuple().tm_yday == i){
-    //         this.state.statDistribution[i,ind] = this.state.stats[i];
-    //         ind++;
-    //       }
-    //     }
-    //   }
-    // }else{
-    //   console.log("stats are null...");
-    // }
+    if(this.state.stats != null){
+      //gather stat interval
+      this.state.statDistribution = [];
+      for (let i = 0; i < yearIndex.length; i++) {
+        var ind = 0;
+        for (let x = 0; x < this.state.stats.length; x++) {
+          console.log(this.state.stats[i]);
+          if (this.state.stats[i].timestamp.timetuple().tm_yday == i){
+            this.state.statDistribution[i,ind] = this.state.stats[i];
+            ind++;
+          }
+        }
+      }
+    }else{
+      console.log("stats are null...");
+    }
 
-    // if(this.state.pages != null){
-    //   //gather page interval
-    //   this.state.pageDistribution = [];
-    //   for (let i = 0; i < yearIndex.length; i++) {
-    //     var ind = 0;
-    //     for (let x = 0; x < this.state.pages.length; x++) {
-    //       if (this.state.pages[i].timestamp.timetuple().tm_yday == i){
-    //         this.state.pageDistribution[i,ind] = this.state.pages[i];
-    //         ind++;
-    //       }
-    //     }
-    //   }
-    // }else{
-    //   console.log("pages are null...");
-    // }
+    if(this.state.pages != null){
+      //gather page interval
+      this.state.pageDistribution = [];
+      for (let i = 0; i < yearIndex.length; i++) {
+        var ind = 0;
+        for (let x = 0; x < this.state.pages.length; x++) {
+          if (this.state.pages[i].timestamp.timetuple().tm_yday == i){
+            this.state.pageDistribution[i,ind] = this.state.pages[i];
+            ind++;
+          }
+        }
+      }
+    }else{
+      console.log("pages are null...");
+    }
 
   }
 
