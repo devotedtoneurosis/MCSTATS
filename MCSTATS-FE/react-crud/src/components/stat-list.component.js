@@ -100,17 +100,23 @@ class StatsList extends Component {
     const { stats,pages } = this.props;
     console.log("STATS:"+stats);
     console.log("PAGES:"+pages);
-    this.updateStatistics();
+    //this.updateStatistics();
 
     return (
 
-      <LineChart width={500} height={300} data="">
-        <XAxis dataKey="name"/>
-        <YAxis/>
-        <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
-        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-        <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
-      </LineChart>
+      <LineChart data={stats} margin={{ right: 300 }}>
+      <CartesianGrid />
+      <XAxis dataKey="timestamp" 
+          interval={'preserveStartEnd'} />
+      <YAxis dataKey="player_count" 
+          interval={'preserveStartEnd'}></YAxis>
+      <Legend />
+      <Tooltip />
+      <Line dataKey="student"
+          stroke="black" activeDot={{ r: 8 }} />
+      <Line dataKey="fees"
+          stroke="red" activeDot={{ r: 8 }} />
+  </LineChart>
     
 
     );
