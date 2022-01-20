@@ -26,6 +26,7 @@ class StatsList extends Component {
     this.state = {
       pages: null,
       stats: null,
+      chartData: null,
       statDistribution: [],
       pageDistribution: [],
       yearIndex: -1,
@@ -59,6 +60,38 @@ class StatsList extends Component {
 
 
   updateStatistics() {
+
+    // chartData = [];
+
+    // if(this.props.stats != null){
+    //   for (let x = 0; x < this.props.stats.length; x++) {
+        
+      
+    //   }
+    // }
+
+    // const data = [
+    //   {
+    //     name: 'Page A', uv: 590, pv: 800, amt: 1400,
+    //   },
+    //   {
+    //     name: 'Page B', uv: 868, pv: 967, amt: 1506,
+    //   },
+    //   {
+    //     name: 'Page C', uv: 1397, pv: 1098, amt: 989,
+    //   },
+    //   {
+    //     name: 'Page D', uv: 1480, pv: 1200, amt: 1228,
+    //   },
+    //   {
+    //     name: 'Page E', uv: 1520, pv: 1108, amt: 1100,
+    //   },
+    //   {
+    //     name: 'Page F', uv: 1400, pv: 680, amt: 1700,
+    //   },
+    // ];
+
+
     //initialize intervals
     var yearIndex = new Array(365);
 
@@ -97,6 +130,8 @@ class StatsList extends Component {
 
   }
 
+  
+
 
 
   render() {
@@ -114,7 +149,7 @@ class StatsList extends Component {
         <ComposedChart
           width={500}
           height={400}
-          data={stats,pages}
+          data={stats}
           margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
@@ -125,6 +160,21 @@ class StatsList extends Component {
           <Tooltip />
           <Legend />
           <Line type="monotone" data={stats} dataKey="player_count" stroke="#ff7300" />
+        </ComposedChart>
+
+        <ComposedChart
+          width={500}
+          height={400}
+          data={pages}
+          margin={{
+            top: 20, right: 20, bottom: 20, left: 20,
+          }}
+        >
+          <CartesianGrid stroke="#f5f5f5" />
+          <XAxis dataKey="date" />
+          <YAxis dataKey="weight"/>
+          <Tooltip />
+          <Legend />
           <Scatter data={pages} dataKey="weight" fill="red" />
         </ComposedChart>
 
