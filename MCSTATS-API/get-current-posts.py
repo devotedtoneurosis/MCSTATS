@@ -149,7 +149,7 @@ def insert_record(conn,url,date,title,preview,weight,projid):
     cursor = conn.cursor()
     
     #only if weight is greater
-    cursor.execute("select * from pages where url like '%s'","'"+url[:1024]+"'")
+    cursor.execute("select * from pages where project_id like %s and url like '%s'",projid,"'"+url[:1024]+"'")
     rows = cursor.fetchall()
     print("ROWS:"+str(len(rows)))
     if len(rows) < 1:       
@@ -160,8 +160,8 @@ def insert_record(conn,url,date,title,preview,weight,projid):
         conn.commit()
         print("------Record inserted")
     else:
-        sqlCm = "UPDATE pages SET weight = %s WHERE url = %s"
-        sqlVal = (weight,"'"+url[:1024]+"'")
+        sqlCm = "UPDATE pages SET weight = %s WHERE url = %s and project_id = %s"
+        sqlVal = (weight,"'"+url[:1024]+"'",projid)
         cursor.execute(sqlCm, sqlVal)
         conn.commit()
         print("------Record updated")

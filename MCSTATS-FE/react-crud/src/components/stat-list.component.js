@@ -58,75 +58,43 @@ class StatsList extends Component {
 
   }
 
+  
+
 
   updateStatistics() {
 
-    // chartData = [];
-
-    // if(this.props.stats != null){
-    //   for (let x = 0; x < this.props.stats.length; x++) {
-        
-      
-    //   }
-    // }
-
-    // const data = [
-    //   {
-    //     name: 'Page A', uv: 590, pv: 800, amt: 1400,
-    //   },
-    //   {
-    //     name: 'Page B', uv: 868, pv: 967, amt: 1506,
-    //   },
-    //   {
-    //     name: 'Page C', uv: 1397, pv: 1098, amt: 989,
-    //   },
-    //   {
-    //     name: 'Page D', uv: 1480, pv: 1200, amt: 1228,
-    //   },
-    //   {
-    //     name: 'Page E', uv: 1520, pv: 1108, amt: 1100,
-    //   },
-    //   {
-    //     name: 'Page F', uv: 1400, pv: 680, amt: 1700,
-    //   },
-    // ];
-
-
-    //initialize intervals
-    var yearIndex = new Array(365);
+    chartData = [];
 
     if(this.props.stats != null){
-      //gather stat interval
-      this.state.statDistribution = [];
-      for (let i = 0; i < yearIndex.length; i++) {
-        var ind = 0;
-        for (let x = 0; x < this.props.stats.length; x++) {
-          console.log(this.props.stats[i]);
-          if (this.props.stats[i].timestamp.timetuple().tm_yday == i){
-            this.state.statDistribution[i,ind] = this.props.stats[i];
-            ind++;
-          }
-        }
+      for (let x = 0; x < this.props.stats.length; x++) {
+        
+      
       }
-    }else{
-      console.log("stats are null...");
     }
 
-    if(this.props.pages != null){
-      //gather page interval
-      this.state.pageDistribution = [];
-      for (let i = 0; i < yearIndex.length; i++) {
-        var ind = 0;
-        for (let x = 0; x < this.props.pages.length; x++) {
-          if (this.props.pages[i].timestamp.timetuple().tm_yday == i){
-            this.state.pageDistribution[i,ind] = this.props.pages[i];
-            ind++;
-          }
-        }
-      }
-    }else{
-      console.log("pages are null...");
-    }
+    const data = [
+      {
+        name: 'Page A', uv: 590, pv: 800, amt: 1400,
+      },
+      {
+        name: 'Page B', uv: 868, pv: 967, amt: 1506,
+      },
+      {
+        name: 'Page C', uv: 1397, pv: 1098, amt: 989,
+      },
+      {
+        name: 'Page D', uv: 1480, pv: 1200, amt: 1228,
+      },
+      {
+        name: 'Page E', uv: 1520, pv: 1108, amt: 1100,
+      },
+      {
+        name: 'Page F', uv: 1400, pv: 680, amt: 1700,
+      },
+    ];
+
+
+    =
 
   }
 
@@ -147,7 +115,7 @@ class StatsList extends Component {
             Trend Data
         </h2>
         <ComposedChart
-          width={500}
+          width={1200}
           height={400}
           data={stats}
           margin={{
@@ -163,7 +131,7 @@ class StatsList extends Component {
         </ComposedChart>
 
         <ComposedChart
-          width={500}
+          width={1200}
           height={400}
           data={pages}
           margin={{
