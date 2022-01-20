@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import ComposedChart from '@bit/recharts.recharts.composed-chart';
 import {
   retrieveStatsByProject,
 } from "../actions/stats";
@@ -105,7 +106,24 @@ class StatsList extends Component {
         <h2 className="text-heading">
             Trend Data
         </h2>
-        <ResponsiveContainer width="100%" aspect={3}>
+        <ComposedChart
+          width={500}
+          height={400}
+          data={stats,pages}
+          margin={{
+            top: 20, right: 20, bottom: 20, left: 20,
+          }}
+        >
+          <CartesianGrid stroke="#f5f5f5" />
+          <XAxis dataKey="timestamp" />
+          <YAxis dataKey="player_count"/>
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="player_count" stroke="#ff7300" />
+          <Scatter dataKey="weight" fill="red" />
+        </ComposedChart>
+
+        {/* <ResponsiveContainer width="100%" aspect={3}>
           <LineChart data={stats} margin={{ right: 300 }}>
             <CartesianGrid />
             <XAxis dataKey="timestamp" 
@@ -117,7 +135,7 @@ class StatsList extends Component {
             <Line dataKey="player_count"
                 stroke="red" activeDot={{ r: 8 }} />
           </LineChart>
-        </ResponsiveContainer>
+        </ResponsiveContainer> */}
       </>
 
     );
