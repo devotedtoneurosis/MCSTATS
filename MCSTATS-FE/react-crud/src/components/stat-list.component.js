@@ -7,7 +7,7 @@ import {
   retrievePagesByProject,
 } from "../actions/pages";
 import { Link } from "react-router-dom";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 
 class StatsList extends Component {
@@ -105,18 +105,18 @@ class StatsList extends Component {
     return (
 
       <LineChart data={stats} margin={{ right: 300 }}>
-      <CartesianGrid />
-      <XAxis dataKey="timestamp" 
-          interval={'preserveStartEnd'} />
-      <YAxis dataKey="player_count" 
-          interval={'preserveStartEnd'}></YAxis>
-      <Legend />
-      <Tooltip />
-      <Line dataKey="student"
-          stroke="black" activeDot={{ r: 8 }} />
-      <Line dataKey="fees"
-          stroke="red" activeDot={{ r: 8 }} />
-  </LineChart>
+        <CartesianGrid />
+        <XAxis dataKey="timestamp" 
+            interval={'preserveStartEnd'} />
+        <YAxis dataKey="player_count" 
+            interval={'preserveStartEnd'}></YAxis>
+        <Legend />
+        <Tooltip />
+        <Line dataKey="student"
+            stroke="black" activeDot={{ r: 8 }} />
+        <Line dataKey="fees"
+            stroke="red" activeDot={{ r: 8 }} />
+    </LineChart>
     
 
     );
