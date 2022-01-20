@@ -35,13 +35,11 @@ class StatsList extends Component {
   retrieveStatsByProject() {
     this.props.retrieveStatsByProject(this.props.project_id);
     this.refreshData();
-    console.log("Stats retrieved");
   }
 
   retrievePagesByProject() {
     this.props.retrievePagesByProject(this.props.project_id);
     this.refreshData();
-    console.log("Pages retrieved");
   }
 
   refreshData() {
@@ -50,7 +48,6 @@ class StatsList extends Component {
     //  stats: this.state.stats,
     //});
 
-    console.log(this.props);
 
   }
 
@@ -104,20 +101,26 @@ class StatsList extends Component {
 
     return (
 
-      <LineChart data={stats} margin={{ right: 300 }}>
-        <CartesianGrid />
-        <XAxis dataKey="timestamp" 
-            interval={'preserveStartEnd'} />
-        <YAxis dataKey="player_count" 
-            interval={'preserveStartEnd'}></YAxis>
-        <Legend />
-        <Tooltip />
-        <Line dataKey="student"
-            stroke="black" activeDot={{ r: 8 }} />
-        <Line dataKey="fees"
-            stroke="red" activeDot={{ r: 8 }} />
-    </LineChart>
-    
+      <>
+        <h1 className="text-heading">
+            Line Chart Using Rechart
+        </h1>
+        <ResponsiveContainer width="100%" aspect={3}>
+          <LineChart data={stats} margin={{ right: 300 }}>
+            <CartesianGrid />
+            <XAxis dataKey="timestamp" 
+                interval={'preserveStartEnd'} />
+            <YAxis dataKey="player_count" 
+                interval={'preserveStartEnd'}></YAxis>
+            <Legend />
+            <Tooltip />
+            <Line dataKey="student"
+                stroke="black" activeDot={{ r: 8 }} />
+            <Line dataKey="fees"
+                stroke="red" activeDot={{ r: 8 }} />
+          </LineChart>
+        </ResponsiveContainer>
+      </>
 
     );
   }
