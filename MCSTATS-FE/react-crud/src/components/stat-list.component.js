@@ -8,7 +8,7 @@ import {
   retrievePagesByProject,
 } from "../actions/pages";
 import { Link } from "react-router-dom";
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { ResponsiveContainer, LineChart, Line, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 
 class StatsList extends Component {
