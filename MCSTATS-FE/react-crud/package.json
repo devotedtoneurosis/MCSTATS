@@ -5,6 +5,12 @@
   "dependencies": {
     "@bit/recharts.recharts.cartesian-grid": "^1.6.2",
     "@bit/recharts.recharts.composed-chart": "^1.6.2",
+    "@bit/recharts.recharts.legend": "^1.6.2",
+    "@bit/recharts.recharts.line": "^1.6.2",
+    "@bit/recharts.recharts.scatter": "^1.6.2",
+    "@bit/recharts.recharts.tooltip": "^1.6.2",
+    "@bit/recharts.recharts.x-axis": "^1.6.2",
+    "@bit/recharts.recharts.y-axis": "^1.6.2",
     "@react-navigation/stack": "^6.0.11",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
