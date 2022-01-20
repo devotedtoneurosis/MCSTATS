@@ -124,8 +124,8 @@ class StatsList extends Component {
           <YAxis dataKey="player_count"/>
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="player_count" stroke="#ff7300" />
-          <Scatter dataKey="weight" fill="red" />
+          <Line type="monotone" data={stats} dataKey="player_count" stroke="#ff7300" />
+          <Scatter data={pages} dataKey="weight" fill="red" />
         </ComposedChart>
 
         {/* <ResponsiveContainer width="100%" aspect={3}>
