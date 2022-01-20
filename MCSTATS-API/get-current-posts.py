@@ -77,7 +77,7 @@ def main():
             subreddit = reddit.subreddit(subreddit)
             for submission in subreddit.hot(limit=25):
                 if submission is not None and submission.title is not None:
-                    process_submission(conn,submission,usedThreads,termList.terms)
+                    process_submission(conn,submission,usedThreads,termList.terms,project.id)
             print("------completed subreddit")
         print("---reddit threads logged.")
 
@@ -103,7 +103,7 @@ def grab_four_chan(conn,board,usedThre,termList):
                     print("------4chan entry found")
                     insert_record(conn,thread.url,datetime.now(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),BeautifulSoup(post.html_comment,features="html.parser").get_text(),len(posts))
 
-def process_submission(conn,submission,usedThre,termList):
+def process_submission(conn,submission,usedThre,termList,projid):
     count = 0
     for comment in submission.comments:
         if not isinstance(comment, MoreComments):
@@ -111,7 +111,7 @@ def process_submission(conn,submission,usedThre,termList):
                 if term.upper() in comment.body.upper() and submission.title.encode('ascii','ignore') not in usedThre:
                     print("------Match found!")
                     usedThre.append(submission.title.encode('ascii','ignore'))
-                    insert_record(conn,submission.url, datetime.utcfromtimestamp(submission.created_utc), submission.title.encode('ascii','ignore'), comment.body.encode('ascii','ignore'), submission.score)
+                    insert_record(conn,submission.url, datetime.utcfromtimestamp(submission.created_utc), submission.title.encode('ascii','ignore'), comment.body.encode('ascii','ignore'), submission.score,projid)
 
 def grab_projects(conn):
     cursor = conn.cursor()
