@@ -59,38 +59,32 @@ class StatsList extends Component {
     //initialize intervals
     var yearIndex = new Array(365);
 
-    if(this.stats != null){
-      //gather stat interval
-      this.state.statDistribution = [];
-      for (let i = 0; i < yearIndex.length; i++) {
-        var ind = 0;
-        for (let x = 0; x < this.stats.length; x++) {
-          console.log(this.stats[i]);
-          if (this.stats[i].timestamp.timetuple().tm_yday == i){
-            this.state.statDistribution[i,ind] = this.stats[i];
-            ind++;
-          }
+    //gather stat interval
+    this.state.statDistribution = [];
+    for (let i = 0; i < yearIndex.length; i++) {
+      var ind = 0;
+      for (let x = 0; x < this.stats.length; x++) {
+        console.log(this.stats[i]);
+        if (this.stats[i].timestamp.timetuple().tm_yday == i){
+          this.state.statDistribution[i,ind] = this.stats[i];
+          ind++;
         }
       }
-    }else{
-      console.log("stats are null...");
     }
 
-    if(this.pages != null){
-      //gather page interval
-      this.state.pageDistribution = [];
-      for (let i = 0; i < yearIndex.length; i++) {
-        var ind = 0;
-        for (let x = 0; x < this.pages.length; x++) {
-          if (this.pages[i].timestamp.timetuple().tm_yday == i){
-            this.state.pageDistribution[i,ind] = this.pages[i];
-            ind++;
-          }
+
+    //gather page interval
+    this.state.pageDistribution = [];
+    for (let i = 0; i < yearIndex.length; i++) {
+      var ind = 0;
+      for (let x = 0; x < this.pages.length; x++) {
+        if (this.pages[i].timestamp.timetuple().tm_yday == i){
+          this.state.pageDistribution[i,ind] = this.pages[i];
+          ind++;
         }
       }
-    }else{
-      console.log("pages are null...");
     }
+
 
   }
 
