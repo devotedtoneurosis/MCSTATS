@@ -14,8 +14,8 @@ class StatsList extends Component {
   constructor(props) {
     super(props);
     this.refreshData = this.refreshData.bind(this);
-    this.retrieveStatsByProject = this.retrieveStatsByProject.bind(this);
-    this.retrievePagesByProject = this.retrievePagesByProject.bind(this);
+    this.retrieveStatsByProject = this.retrieveStatsByProject.bind(this,this.props.project_id);
+    this.retrievePagesByProject = this.retrievePagesByProject.bind(this,this.props.project_id);
 
     this.state = {
       pages: [],
@@ -27,16 +27,18 @@ class StatsList extends Component {
   }
 
   componentDidMount() {
-    this.props.retrieveStatsByProject(this.props.project_id);
-    this.props.retrievePagesByProject(this.props.project_id); 
+    this.retrieveStatsByProject();
+    this.retrievePagesByProject(); 
   }
 
-  retrieveStatsByProject(projid) {
+  retrieveStatsByProject() {
+    this.props.retrieveStatsByProject(this.props.project_id);
     this.refreshData();
     console.log("Stats retrieved");
   }
 
-  retrievePagesByProject(projid) {
+  retrievePagesByProject() {
+    this.props.retrieveStatsByProject(this.props.project_id);
     this.refreshData();
     console.log("Pages retrieved");
   }
@@ -49,7 +51,10 @@ class StatsList extends Component {
 
     console.log(this.props);
 
-    
+  }
+
+
+  updateStatistics() {
     //initialize intervals
     var yearIndex = new Array(365);
 
@@ -86,9 +91,7 @@ class StatsList extends Component {
       console.log("pages are null...");
     }
 
-
   }
-
 
 
 
