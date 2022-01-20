@@ -162,7 +162,7 @@ def insert_record(conn,url,date,title,preview,weight,projid):
         print("------Record inserted")
     else:
         now = datetime.now()
-        sqlCm = "UPDATE pages SET weight = %s WHERE url = %s"
+        sqlCm = "UPDATE pages SET weight = %s WHERE url = '%s'"
         sqlVal = (weight, url[:1024])
         cursor.execute(sqlCm, sqlVal)
         conn.commit()
