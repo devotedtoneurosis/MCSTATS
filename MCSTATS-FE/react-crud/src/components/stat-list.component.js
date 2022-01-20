@@ -29,7 +29,7 @@ class StatsList extends Component {
   componentDidMount() {
     this.retrieveStatsByProject();
     this.retrievePagesByProject(); 
-    this.updateStatistics();
+
   }
 
   retrieveStatsByProject() {
@@ -100,6 +100,7 @@ class StatsList extends Component {
     const { stats,pages } = this.props;
     console.log("STATS:"+stats);
     console.log("PAGES:"+pages);
+    this.updateStatistics();
 
     return (
 
