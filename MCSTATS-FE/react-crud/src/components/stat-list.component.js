@@ -38,7 +38,7 @@ class StatsList extends Component {
   }
 
   retrievePagesByProject() {
-    this.props.retrieveStatsByProject(this.props.project_id);
+    this.props.retrievePagesByProject(this.props.project_id);
     this.refreshData();
     console.log("Pages retrieved");
   }
@@ -117,6 +117,7 @@ class StatsList extends Component {
 
 const mapStateToProps = (state) => {
   console.log("State:"+state.stats);
+  console.log("State:"+state.pages);
   return {
     pages: state.pages,
     stats: state.stats,
