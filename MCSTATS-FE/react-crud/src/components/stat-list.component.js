@@ -114,6 +114,7 @@ class StatsList extends Component {
         <ComposedChart
           //width={500}
           //height={400}
+          data={stats}
           margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
