@@ -14,8 +14,8 @@ class StatsList extends Component {
   constructor(props) {
     super(props);
     this.refreshData = this.refreshData.bind(this);
-    this.retrieveStatsByProject = this.retrieveStatsByProject.bind(this,this.props.project_id);
-    this.retrievePagesByProject = this.retrievePagesByProject.bind(this,this.props.project_id);
+    this.retrieveStatsByProject = this.retrieveStatsByProject.bind(this);
+    this.retrievePagesByProject = this.retrievePagesByProject.bind(this);
 
     this.state = {
       pages: null,
