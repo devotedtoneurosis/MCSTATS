@@ -153,7 +153,7 @@ def insert_record(conn,url,date,title,preview,weight,projid):
     if cursor.rowcount < 1:
         now = datetime.now()
         sqlCm = "INSERT INTO pages (url,date,title,preview,weight,createdAt,updatedAt,project_id) VALUES (%s, %s, %s, %s, %s, %s, %s,%s)"
-        sqlVal = (url, date, title, preview, weight,now, now,projid)
+        sqlVal = (url[:1024], date, title[:1024], preview[:5000], weight,now, now,projid)
         cursor.execute(sqlCm, sqlVal)
         conn.commit()
         print("------Record inserted")
