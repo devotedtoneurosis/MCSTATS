@@ -112,16 +112,15 @@ class StatsList extends Component {
             Trend Data
         </h2>
         <ComposedChart
-          width={500}
-          height={400}
-          data={stats,pages}
+          //width={500}
+          //height={400}
           margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
         >
           <CartesianGrid stroke="#f5f5f5" />
-          <XAxis dataKey="timestamp" />
-          <YAxis dataKey="player_count"/>
+          <XAxis data={stats} dataKey="timestamp" />
+          <YAxis data={stats} dataKey="player_count"/>
           <Tooltip />
           <Legend />
           <Line type="monotone" data={stats} dataKey="player_count" stroke="#ff7300" />
