@@ -28,7 +28,7 @@ class StatsList extends Component {
 
   componentDidMount() {
     this.props.retrieveStatsByProject(this.props.project_id);
-    this.props.retrievePagesByProject(this.props.project_id);
+    this.props.retrievePagesByProject(this.props.project_id); 
   }
 
   retrieveStatsByProject(projid) {
