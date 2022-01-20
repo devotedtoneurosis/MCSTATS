@@ -102,9 +102,9 @@ class StatsList extends Component {
     return (
 
       <>
-        <h1 className="text-heading">
-            Line Chart Using Rechart
-        </h1>
+        <h2 className="text-heading">
+            Trend Data
+        </h2>
         <ResponsiveContainer width="100%" aspect={3}>
           <LineChart data={stats} margin={{ right: 300 }}>
             <CartesianGrid />
@@ -114,9 +114,7 @@ class StatsList extends Component {
                 interval={'preserveStartEnd'}></YAxis>
             <Legend />
             <Tooltip />
-            <Line dataKey="student"
-                stroke="black" activeDot={{ r: 8 }} />
-            <Line dataKey="fees"
+            <Line dataKey="player_count"
                 stroke="red" activeDot={{ r: 8 }} />
           </LineChart>
         </ResponsiveContainer>
