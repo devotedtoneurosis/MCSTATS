@@ -32,13 +32,13 @@ class StatsList extends Component {
   }
 
   retrieveStatsByProject() {
-    this.props.retrieveStatsByProject(this.props.project_id);
+    retrieveStatsByProject(this.props.project_id);
     this.refreshData();
     console.log("Stats retrieved");
   }
 
   retrievePagesByProject() {
-    this.props.retrievePagesByProject(this.props.project_id);
+    retrievePagesByProject(this.props.project_id);
     this.refreshData();
     console.log("Pages retrieved");
   }
@@ -119,8 +119,8 @@ const mapStateToProps = (state) => {
   console.log("State:"+state.stats);
   console.log("State:"+state.pages);
   return {
-    pages: retrievePagesByProject(this.props.project_id),
-    stats: retrieveStatsByProject(this.props.project_id),
+    pages: state.pages,
+    stats: state.stats,
   };
 };
 
