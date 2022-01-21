@@ -76,31 +76,29 @@ class StatsList extends Component {
 
   updateStatistics(st,pa) {
 
-      if (typeof st !== 'undefined' && typeof pa !== 'undefined'){
-        var usedPages = [];
+    if (typeof st !== 'undefined' && typeof pa !== 'undefined'){
+      console.log("Stats and pages are defined");
+      var usedPages = [];
 
-        if(st != null){
-          for (let x = 0; x < st.length; x++) {
+      for (let x = 0; x < st.length; x++) {
 
-            var stat = st[x];
-            console.log(pa);
-            var page = this.getNearestPage(stat.timestamp,pa,usedPages);
-            usedPages.append(page);
+        var stat = st[x];
+        console.log(pa);
+        var page = this.getNearestPage(stat.timestamp,pa,usedPages);
+        usedPages.append(page);
 
-            const chartEntry = [
-              {timestamp: stat.timestamp, player_count: stat.player_count, weight: page.weight, url: page.url}
-            ];
+        const chartEntry = [
+          {timestamp: stat.timestamp, player_count: stat.player_count, weight: page.weight, url: page.url}
+        ];
 
-            console.log(chartEntry);
-            this.chartData.append(chartEntry);
-          
-          }
-        }
+        console.log(chartEntry);
+        this.chartData.append(chartEntry);
+      
+      }
       console.log(this.chartData);
     }else{
       console.log("Stat or page are null");
     }
-
   }
 
   
