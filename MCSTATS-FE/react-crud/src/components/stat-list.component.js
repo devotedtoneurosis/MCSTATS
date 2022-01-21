@@ -82,13 +82,20 @@ class StatsList extends Component {
 
       for (let x = 0; x < st.length; x++) {
 
+        var wt = 0;
+        var ur = "";
+
         var stat = st[x];
         console.log(pa[x]);
-        var page = this.getNearestPage(stat.timestamp,pa,usedPages);
-        usedPages.append(page);
+        if(typeof pa[x] != 'undefined'){
+          var page = this.getNearestPage(stat.timestamp,pa,usedPages);
+          usedPages.append(page);
+          wt = page.weight;
+          ur = page.url;
+        }
 
         const chartEntry = [
-          {timestamp: stat.timestamp, player_count: stat.player_count, weight: page.weight, url: page.url}
+          {timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur}
         ];
 
         console.log(chartEntry);
