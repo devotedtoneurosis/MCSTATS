@@ -76,7 +76,7 @@ class StatsList extends Component {
 
   updateStatistics(st,pa) {
 
-    if (typeof st !== 'undefined' && typeof pa !== 'undefined'){
+    if (typeof st !== 'undefined' && typeof pa !== 'undefined' && st !== null && pa !== null  ){
       console.log("Stats and pages are defined");
       var usedPages = [];
 
