@@ -68,10 +68,11 @@ class StatsList extends Component {
       var m2 = moment(pa[x].date,"YYYY-MM-DDTHH:mm");
       var ms = m.diff(m2);
       var d = moment.duration(ms);
-      var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+      var s = (Math.floor(d.asHours())*60) + Number(moment.utc(ms).format(":mm"));
 
       console.log("Timedif:"+s);
       if(nearest == -1){nearest = s+1;}
+      console.log("Nearest:"+nearest.toString());
 
       if (s < nearest && usedPages.includes(pa[x]) == false){
         console.log("Found nearest");
