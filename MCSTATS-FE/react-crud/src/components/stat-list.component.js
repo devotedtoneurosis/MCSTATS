@@ -132,12 +132,12 @@ class StatsList extends Component {
 
 
   render() {
-    const { stats,pages,chartData } = this.props;
+    const { stats,pages } = this.props;
 
     //console.log("STATS:"+stats);
     //console.log("PAGES:"+pages);
 
-    console.log(chartData);
+    console.log(this.state.chartData);
 
     return (
 
