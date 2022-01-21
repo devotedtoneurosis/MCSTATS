@@ -61,7 +61,7 @@ class StatsList extends Component {
       
       console.log(pa[x]);
 
-      var ms = moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(moment(pa[x].timestamp,"DD/MM/YYYY HH:mm:ss"));
+      var ms = moment(str(timestamp),"DD/MM/YYYY HH:mm:ss").diff(moment(pa[x].timestamp,"DD/MM/YYYY HH:mm:ss"));
       var d = moment.duration(ms);
       var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
 
