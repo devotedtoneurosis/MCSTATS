@@ -74,6 +74,8 @@ class StatsList extends Component {
       if(nearest == -1){nearest = s+1;}
       console.log("Nearest:"+nearest.toString());
 
+      console.log("Already used:"+usedPages.includes(pa[x]).toString());
+
       if (s < nearest && usedPages.includes(pa[x]) == false){
         console.log("Found nearest");
         console.log(pa[x]);
