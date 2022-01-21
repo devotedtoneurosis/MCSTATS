@@ -7,7 +7,6 @@ import {
 import {
   retrievePagesByProject,
 } from "../actions/pages";
-import { Link } from "react-router-dom";
 import Line from '@bit/recharts.recharts.line';
 import XAxis from '@bit/recharts.recharts.x-axis';
 import YAxis from '@bit/recharts.recharts.y-axis';
@@ -97,7 +96,7 @@ class StatsList extends Component {
       
       }
     }
-    console.log(this.chartData);
+  console.log(this.chartData);
 
   }
 
@@ -108,8 +107,8 @@ class StatsList extends Component {
   render() {
     const { stats,pages,chartData } = this.props;
 
-    console.log("STATS:"+stats);
-    console.log("PAGES:"+pages);
+    //console.log("STATS:"+stats);
+    //console.log("PAGES:"+pages);
 
     return (
 
@@ -117,6 +116,14 @@ class StatsList extends Component {
         <h2 className="text-heading">
             Trend Data
         </h2>
+
+        <button
+            className="m-3 btn "
+            onClick={this.updateStatistics}
+          >
+            Update
+          </button>
+
         <ComposedChart
           width={1200}
           height={400}
