@@ -38,7 +38,7 @@ class StatsList extends Component {
   componentDidMount() {
     this.retrieveStatsByProject();
     this.retrievePagesByProject(); 
-    this.refreshData();
+    this.updateStatistics();
   }
 
   retrieveStatsByProject() {
@@ -50,7 +50,7 @@ class StatsList extends Component {
   }
 
   refreshData() {
-    this.updateStatistics();
+    
   }
 
   getNearestPage(timestamp, usedPages){
