@@ -54,8 +54,7 @@ class StatsList extends Component {
 
     const moment = require('moment')
 
-    var nearestInd = 0;
-    var nearest = pa[nearestInd].timestamp;
+    var nearest = -1;
     var nearestPage = null;
 
     for (let x=0;x<pa.length;x++){
@@ -67,6 +66,9 @@ class StatsList extends Component {
       var ms = m.diff(m2);
       var d = moment.duration(ms);
       var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+
+      console.log("Timedif:"+s);
+      if(nearest == -1){nearest = s+1;}
 
       if (s < nearest && usedPages.includes(pa[x]) == false){
         console.log("Found nearest");
