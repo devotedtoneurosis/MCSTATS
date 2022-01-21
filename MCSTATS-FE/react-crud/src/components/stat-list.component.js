@@ -79,6 +79,7 @@ class StatsList extends Component {
       if (s < nearest && usedPages.includes(pa[x]) == false){
         console.log("Found nearest");
         console.log(pa[x]);
+        usedPages.push(pa[x]);
         nearestPage = pa[x];
         nearest = s;
       }
@@ -109,8 +110,10 @@ class StatsList extends Component {
           var page = this.getNearestPage(stat.timestamp,pa,usedPages);
           usedPages.push(page);
           console.log(page);
-          wt = page.weight;
-          ur = page.url;
+          if(page != null){
+            wt = page.weight;
+            ur = page.url;
+          }
         }
 
         const chartEntry = [
