@@ -35,8 +35,6 @@ class StatsList extends Component {
     };
   }
 
-  const chartData 
-
   componentDidMount() {
     this.retrieveStatsByProject();
     this.retrievePagesByProject(); 
