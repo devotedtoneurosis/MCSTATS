@@ -96,7 +96,7 @@ class StatsList extends Component {
 
   updateStatistics(st,pa) {
 
-    chartData = null;
+    var chartData = null;
 
     if (typeof st !== 'undefined' && typeof pa !== 'undefined' && st !== null && pa !== null && st.length > 0 ){
       //console.log("Stats and pages are defined");
