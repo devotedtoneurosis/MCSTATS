@@ -155,6 +155,12 @@ class StatsList extends Component {
             Trend Data
         </h2>
 
+        <button
+            className="m-3 btn btn-sm btn-danger"
+            onClick={this.updateStatistics}
+          >
+            Get Stats
+          </button>
 
         <ComposedChart
           width={1200}
