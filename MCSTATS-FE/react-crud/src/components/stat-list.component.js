@@ -156,7 +156,7 @@ class StatsList extends Component {
         <ComposedChart
           width={1200}
           height={400}
-          data={chartData}
+          data={this.state.chartData}
           margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
