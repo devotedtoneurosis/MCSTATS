@@ -123,16 +123,18 @@ class StatsList extends Component {
         }
 
         this.chartData.push({timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur});
-      
+        
+        this.setState({
+          chartData: chartData,
+        });
+        
       }
       //console.log(this.chartData);
     }else{
       console.log("Stat or page are null");
     }
 
-    this.setState({
-      chartData: chartData,
-    });
+
 
   }
 
