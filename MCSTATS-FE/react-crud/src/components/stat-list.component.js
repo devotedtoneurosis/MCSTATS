@@ -36,6 +36,7 @@ class StatsList extends Component {
   componentDidMount() {
     this.retrieveStatsByProject();
     this.retrievePagesByProject(); 
+    this.updateStatistics();
   }
 
   retrieveStatsByProject() {
@@ -151,12 +152,6 @@ class StatsList extends Component {
             Trend Data
         </h2>
 
-        <button
-            className="m-3 btn "
-            onClick={this.updateStatistics(stats,pages)}
-          >
-            Update
-          </button>
 
         <ComposedChart
           width={1200}
