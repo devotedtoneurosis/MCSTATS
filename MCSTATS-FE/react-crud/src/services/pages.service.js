@@ -26,7 +26,6 @@ class PagesDataService {
   }
 
   findByProject(project_id) {
-    console.log("Checking api for proj:"+project_id);
     return http.get(`/pages/project_id/${project_id}`);
   }
 }

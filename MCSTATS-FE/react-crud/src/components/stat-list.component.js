@@ -59,10 +59,10 @@ class StatsList extends Component {
 
     for (let x=0;x<pa.length;x++){
       
-      console.log(pa[x]);
+      //console.log(pa[x]);
 
-      console.log(timestamp.toString());
-      console.log(pa[x].date);
+      //console.log(timestamp.toString());
+      //console.log(pa[x].date);
 
       var m = moment(timestamp.toString(),"YYYY-MM-DDTHH:mm");
       var m2 = moment(pa[x].date,"YYYY-MM-DDTHH:mm");
@@ -70,15 +70,15 @@ class StatsList extends Component {
       var d = moment.duration(ms);
       var s = (Math.floor(d.asHours())*60) + Number(moment.utc(ms).format("mm"));
 
-      console.log("Timedif:"+s);
+      //console.log("Timedif:"+s);
       if(nearest == -1){nearest = s+1;}
-      console.log("Nearest:"+nearest.toString());
+      //console.log("Nearest:"+nearest.toString());
 
-      console.log("Already used:"+usedPages.includes(pa[x]).toString());
+      //console.log("Already used:"+usedPages.includes(pa[x]).toString());
 
       if (s < nearest && usedPages.includes(pa[x]) == false){
-        console.log("Found nearest");
-        console.log(pa[x]);
+        //console.log("Found nearest");
+        //console.log(pa[x]);
         usedPages.push(pa[x]);
         nearestPage = pa[x];
         nearest = s;
@@ -94,7 +94,7 @@ class StatsList extends Component {
 
 
     if (typeof st !== 'undefined' && typeof pa !== 'undefined' && st !== null && pa !== null && st.length > 0 ){
-      console.log("Stats and pages are defined");
+      //console.log("Stats and pages are defined");
       var usedPages = [];
       this.chartData = new Array(st.length);
 
@@ -119,7 +119,7 @@ class StatsList extends Component {
         this.chartData.push({timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur});
       
       }
-      console.log(this.chartData);
+      //console.log(this.chartData);
     }else{
       console.log("Stat or page are null");
     }
@@ -134,6 +134,7 @@ class StatsList extends Component {
 
     //console.log("STATS:"+stats);
     //console.log("PAGES:"+pages);
+    console.log(chartData);
 
     return (
 
