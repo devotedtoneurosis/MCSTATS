@@ -52,23 +52,18 @@ class StatsList extends Component {
   }
 
   refreshData() {
-    //this.setState({
-    //  pages: this.state.pages,
-    //  stats: this.state.stats,
-    //});
-
-
+    this.updateStatistics();
   }
 
   getNearestPage(timestamp, usedPages){
 
     var nearestInd = 0;
-    var nearest = this.props.pages[nearestInd].timestamp;
+    var nearest = this.props.pages[nearestInd].date;
     var nearestPage = null;
 
     for (let x=0;x<this.props.pages.length;x++){
       
-      var ms = Moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(Moment(this.props.pages[x].timestamp,"DD/MM/YYYY HH:mm:ss"));
+      var ms = Moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(Moment(this.props.pages[x].date,"DD/MM/YYYY HH:mm:ss"));
       var d = Moment.duration(ms);
       var s = Math.floor(d.asHours()) + Moment.utc(ms).format(":mm:ss");
 
@@ -104,7 +99,7 @@ class StatsList extends Component {
       }
     }
 
-    return chartData;
+    this.props.chartData = chartData;
 
   }
 
@@ -114,7 +109,7 @@ class StatsList extends Component {
 
   render() {
     const { stats,pages } = this.props;
-    const { chartData } = this.updateStatistics();
+    const { chartData } = this.chartData;
 
     console.log("STATS:"+stats);
     console.log("PAGES:"+pages);
