@@ -28,7 +28,7 @@ class StatsList extends Component {
     this.state = {
       pages: null,
       stats: null,
-      chartData: null,
+      chartData: [],
       statDistribution: [],
       pageDistribution: [],
       yearIndex: -1,
