@@ -79,10 +79,10 @@ class StatsList extends Component {
 
     var usedPages = [];
 
-    if(this.props.stats != null){
-      for (let x = 0; x < this.props.stats.length; x++) {
+    if(this.state.stats != null){
+      for (let x = 0; x < this.state.stats.length; x++) {
 
-        var stat = this.props.stats[x];
+        var stat = this.state.stats[x];
         var page = this.getNearestPage(stat.timestamp,usedPages);
         usedPages.append(page);
 
