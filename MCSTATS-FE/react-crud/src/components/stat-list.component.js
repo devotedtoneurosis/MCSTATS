@@ -52,7 +52,7 @@ class StatsList extends Component {
   }
 
   refreshData() {
-    this.updateStatistics();
+    
   }
 
   getNearestPage(timestamp, usedPages){
@@ -158,6 +158,7 @@ class StatsList extends Component {
 
 const mapStateToProps = (state) => {
   console.log(state);
+  this.updateStatistics();
   return {
     pages: state.pages,
     stats: state.stats,
