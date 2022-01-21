@@ -199,6 +199,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  retrieveStatsByProject,
   retrievePagesByProject,
+  retrieveStatsByProject,
 })(StatsList);
