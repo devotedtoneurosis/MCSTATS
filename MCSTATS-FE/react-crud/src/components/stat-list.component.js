@@ -68,9 +68,9 @@ class StatsList extends Component {
 
     for (let x=0;x<this.props.pages.length;x++){
       
-      var ms = Moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(moment(this.props.pages[x].timestamp,"DD/MM/YYYY HH:mm:ss"));
+      var ms = Moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(Moment(this.props.pages[x].timestamp,"DD/MM/YYYY HH:mm:ss"));
       var d = Moment.duration(ms);
-      var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+      var s = Math.floor(d.asHours()) + Moment.utc(ms).format(":mm:ss");
 
       if (s < nearest && usedPages.includes(this.props.pages[x]) == false){
         nearestPage = this.props.pages[x];
