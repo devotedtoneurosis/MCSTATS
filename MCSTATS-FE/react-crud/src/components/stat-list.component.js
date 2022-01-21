@@ -80,7 +80,7 @@ class StatsList extends Component {
 
   updateStatistics() {
 
-    chartData = [];
+    this.chartData = [];
     var usedPages = [];
 
     if(this.props.stats != null){
@@ -94,11 +94,12 @@ class StatsList extends Component {
           {timestamp: stat.timestamp, player_count: stat.player_count, weight: page.weight, url: page.url}
         ];
 
-        chartData.append(chartEntry);
+        console.log(chartEntry);
+        this.chartData.append(chartEntry);
       
       }
     }
-    console.log(chartData);
+    console.log(this.chartData);
 
   }
 
