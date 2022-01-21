@@ -116,12 +116,8 @@ class StatsList extends Component {
           }
         }
 
-        const chartEntry = [
-          {timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur}
-        ];
-
         console.log(chartEntry);
-        this.chartData.push(chartEntry);
+        this.chartData.push({timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur});
       
       }
       console.log(this.chartData);
