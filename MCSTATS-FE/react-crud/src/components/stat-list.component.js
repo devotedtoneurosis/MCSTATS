@@ -15,6 +15,8 @@ import CartesianGrid from '@bit/recharts.recharts.cartesian-grid';
 import Tooltip from '@bit/recharts.recharts.tooltip';
 import Legend from '@bit/recharts.recharts.legend';
 import Scatter from '@bit/recharts.recharts.scatter';
+import Moment from 'react-moment';
+
 
 class StatsList extends Component {
   constructor(props) {
@@ -60,14 +62,14 @@ class StatsList extends Component {
 
   getNearestPage(timestamp, usedPages){
 
-    nearestInd = 0;
-    nearest = this.props.pages[nearestInd].timestamp;
-    nearestPage = null;
+    var nearestInd = 0;
+    var nearest = this.props.pages[nearestInd].timestamp;
+    var nearestPage = null;
 
     for (let x=0;x<this.props.pages.length;x++){
       
-      var ms = moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(moment(this.props.pages[x].timestamp,"DD/MM/YYYY HH:mm:ss"));
-      var d = moment.duration(ms);
+      var ms = Moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(moment(this.props.pages[x].timestamp,"DD/MM/YYYY HH:mm:ss"));
+      var d = Moment.duration(ms);
       var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
 
       if (s < nearest && usedPages.includes(this.props.pages[x]) == false){
@@ -83,14 +85,14 @@ class StatsList extends Component {
 
   updateStatistics() {
 
-    chartData = [];
-    usedPages = [];
+    var chartData = [];
+    var usedPages = [];
 
     if(this.props.stats != null){
       for (let x = 0; x < this.props.stats.length; x++) {
 
-        stat = this.props.stats[x];
-        page = this.getNearestPage(stat.timestamp,usedPages);
+        var stat = this.props.stats[x];
+        var page = this.getNearestPage(stat.timestamp,usedPages);
         usedPages.append(page);
 
         const chartEntry = [
