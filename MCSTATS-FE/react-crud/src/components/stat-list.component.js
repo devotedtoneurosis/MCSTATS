@@ -54,12 +54,12 @@ class StatsList extends Component {
   getNearestPage(timestamp, pa, usedPages){
 
     var nearestInd = 0;
-    var nearest = pa[nearestInd].date;
+    var nearest = pa[nearestInd].timestamp;
     var nearestPage = null;
 
     for (let x=0;x<pa.length;x++){
       
-      var ms = moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(moment(pa[x].date,"DD/MM/YYYY HH:mm:ss"));
+      var ms = moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(moment(pa[x].timestamp,"DD/MM/YYYY HH:mm:ss"));
       var d = moment.duration(ms);
       var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
 
