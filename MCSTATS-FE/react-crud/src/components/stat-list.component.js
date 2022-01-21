@@ -36,7 +36,7 @@ class StatsList extends Component {
   componentDidMount() {
     this.retrieveStatsByProject();
     this.retrievePagesByProject(); 
-    this.updateStatistics();
+    this.refreshData
   }
 
   retrieveStatsByProject() {
@@ -47,10 +47,10 @@ class StatsList extends Component {
     this.props.retrievePagesByProject(this.props.project_id);
   }
 
-  refreshData(data) {
+  refreshData() {
     this.setState({
-      chartData: data,
-    });
+      yearIndex: -1,
+    },this.updateStatistics);
   }
 
   
@@ -130,7 +130,10 @@ class StatsList extends Component {
       console.log("Stat or page are null");
     }
 
-    this.refreshData(this.chartData);
+    this.setState({
+      chartData: chartData,
+    });
+
   }
 
   
