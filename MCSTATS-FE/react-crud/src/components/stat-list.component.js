@@ -36,7 +36,7 @@ class StatsList extends Component {
   componentDidMount() {
     this.retrieveStatsByProject();
     this.retrievePagesByProject(); 
-    this.refreshData
+    this.refreshData();
   }
 
   retrieveStatsByProject() {
