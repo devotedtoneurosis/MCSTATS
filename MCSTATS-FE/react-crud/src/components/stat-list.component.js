@@ -15,7 +15,7 @@ import CartesianGrid from '@bit/recharts.recharts.cartesian-grid';
 import Tooltip from '@bit/recharts.recharts.tooltip';
 import Legend from '@bit/recharts.recharts.legend';
 import Scatter from '@bit/recharts.recharts.scatter';
-import Moment from 'react-moment';
+import { moment} from 'react-moment';
 
 
 var chartData = [];
@@ -63,9 +63,9 @@ class StatsList extends Component {
 
     for (let x=0;x<this.props.pages.length;x++){
       
-      var ms = Moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(Moment(this.props.pages[x].date,"DD/MM/YYYY HH:mm:ss"));
-      var d = Moment.duration(ms);
-      var s = Math.floor(d.asHours()) + Moment.utc(ms).format(":mm:ss");
+      var ms = moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(moment(this.props.pages[x].date,"DD/MM/YYYY HH:mm:ss"));
+      var d = moment.duration(ms);
+      var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
 
       if (s < nearest && usedPages.includes(this.props.pages[x]) == false){
         nearestPage = this.props.pages[x];
