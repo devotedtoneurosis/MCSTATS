@@ -108,8 +108,7 @@ class StatsList extends Component {
 
 
   render() {
-    const { stats,pages } = this.props;
-    const { chartData } = this.chartData;
+    const { stats,pages,chartData } = this.props;
 
     console.log("STATS:"+stats);
     console.log("PAGES:"+pages);
