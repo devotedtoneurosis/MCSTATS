@@ -18,7 +18,7 @@ import Scatter from '@bit/recharts.recharts.scatter';
 import Moment from 'react-moment';
 
 
-const chartData = [];
+var chartData = [];
 class StatsList extends Component {
   constructor(props) {
     super(props);
