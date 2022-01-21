@@ -16,7 +16,6 @@ import Legend from '@bit/recharts.recharts.legend';
 import Scatter from '@bit/recharts.recharts.scatter';
 
   
-var chartData = [];
 class StatsList extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +28,7 @@ class StatsList extends Component {
       stats: null,
       statDistribution: [],
       pageDistribution: [],
+      chartData: [],
       yearIndex: -1,
     };
   }
@@ -46,9 +46,13 @@ class StatsList extends Component {
     this.props.retrievePagesByProject(this.props.project_id);
   }
 
-  refreshData() {
-    
+  refreshData(data) {
+    this.setState({
+      chartData: data,
+    });
   }
+
+  
 
   getNearestPage(timestamp, pa, usedPages){
 
@@ -92,6 +96,7 @@ class StatsList extends Component {
 
   updateStatistics(st,pa) {
 
+    chartData = null;
 
     if (typeof st !== 'undefined' && typeof pa !== 'undefined' && st !== null && pa !== null && st.length > 0 ){
       //console.log("Stats and pages are defined");
@@ -124,7 +129,7 @@ class StatsList extends Component {
       console.log("Stat or page are null");
     }
 
-    this.refreshData();
+    this.refreshData(this.chartData);
   }
 
   
@@ -132,12 +137,12 @@ class StatsList extends Component {
 
 
   render() {
-    const { stats,pages } = this.props;
+    const { stats,pages,chartData } = this.props;
 
     //console.log("STATS:"+stats);
     //console.log("PAGES:"+pages);
 
-    console.log(this.chartData);
+    console.log(chartData);
 
     return (
 
@@ -156,7 +161,7 @@ class StatsList extends Component {
         <ComposedChart
           width={1200}
           height={400}
-          data={this.chartData}
+          data={chartData}
           margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
