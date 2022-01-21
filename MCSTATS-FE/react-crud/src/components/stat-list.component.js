@@ -34,8 +34,8 @@ class StatsList extends Component {
   }
 
   componentDidMount() {
-    this.retrieveStatsByProject();
     this.retrievePagesByProject(); 
+    this.retrieveStatsByProject(); 
     this.refreshData();
   }
 
@@ -123,7 +123,7 @@ class StatsList extends Component {
         }
 
         this.chartData.push({timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur});
-        
+
         this.setState({
           chartData: chartData,
         });
