@@ -18,6 +18,7 @@ import Scatter from '@bit/recharts.recharts.scatter';
 import Moment from 'react-moment';
 
 
+const chartData = [];
 class StatsList extends Component {
   constructor(props) {
     super(props);
@@ -28,12 +29,13 @@ class StatsList extends Component {
     this.state = {
       pages: null,
       stats: null,
-      chartData: [],
       statDistribution: [],
       pageDistribution: [],
       yearIndex: -1,
     };
   }
+
+  const chartData 
 
   componentDidMount() {
     this.retrieveStatsByProject();
@@ -80,7 +82,7 @@ class StatsList extends Component {
 
   updateStatistics() {
 
-    var chartData = [];
+    chartData = [];
     var usedPages = [];
 
     if(this.props.stats != null){
@@ -98,8 +100,7 @@ class StatsList extends Component {
       
       }
     }
-
-    this.props.chartData = chartData;
+    console.log(chartData);
 
   }
 
