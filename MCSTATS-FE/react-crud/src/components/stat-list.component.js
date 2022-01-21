@@ -77,7 +77,6 @@ class StatsList extends Component {
 
   updateStatistics() {
 
-    this.chartData = [];
     var usedPages = [];
 
     if(this.props.stats != null){
