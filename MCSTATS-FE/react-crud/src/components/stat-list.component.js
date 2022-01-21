@@ -159,7 +159,7 @@ class StatsList extends Component {
 
         <button
             className="m-3 btn btn-sm btn-danger"
-            onClick={this.updateStatistics(stats,pages)}
+            //onClick={this.updateStatistics(stats,pages)}
           >
             Get Stats
           </button>
