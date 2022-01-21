@@ -100,7 +100,7 @@ class StatsList extends Component {
     var chartData = null;
 
     if (typeof st !== 'undefined' && typeof pa !== 'undefined' && st !== null && pa !== null && st.length > 0 ){
-      //console.log("Stats and pages are defined");
+      console.log("Stats and pages are defined");
       var usedPages = [];
       this.chartData = new Array(st.length);
 
@@ -146,7 +146,7 @@ class StatsList extends Component {
     //console.log("STATS:"+stats);
     //console.log("PAGES:"+pages);
 
-    console.log(chartData);
+    console.log(this.state.chartData);
 
     return (
 
@@ -159,7 +159,7 @@ class StatsList extends Component {
         <ComposedChart
           width={1200}
           height={400}
-          data={chartData}
+          data={this.state.chartData}
           margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
