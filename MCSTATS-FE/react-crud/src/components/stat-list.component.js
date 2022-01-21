@@ -58,43 +58,51 @@ class StatsList extends Component {
 
   }
 
-  
+  getNearestPage(timestamp, usedPages){
+
+    nearestInd = 0;
+    nearest = this.props.pages[nearestInd].timestamp;
+    nearestPage = null;
+
+    for (let x=0;x<this.props.pages.length;x++){
+      
+      var ms = moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(moment(this.props.pages[x].timestamp,"DD/MM/YYYY HH:mm:ss"));
+      var d = moment.duration(ms);
+      var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
+
+      if (s < nearest && usedPages.includes(this.props.pages[x]) == false){
+        nearestPage = this.props.pages[x];
+        nearest = s;
+      }
+    }
+
+    return nearestPage;
+
+  }
 
 
   updateStatistics() {
 
     chartData = [];
+    usedPages = [];
 
     if(this.props.stats != null){
       for (let x = 0; x < this.props.stats.length; x++) {
-        
+
+        stat = this.props.stats[x];
+        page = this.getNearestPage(stat.timestamp,usedPages);
+        usedPages.append(page);
+
+        const chartEntry = [
+          {timestamp: stat.timestamp, player_count: stat.player_count, weight: page.weight, url: page.url}
+        ];
+
+        chartData.append(chartEntry);
       
       }
     }
 
-    const data = [
-      {
-        name: 'Page A', uv: 590, pv: 800, amt: 1400,
-      },
-      {
-        name: 'Page B', uv: 868, pv: 967, amt: 1506,
-      },
-      {
-        name: 'Page C', uv: 1397, pv: 1098, amt: 989,
-      },
-      {
-        name: 'Page D', uv: 1480, pv: 1200, amt: 1228,
-      },
-      {
-        name: 'Page E', uv: 1520, pv: 1108, amt: 1100,
-      },
-      {
-        name: 'Page F', uv: 1400, pv: 680, amt: 1700,
-      },
-    ];
-
-
-    =
+    return chartData;
 
   }
 
@@ -104,9 +112,10 @@ class StatsList extends Component {
 
   render() {
     const { stats,pages } = this.props;
+    const { chartData } = this.updateStatistics();
+
     console.log("STATS:"+stats);
     console.log("PAGES:"+pages);
-    //this.updateStatistics();
 
     return (
 
@@ -117,7 +126,7 @@ class StatsList extends Component {
         <ComposedChart
           width={1200}
           height={400}
-          data={stats}
+          data={chartData}
           margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
@@ -127,24 +136,10 @@ class StatsList extends Component {
           <YAxis dataKey="player_count"/>
           <Tooltip />
           <Legend />
-          <Line type="monotone" data={stats} dataKey="player_count" stroke="#ff7300" />
+          <Line type="monotone"  dataKey="player_count" stroke="#ff7300" />
+          <Scatter dataKey="weight" fill="red" />
         </ComposedChart>
 
-        <ComposedChart
-          width={1200}
-          height={400}
-          data={pages}
-          margin={{
-            top: 20, right: 20, bottom: 20, left: 20,
-          }}
-        >
-          <CartesianGrid stroke="#f5f5f5" />
-          <XAxis dataKey="date" />
-          <YAxis dataKey="weight"/>
-          <Tooltip />
-          <Legend />
-          <Scatter data={pages} dataKey="weight" fill="red" />
-        </ComposedChart>
 
         {/* <ResponsiveContainer width="100%" aspect={3}>
           <LineChart data={stats} margin={{ right: 300 }}>
