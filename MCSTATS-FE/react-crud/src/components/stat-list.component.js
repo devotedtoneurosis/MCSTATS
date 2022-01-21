@@ -53,7 +53,7 @@ class StatsList extends Component {
   getNearestPage(timestamp, pa, usedPages){
 
     const moment = require('moment')
-    
+
     var nearestInd = 0;
     var nearest = pa[nearestInd].timestamp;
     var nearestPage = null;
@@ -96,7 +96,7 @@ class StatsList extends Component {
         var stat = st[x];
         if(typeof pa[x] != 'undefined'){
           var page = this.getNearestPage(stat.timestamp,pa,usedPages);
-          usedPages.append(page);
+          usedPages.push(page);
           wt = page.weight;
           ur = page.url;
         }
