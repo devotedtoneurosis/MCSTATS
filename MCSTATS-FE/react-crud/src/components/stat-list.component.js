@@ -38,21 +38,19 @@ class StatsList extends Component {
   componentDidMount() {
     this.retrieveStatsByProject();
     this.retrievePagesByProject(); 
-
+    this.refreshData();
   }
 
   retrieveStatsByProject() {
     this.props.retrieveStatsByProject(this.props.project_id);
-    this.refreshData();
   }
 
   retrievePagesByProject() {
     this.props.retrievePagesByProject(this.props.project_id);
-    this.refreshData();
   }
 
   refreshData() {
-    
+    this.updateStatistics();
   }
 
   getNearestPage(timestamp, usedPages){
@@ -158,7 +156,6 @@ class StatsList extends Component {
 
 const mapStateToProps = (state) => {
   console.log(state);
-  this.updateStatistics();
   return {
     pages: state.pages,
     stats: state.stats,
