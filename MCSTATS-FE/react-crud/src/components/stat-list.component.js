@@ -116,7 +116,6 @@ class StatsList extends Component {
           }
         }
 
-        console.log(chartEntry);
         this.chartData.push({timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur});
       
       }
