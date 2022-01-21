@@ -37,7 +37,6 @@ class StatsList extends Component {
   componentDidMount() {
     this.retrieveStatsByProject();
     this.retrievePagesByProject(); 
-    this.updateStatistics();
   }
 
   retrieveStatsByProject() {
@@ -52,20 +51,20 @@ class StatsList extends Component {
     
   }
 
-  getNearestPage(timestamp, usedPages){
+  getNearestPage(timestamp, pa, usedPages){
 
     var nearestInd = 0;
-    var nearest = this.props.pages[nearestInd].date;
+    var nearest = pa[nearestInd].date;
     var nearestPage = null;
 
-    for (let x=0;x<this.props.pages.length;x++){
+    for (let x=0;x<pa.length;x++){
       
-      var ms = moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(moment(this.props.pages[x].date,"DD/MM/YYYY HH:mm:ss"));
+      var ms = moment(timestamp,"DD/MM/YYYY HH:mm:ss").diff(moment(pa[x].date,"DD/MM/YYYY HH:mm:ss"));
       var d = moment.duration(ms);
       var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
 
-      if (s < nearest && usedPages.includes(this.props.pages[x]) == false){
-        nearestPage = this.props.pages[x];
+      if (s < nearest && usedPages.includes(pa[x]) == false){
+        nearestPage = pa[x];
         nearest = s;
       }
     }
@@ -75,15 +74,15 @@ class StatsList extends Component {
   }
 
 
-  updateStatistics() {
+  updateStatistics(st,pa) {
 
     var usedPages = [];
 
-    if(this.stats != null){
-      for (let x = 0; x < this.stats.length; x++) {
+    if(st != null){
+      for (let x = 0; x < st.length; x++) {
 
-        var stat = this.stats[x];
-        var page = this.getNearestPage(stat.timestamp,usedPages);
+        var stat = st[x];
+        var page = this.getNearestPage(stat.timestamp,pa,usedPages);
         usedPages.append(page);
 
         const chartEntry = [
@@ -118,7 +117,7 @@ class StatsList extends Component {
 
         <button
             className="m-3 btn "
-            onClick={this.updateStatistics}
+            onClick={this.updateStatistics(stats,pages)}
           >
             Update
           </button>
