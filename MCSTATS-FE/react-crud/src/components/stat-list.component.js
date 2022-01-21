@@ -14,7 +14,7 @@ import CartesianGrid from '@bit/recharts.recharts.cartesian-grid';
 import Tooltip from '@bit/recharts.recharts.tooltip';
 import Legend from '@bit/recharts.recharts.legend';
 import Scatter from '@bit/recharts.recharts.scatter';
-import { moment} from 'react-moment';
+import moment from 'react-moment';
 
 
 var chartData = [];
