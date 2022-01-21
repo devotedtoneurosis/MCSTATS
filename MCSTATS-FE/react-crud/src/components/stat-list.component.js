@@ -82,7 +82,7 @@ class StatsList extends Component {
       for (let x = 0; x < st.length; x++) {
 
         var stat = st[x];
-        console.log(stat);
+        console.log(pa);
         var page = this.getNearestPage(stat.timestamp,pa,usedPages);
         usedPages.append(page);
 
