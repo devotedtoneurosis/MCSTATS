@@ -108,9 +108,9 @@ class StatsList extends Component {
         if(typeof pa != 'undefined' && pa != null && pa.length > 0){
           console.log(pa);
           var page = this.getNearestPage(stat.timestamp,pa,usedPages);
-          usedPages.push(page);
-          console.log(page);
           if(page != null){
+            usedPages.push(page[0]);
+            console.log(page[0]);
             wt = page.weight;
             ur = page.url;
           }
