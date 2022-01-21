@@ -60,6 +60,8 @@ class StatsList extends Component {
 
     for (let x=0;x<pa.length;x++){
       
+      console.log(pa[x]);
+
       var m = moment(timestamp.toString(),"DD/MM/YYYY HH:mm:ss");
       var m2 = moment(pa[x].timestamp,"DD/MM/YYYY HH:mm:ss");
       var ms = m.diff(m2);
@@ -95,6 +97,7 @@ class StatsList extends Component {
 
         var stat = st[x];
         if(typeof pa != 'undefined' && pa != null && pa.length > 0){
+          console.log(pa);
           var page = this.getNearestPage(stat.timestamp,pa,usedPages);
           usedPages.push(page);
           console.log(page);
