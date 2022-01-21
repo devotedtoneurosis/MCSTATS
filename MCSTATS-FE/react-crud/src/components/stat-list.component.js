@@ -67,6 +67,8 @@ class StatsList extends Component {
       var s = Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
 
       if (s < nearest && usedPages.includes(pa[x]) == false){
+        console.log("Found nearest");
+        console.log(pa[x]);
         nearestPage = pa[x];
         nearest = s;
       }
