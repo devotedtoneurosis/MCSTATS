@@ -50,7 +50,7 @@ class StatsList extends Component {
   refreshData() {
     this.setState({
       yearIndex: -1,
-    },this.updateStatistics);
+    },this.updateStatistics());
   }
 
   
