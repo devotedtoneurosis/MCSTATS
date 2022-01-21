@@ -137,7 +137,7 @@ class StatsList extends Component {
     //console.log("STATS:"+stats);
     //console.log("PAGES:"+pages);
 
-    console.log(this.state.chartData);
+    console.log(this.chartData);
 
     return (
 
@@ -156,7 +156,7 @@ class StatsList extends Component {
         <ComposedChart
           width={1200}
           height={400}
-          data={this.state.chartData}
+          data={this.chartData}
           margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
