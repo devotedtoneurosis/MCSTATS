@@ -106,7 +106,7 @@ class StatsList extends Component {
 
         var stat = st[x];
         if(typeof pa != 'undefined' && pa != null && pa.length > 0){
-          console.log(pa);
+          //console.log(pa);
           var page = this.getNearestPage(stat.timestamp,pa,usedPages);
           if(page != null){
             usedPages.push(page[0]);
@@ -123,6 +123,8 @@ class StatsList extends Component {
     }else{
       console.log("Stat or page are null");
     }
+
+    this.refreshData();
   }
 
   
@@ -134,6 +136,7 @@ class StatsList extends Component {
 
     //console.log("STATS:"+stats);
     //console.log("PAGES:"+pages);
+
     console.log(chartData);
 
     return (
