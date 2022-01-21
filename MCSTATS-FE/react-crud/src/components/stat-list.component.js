@@ -50,7 +50,7 @@ class StatsList extends Component {
   refreshData() {
     this.setState({
       yearIndex: -1,
-    },this.updateStatistics());
+    },this.updateStatistics(this.state.stats,this.state.pages));
   }
 
   
@@ -159,7 +159,7 @@ class StatsList extends Component {
 
         <button
             className="m-3 btn btn-sm btn-danger"
-            onClick={this.updateStatistics}
+            onClick={this.updateStatistics(stats,pages)}
           >
             Get Stats
           </button>
