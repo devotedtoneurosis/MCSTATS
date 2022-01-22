@@ -55,7 +55,7 @@ class StatsList extends Component {
 
 
   getData() {
-    if(this.props.chartData == null){
+    if(this.state.chartData == null){
       console.log("Getting data...");
       this.updateStatistics();
     }
@@ -109,7 +109,8 @@ class StatsList extends Component {
     if (typeof st !== 'undefined' && typeof pa !== 'undefined' && st !== null && pa !== null && st.length > 0 ){
       console.log("Stats and pages are defined");
       var usedPages = [];
-      var chartData = new Array(st.length);
+      let chartData = {...this.state.chartData};
+      chartData = new Array(st.length);
 
 
       for (let x = 0; x < st.length; x++) {
