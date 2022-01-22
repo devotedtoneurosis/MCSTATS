@@ -133,7 +133,7 @@ class StatsList extends Component {
           }
         }
 
-        this.chartData.push({timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur});
+        chartData.push({timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur});
 
         this.setState({
           chartData: chartData,
