@@ -121,12 +121,7 @@ class StatsList extends Component {
       console.log("Stat or page are null");
     }
 
-
-
   }
-
-  
-
 
 
   render() {
@@ -198,4 +193,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
+  retrieveStatsByProject,
+  retrievePagesByProject,
 })(StatsList);
