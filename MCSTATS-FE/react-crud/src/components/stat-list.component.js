@@ -102,9 +102,10 @@ class StatsList extends Component {
 
 
   updateStatistics() {
+    const moment = require('moment')
+
     var st = this.props.stats;
     var pa = this.props.pages;
-
 
     if (typeof st !== 'undefined' && typeof pa !== 'undefined' && st !== null && pa !== null && st.length > 0 ){
       console.log("Stats and pages are defined");
@@ -131,7 +132,8 @@ class StatsList extends Component {
           }
         }
 
-        chartData.push({timestamp: moment(stat.timestamp.toString(),"YYYY-MM-DDTHH:mm").utc(ms).format("MM-DD HH:mm"), player_count: stat.player_count, weight: wt, url: ur});
+        var ts = moment(stat.timestamp.toString(),"YYYY-MM-DDTHH:mm");
+        chartData.push({timestamp: moment.utc(ts).format("MM-DD HH:mm"), player_count: stat.player_count, weight: wt, url: ur});
 
         
       }
