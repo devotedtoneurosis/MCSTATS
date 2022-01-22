@@ -35,12 +35,14 @@ class StatsList extends Component {
   }
 
   retrievePagesByProject(){
+    console.log("Grabbing Pages...");
     this.props.retrievePagesByProject(this.props.project_id).then(
       res => this.getData
     ); 
   }
 
   retrieveStatsByProject(){
+    console.log("Grabbing Stats...");
     this.props.retrievePagesByProject(this.props.project_id).then(
       res => this.getData
     ); 
