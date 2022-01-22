@@ -22,6 +22,7 @@ class StatsList extends Component {
     this.retrieveStatsByProject = this.retrieveStatsByProject.bind(this);
     this.retrievePagesByProject = this.retrievePagesByProject.bind(this);
     this.updateStatistics = this.updateStatistics.bind(this);
+    this.getData = this.getData.bind(this);
 
     this.state = {
       pages: null,
@@ -56,9 +57,6 @@ class StatsList extends Component {
   getData() {
     console.log("Getting data...");
     this.updateStatistics();
-    this.state = {
-      isLoading: false,
-    };
   }
 
   getNearestPage(timestamp, pa, usedPages){
@@ -138,6 +136,7 @@ class StatsList extends Component {
 
         this.setState({
           chartData: chartData,
+          isLoading: false,
         });
         
       }
