@@ -31,9 +31,11 @@ class StatsList extends Component {
   }
 
   componentDidMount(){
-    retrievePagesByProject();
-    retrieveStatsByProject();
+    console.log("Did mount");
+    this.retrievePagesByProject();
+    this.retrieveStatsByProject();
   }
+
 
   retrievePagesByProject(){
     console.log("Grabbing Pages...");
