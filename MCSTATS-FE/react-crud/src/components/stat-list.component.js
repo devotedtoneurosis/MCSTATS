@@ -102,6 +102,9 @@ class StatsList extends Component {
 
   updateStatistics(st,pa) {
 
+    console.log(st);
+    console.log(pa);
+
     var chartData = null;
 
     if (typeof st !== 'undefined' && typeof pa !== 'undefined' && st !== null && pa !== null && st.length > 0 ){
