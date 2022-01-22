@@ -21,6 +21,7 @@ class StatsList extends Component {
     super(props);
     this.retrieveStatsByProject = this.retrieveStatsByProject.bind(this);
     this.retrievePagesByProject = this.retrievePagesByProject.bind(this);
+    this.updateStatistics = this.updateStatistics.bind(this);
 
     this.state = {
       pages: null,
