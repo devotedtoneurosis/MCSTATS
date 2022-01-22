@@ -55,7 +55,7 @@ class StatsList extends Component {
 
 
   getData() {
-    while(this.props.chartData == null){
+    if(this.props.chartData == null){
       console.log("Getting data...");
       this.updateStatistics();
     }
@@ -102,10 +102,6 @@ class StatsList extends Component {
 
 
   updateStatistics() {
-
-    console.log(this.props.stats);
-    console.log(this.props.pages);
-
     var st = this.props.stats;
     var pa = this.props.pages;
 
