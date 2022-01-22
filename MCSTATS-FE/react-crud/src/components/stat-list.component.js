@@ -102,8 +102,8 @@ class StatsList extends Component {
 
   updateStatistics() {
 
-    st = this.state.stats;
-    pa = this.state.pages;
+    var st = this.state.stats;
+    var pa = this.state.pages;
 
     console.log(st);
     console.log(pa);
