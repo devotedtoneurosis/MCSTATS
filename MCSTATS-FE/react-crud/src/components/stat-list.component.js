@@ -154,6 +154,20 @@ class StatsList extends Component {
 
     console.log(chartData);
 
+    const data = [
+      { time: "00:00", temp: -5, rain: 0 },
+      { time: "03:00", temp: -2, rain: 0 },
+      { time: "06:00", temp: -1, rain: 0 },
+      { time: "09:00", temp: 0, rain: 0 },
+      { time: "12:00", temp: 2, rain: 3 },
+      { time: "15:00", temp: 4, rain: 10 },
+      { time: "18:00", temp: 5, rain: 3 },
+      { time: "21:00", temp: 3, rain: 0 },
+      { time: "00:00", temp: 0, rain: 0 },
+  
+    ]
+    console.log(data);
+
     return (
 
       <>
