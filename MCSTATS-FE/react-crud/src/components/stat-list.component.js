@@ -110,7 +110,7 @@ class StatsList extends Component {
       console.log("Stats and pages are defined");
       var usedPages = [];
       let chartData = {...this.state.chartData};
-      chartData = new Array(st.length);
+      chartData = [];
 
 
       for (let x = 0; x < st.length; x++) {
@@ -119,7 +119,7 @@ class StatsList extends Component {
         var ur = "";
 
         var stat = st[x];
-        
+
         if(typeof pa != 'undefined' && pa != null && pa.length > 0){
           //console.log(pa);
           var page = this.getNearestPage(stat.timestamp,pa,usedPages);
