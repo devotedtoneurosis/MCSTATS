@@ -42,6 +42,7 @@ class StatsList extends Component {
 
   retrievePagesByProject() {
     this.props.retrievePagesByProject(this.props.project_id);
+    return Promise.resolve(true);
   }
 
 
