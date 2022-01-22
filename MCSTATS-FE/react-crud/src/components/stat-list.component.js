@@ -54,7 +54,7 @@ class StatsList extends Component {
 
   getData() {
     console.log("Getting data...");
-    this.updateStatistics(this.state.stats,this.state.pages);
+    this.updateStatistics();
     this.state = {
       isLoading: false,
     };
@@ -100,7 +100,10 @@ class StatsList extends Component {
   }
 
 
-  updateStatistics(st,pa) {
+  updateStatistics() {
+
+    st = this.state.stats;
+    pa = this.state.pages;
 
     console.log(st);
     console.log(pa);
