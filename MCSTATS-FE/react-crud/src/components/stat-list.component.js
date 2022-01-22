@@ -32,24 +32,25 @@ class StatsList extends Component {
 
   componentDidMount(){
     console.log("Did mount");
-    this.retrievePagesByProject();
     this.retrieveStatsByProject();
-  }
-
-
-  retrievePagesByProject(){
-    console.log("Grabbing Pages...");
-    this.props.retrievePagesByProject(this.props.project_id).then(
-      res => this.getData()
-    ); 
   }
 
   retrieveStatsByProject(){
     console.log("Grabbing Stats...");
     this.props.retrievePagesByProject(this.props.project_id).then(
-      res => this.getData()
+      res => this.props.retrieveStatsByProject(this.props.project_id).then(
+        res => this.getData()
+      )
     ); 
   }
+
+
+  retrievePagesByProject(){
+    console.log("Grabbing Pages...");
+    this.props.retrievePagesByProject(this.props.project_id)
+  }
+
+
 
   getData() {
     console.log("Getting data...");
@@ -142,7 +143,7 @@ class StatsList extends Component {
 
 
   render() {
-    const { chartData } = this.props;
+    const { isLoading,chartData } = this.props;
 
     //console.log("STATS:"+stats);
     //console.log("PAGES:"+pages);
