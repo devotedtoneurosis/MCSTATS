@@ -35,20 +35,20 @@ class StatsList extends Component {
   }
 
   retrievePagesByProject(){
-    
+    this.props.retrievePagesByProject(this.props.project_id).then(
+      res => this.getData
+    ); 
   }
 
   retrieveStatsByProject(){
-    this.getData();
+    this.props.retrievePagesByProject(this.props.project_id).then(
+      res => this.getData
+    ); 
   }
 
   getData() {
-    this.props.retrievePagesByProject(this.props.project_id).then(
-      res => this.props.retrieveStatsByProject().then(
-        res => this.updateStatistics(this.state.stats,this.state.pages)
-        )
-      ); 
-
+    console.log("Getting data...");
+    this.updateStatistics(this.state.stats,this.state.pages)
   }
 
   getNearestPage(timestamp, pa, usedPages){
