@@ -116,7 +116,7 @@ class StatsList extends Component {
 
       for (let x = 0; x < st.length; x++) {
 
-        var wt = 0;
+        var wt = null;
         var ur = "";
 
         var stat = st[x];
@@ -165,13 +165,7 @@ class StatsList extends Component {
             Trend Data
         </h2>
 
-        <button
-            className="m-3 btn btn-sm btn-danger"
-            //onClick={this.updateStatistics(stats,pages)}
-          > 
 
-            Get Stats
-          </button>
 
         <ComposedChart
           width={1200}
@@ -183,8 +177,8 @@ class StatsList extends Component {
         >
           <CartesianGrid stroke="#f5f5f5" />
           <XAxis dataKey="timestamp" />
-          <YAxis dataKey="player_count" yAxisId={1} orientation="left"/>
-          <YAxis dataKey="weight" yAxisId={2} orientation="right"/>
+          <YAxis dataKey="player_count" yAxisId={1} orientation="left" label={{ value: 'Players', angle: -90 }}/>
+          <YAxis dataKey="weight" yAxisId={2} orientation="right" label={{ value: 'Post Popularity', angle: -90 }}/>
           <Tooltip />
           <Legend />
           <Line yAxisId={1} type="monotone"  dataKey="player_count" stroke="#ff7300" />
