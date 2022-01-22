@@ -19,7 +19,6 @@ import Scatter from '@bit/recharts.recharts.scatter';
 class StatsList extends Component {
   constructor(props) {
     super(props);
-    this.refreshData = this.refreshData.bind(this);
     this.retrieveStatsByProject = this.retrieveStatsByProject.bind(this);
     this.retrievePagesByProject = this.retrievePagesByProject.bind(this);
 
