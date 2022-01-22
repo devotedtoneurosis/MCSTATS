@@ -140,12 +140,12 @@ class StatsList extends Component {
 
 
   render() {
-    const { stats,pages,chartData } = this.props;
+    const { chartData } = this.props;
 
     //console.log("STATS:"+stats);
     //console.log("PAGES:"+pages);
 
-    console.log(this.state.chartData);
+    console.log(chartData);
 
     return (
 
@@ -165,7 +165,7 @@ class StatsList extends Component {
         <ComposedChart
           width={1200}
           height={400}
-          data={this.state.chartData}
+          data={chartData}
           margin={{
             top: 20, right: 20, bottom: 20, left: 20,
           }}
