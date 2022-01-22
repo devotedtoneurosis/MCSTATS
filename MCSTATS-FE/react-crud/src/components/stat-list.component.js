@@ -39,7 +39,7 @@ class StatsList extends Component {
   }
 
   retrieveStatsByProject(){
-
+    this.getData();
   }
 
   getData() {
