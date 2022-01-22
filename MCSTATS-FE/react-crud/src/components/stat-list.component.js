@@ -113,7 +113,7 @@ class StatsList extends Component {
     if (typeof st !== 'undefined' && typeof pa !== 'undefined' && st !== null && pa !== null && st.length > 0 ){
       console.log("Stats and pages are defined");
       var usedPages = [];
-      this.chartData = new Array(st.length);
+      var chartData = new Array(st.length);
 
 
       for (let x = 0; x < st.length; x++) {
