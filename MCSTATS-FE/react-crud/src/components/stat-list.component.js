@@ -21,6 +21,7 @@ class StatsList extends Component {
     super(props);
     this.retrieveStatsByProject = this.retrieveStatsByProject.bind(this);
     this.retrievePagesByProject = this.retrievePagesByProject.bind(this);
+    this.getData = this.getData.bind(this);
 
     this.state = {
       pages: null,
@@ -33,7 +34,7 @@ class StatsList extends Component {
     };
   }
 
-  componentDidMount() {
+  getData() {
     this.props.retrievePagesByProject(this.props.project_id).then(
       res => this.props.retrieveStatsByProject().then(
         res => this.updateStatistics(this.state.stats,this.state.pages)
@@ -193,6 +194,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  retrieveStatsByProject,
-  retrievePagesByProject,
+  getData,
 })(StatsList);
