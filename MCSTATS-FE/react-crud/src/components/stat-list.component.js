@@ -34,21 +34,12 @@ class StatsList extends Component {
   }
 
   componentDidMount() {
-    this.retrievePagesByProject().then(
-      res => this.retrieveStatsByProject()
+    this.props.retrievePagesByProject(this.props.project_id).then(
+      res => this.props.retrieveStatsByProject().then(
+        res => this.updateStatistics(this.state.stats,this.state.pages)
+        )
       ); 
 
-  }
-
-  retrievePagesByProject() {
-    this.props.retrievePagesByProject(this.props.project_id);
-    return Promise.resolve(true);
-  }
-
-
-  retrieveStatsByProject() {
-    this.props.retrieveStatsByProject(this.props.project_id);
-    this.updateStatistics(this.state.stats,this.state.pages);
   }
 
   getNearestPage(timestamp, pa, usedPages){
@@ -207,6 +198,4 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  retrievePagesByProject,
-  retrieveStatsByProject,
 })(StatsList);
