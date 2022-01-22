@@ -30,13 +30,15 @@ class StatsList extends Component {
       pageDistribution: [],
       chartData: [],
       yearIndex: -1,
+      isLoading: true,
     };
   }
 
   componentDidMount() {
-    this.retrievePagesByProject(); 
-    this.retrieveStatsByProject(); 
-    this.refreshData();
+    this.retrievePagesByProject().then(
+      this.retrieveStatsByProject().then( res => updateStatistics(this.state.stats,this.state.pages))
+      ); 
+
   }
 
   retrieveStatsByProject() {
@@ -47,11 +49,6 @@ class StatsList extends Component {
     this.props.retrievePagesByProject(this.props.project_id);
   }
 
-  refreshData() {
-    this.setState({
-      yearIndex: -1,
-    },this.updateStatistics(this.state.stats,this.state.pages));
-  }
 
   
 
@@ -160,7 +157,8 @@ class StatsList extends Component {
         <button
             className="m-3 btn btn-sm btn-danger"
             //onClick={this.updateStatistics(stats,pages)}
-          >
+          > 
+
             Get Stats
           </button>
 
