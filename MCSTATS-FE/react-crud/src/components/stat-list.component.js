@@ -34,6 +34,14 @@ class StatsList extends Component {
     };
   }
 
+  retrievePagesByProject(){
+    
+  }
+
+  retrieveStatsByProject(){
+
+  }
+
   getData() {
     this.props.retrievePagesByProject(this.props.project_id).then(
       res => this.props.retrieveStatsByProject().then(
@@ -194,5 +202,6 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  getData,
+  retrieveStatsByProject,
+  retrievePagesByProject,
 })(StatsList);
