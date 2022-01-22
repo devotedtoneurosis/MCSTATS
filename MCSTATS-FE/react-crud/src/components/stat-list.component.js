@@ -101,11 +101,11 @@ class StatsList extends Component {
 
   updateStatistics() {
 
-    console.log(this.stats);
-    console.log(this.pages);
+    console.log(this.props.stats);
+    console.log(this.props.pages);
 
-    var st = this.stats;
-    var pa = this.pages;
+    var st = this.props.stats;
+    var pa = this.props.pages;
 
     var chartData = null;
 
