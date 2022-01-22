@@ -56,7 +56,9 @@ class StatsList extends Component {
 
   getData() {
     console.log("Getting data...");
-    this.updateStatistics();
+    while(this.props.chartData == null){
+      this.updateStatistics();
+    }
   }
 
   getNearestPage(timestamp, pa, usedPages){
