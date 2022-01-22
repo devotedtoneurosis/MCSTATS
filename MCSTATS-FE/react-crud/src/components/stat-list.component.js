@@ -147,7 +147,7 @@ class StatsList extends Component {
 
 
   render() {
-    const { isLoading,chartData } = this.props;
+    const { isLoading,chartData } = this.state;
 
     //console.log("STATS:"+stats);
     //console.log("PAGES:"+pages);
