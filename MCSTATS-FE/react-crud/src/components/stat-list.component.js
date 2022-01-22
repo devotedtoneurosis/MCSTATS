@@ -131,7 +131,7 @@ class StatsList extends Component {
           }
         }
 
-        chartData.push({timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur});
+        chartData.push({timestamp: moment(stat.timestamp.toString(),"YYYY-MM-DDTHH:mm").utc(ms).format("MM-DD HH:mm"), player_count: stat.player_count, weight: wt, url: ur});
 
         
       }
@@ -155,20 +155,6 @@ class StatsList extends Component {
     //console.log("PAGES:"+pages);
 
     console.log(chartData);
-
-    const data = [
-      { time: "00:00", temp: -5, rain: 0 },
-      { time: "03:00", temp: -2, rain: 0 },
-      { time: "06:00", temp: -1, rain: 0 },
-      { time: "09:00", temp: 0, rain: 0 },
-      { time: "12:00", temp: 2, rain: 3 },
-      { time: "15:00", temp: 4, rain: 10 },
-      { time: "18:00", temp: 5, rain: 3 },
-      { time: "21:00", temp: 3, rain: 0 },
-      { time: "00:00", temp: 0, rain: 0 },
-  
-    ]
-    console.log(data);
 
     return (
 
@@ -195,11 +181,12 @@ class StatsList extends Component {
         >
           <CartesianGrid stroke="#f5f5f5" />
           <XAxis dataKey="timestamp" />
-          <YAxis dataKey="player_count"/>
+          <YAxis dataKey="player_count" yAxisId={1} orientation="left"/>
+          <YAxis dataKey="weight" yAxisId={2} orientation="right"/>
           <Tooltip />
           <Legend />
-          <Line type="monotone"  dataKey="player_count" stroke="#ff7300" />
-          <Scatter dataKey="weight" fill="red" />
+          <Line yAxisId={1} type="monotone"  dataKey="player_count" stroke="#ff7300" />
+          <Scatter yAxisId={2} dataKey="weight" fill="red" />
         </ComposedChart>
 
 
