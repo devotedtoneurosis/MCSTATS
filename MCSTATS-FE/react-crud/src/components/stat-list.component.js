@@ -55,8 +55,8 @@ class StatsList extends Component {
 
 
   getData() {
-    console.log("Getting data...");
     while(this.props.chartData == null){
+      console.log("Getting data...");
       this.updateStatistics();
     }
   }
@@ -109,7 +109,6 @@ class StatsList extends Component {
     var st = this.props.stats;
     var pa = this.props.pages;
 
-    var chartData = null;
 
     if (typeof st !== 'undefined' && typeof pa !== 'undefined' && st !== null && pa !== null && st.length > 0 ){
       console.log("Stats and pages are defined");
