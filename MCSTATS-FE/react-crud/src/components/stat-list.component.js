@@ -119,6 +119,7 @@ class StatsList extends Component {
         var ur = "";
 
         var stat = st[x];
+        
         if(typeof pa != 'undefined' && pa != null && pa.length > 0){
           //console.log(pa);
           var page = this.getNearestPage(stat.timestamp,pa,usedPages);
@@ -132,12 +133,13 @@ class StatsList extends Component {
 
         chartData.push({timestamp: stat.timestamp, player_count: stat.player_count, weight: wt, url: ur});
 
-        this.setState({
-          chartData: chartData,
-          isLoading: false,
-        });
         
       }
+
+      this.setState({
+        chartData: chartData,
+        isLoading: false,
+      });
       //console.log(this.chartData);
     }else{
       console.log("Stat or page are null");
