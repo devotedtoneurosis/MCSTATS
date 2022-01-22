@@ -149,7 +149,7 @@ def insert_record(conn,url,date,title,preview,weight,projid):
     cursor = conn.cursor()
     
     #only if weight is greater
-    cursor.execute("select * from pages where project_id like %s and url like '%s'",projid,"'"+url[:1024]+"'")
+    cursor.execute("select * from pages where project_id like %s and url like %s",projid,"'"+url[:1024]+"'")
     rows = cursor.fetchall()
     print("ROWS:"+str(len(rows)))
     if len(rows) < 1:       
