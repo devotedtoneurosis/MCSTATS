@@ -15,6 +15,21 @@ import Tooltip from '@bit/recharts.recharts.tooltip';
 import Legend from '@bit/recharts.recharts.legend';
 import Scatter from '@bit/recharts.recharts.scatter';
 
+
+const CustomTooltip = ({ weight, playercount, url }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="weight">{`${label} : ${payload[0].value}`}</p>
+        <p className="players">{`${label} : ${payload[1].value}`}</p>
+        <p className="url">{`${label} : ${payload[2].value}`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
   
 class StatsList extends Component {
   constructor(props) {
@@ -149,7 +164,6 @@ class StatsList extends Component {
 
   }
 
-
   render() {
     const { isLoading,chartData } = this.state;
 
@@ -179,7 +193,7 @@ class StatsList extends Component {
           <XAxis dataKey="timestamp" />
           <YAxis dataKey="player_count" yAxisId={1} orientation="left" label={{ value: 'Players', angle: -90 }}/>
           <YAxis dataKey="weight" yAxisId={2} orientation="right" label={{ value: 'Post Popularity', angle: -90 }}/>
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Legend />
           <Line yAxisId={1} type="monotone"  dataKey="player_count" stroke="#ff7300" />
           <Scatter yAxisId={2} dataKey="weight" fill="red" />
