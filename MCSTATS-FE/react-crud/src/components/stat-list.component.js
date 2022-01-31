@@ -18,6 +18,8 @@ import Scatter from '@bit/recharts.recharts.scatter';
 
 const CustomTooltip = ({ active, payload, label }) => {
 
+  console.log(payload);
+  
   if (active && payload && payload.length && 
     typeof payload[0] != 'undefined' && typeof payload[0].value != 'undefined' &&
     typeof payload[2] != 'undefined' && typeof payload[2].value != 'undefined') {
