@@ -25,9 +25,9 @@ const CustomTooltip = ({ active, payload, label }) => {
     typeof payload[3] != 'undefined' && typeof payload[3].value != 'undefined') {
     return (
       <div className="custom-tooltip">
-        <p className="players">{`${label} : ${payload[0].value}`}</p>
-        <p className="weight">{`${label} : ${payload[2].value}`}</p>
-        <p className="url">{`${label} : ${payload[3].value}`}</p>
+        <p className="players">Players:{`${label} : ${payload[0].value}`}</p>
+        <p className="weight">Weight:{`${label} : ${payload[2].value}`}</p>
+        <p className="url">URL:{`${label} : ${payload[3].value}`}</p>
       </div>
     );
   }
@@ -35,7 +35,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length && typeof payload[0] != 'undefined' && typeof payload[0].value != 'undefined') {
     return (
       <div className="custom-tooltip">
-        <p className="players">{`${label} : ${payload[0].value}`}</p>
+        <p className="players">Players:{`${label} : ${payload[0].value}`}</p>
       </div>
     );
   }
