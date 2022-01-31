@@ -28,7 +28,7 @@ const CustomTooltip = ({ active, payload, label }) => {
     );
   }
 
-  if (active && payload && payload.length && typeof payload[1] != 'undefined' && typeof payload[1].value != 'undefined')) {
+  if (active && payload && payload.length && typeof payload[1] != 'undefined' && typeof payload[1].value != 'undefined') {
     return (
       <div className="custom-tooltip">
         <p className="players">{`${label} : ${payload[1].value}`}</p>
