@@ -16,7 +16,7 @@ import Legend from '@bit/recharts.recharts.legend';
 import Scatter from '@bit/recharts.recharts.scatter';
 
 
-const CustomTooltip = ({ weight, playercount, url }) => {
+const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
