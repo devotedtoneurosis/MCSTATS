@@ -140,7 +140,7 @@ class StatsList extends Component {
 
       for (let x = 0; x < st.length; x++) {
 
-        var wt = 0;
+        var wt = null;
         var ur = "";
 
         var stat = st[x];
@@ -202,7 +202,6 @@ class StatsList extends Component {
           <XAxis dataKey="timestamp" />
           <YAxis dataKey="player_count" yAxisId={1} orientation="left" label={{ value: 'Players', angle: -90 }}/>
           <YAxis dataKey="weight" yAxisId={2} orientation="right" label={{ value: 'Post Popularity', angle: -90 }}/>
-          <Tooltip content={<CustomTooltip />} />
           <Legend />
           <Line yAxisId={1} type="monotone"  dataKey="player_count" stroke="#ff7300" />
           <Scatter yAxisId={2} dataKey="weight" fill="red" />
