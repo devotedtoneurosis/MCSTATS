@@ -140,7 +140,7 @@ class StatsList extends Component {
 
       for (let x = 0; x < st.length; x++) {
 
-        var wt = 0;
+        var wt = null;
         var ur = "";
 
         var stat = st[x];
@@ -155,6 +155,8 @@ class StatsList extends Component {
             ur = page.url;
           }
         }
+
+        if(stat.player_count < 1){console.log("player count is null or low:"+x.toString());}
 
         var ts = moment(stat.timestamp.toString(),"YYYY-MM-DDTHH:mm");
         chartData.push({timestamp: moment.utc(ts).format("MM-DD HH:mm"), player_count: stat.player_count, weight: wt, url: ur});
