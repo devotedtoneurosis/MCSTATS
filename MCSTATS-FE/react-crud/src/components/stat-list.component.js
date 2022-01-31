@@ -17,12 +17,21 @@ import Scatter from '@bit/recharts.recharts.scatter';
 
 
 const CustomTooltip = ({ active, payload, label }) => {
-  if (typeof payload[0] != 'undefined' && active && payload && payload.length) {
+
+  if (active && payload && payload.length && typeof payload[0] != 'undefined' && typeof payload[0].value != 'undefined') {
     return (
       <div className="custom-tooltip">
-        <p className="weight">{`${label} : ${payload[0].value}`}</p>
         <p className="players">{`${label} : ${payload[1].value}`}</p>
+        <p className="weight">{`${label} : ${payload[0].value}`}</p>
         <p className="url">{`${label} : ${payload[2].value}`}</p>
+      </div>
+    );
+  }
+
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="players">{`${label} : ${payload[1].value}`}</p>
       </div>
     );
   }
