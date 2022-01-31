@@ -140,7 +140,7 @@ class StatsList extends Component {
 
       for (let x = 0; x < st.length; x++) {
 
-        var wt = null;
+        var wt = 0;
         var ur = "";
 
         var stat = st[x];
