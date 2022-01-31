@@ -18,7 +18,9 @@ import Scatter from '@bit/recharts.recharts.scatter';
 
 const CustomTooltip = ({ active, payload, label }) => {
 
-  if (active && payload && payload.length && typeof payload[0] != 'undefined' && typeof payload[0].value != 'undefined') {
+  if (active && payload && payload.length && 
+    typeof payload[0] != 'undefined' && typeof payload[0].value != 'undefined' &&
+    typeof payload[2] != 'undefined' && typeof payload[2].value != 'undefined') {
     return (
       <div className="custom-tooltip">
         <p className="players">{`${label} : ${payload[1].value}`}</p>
@@ -156,7 +158,6 @@ class StatsList extends Component {
           }
         }
 
-        if(stat.player_count < 1){console.log("player count is null or low:"+x.toString());}
 
         var ts = moment(stat.timestamp.toString(),"YYYY-MM-DDTHH:mm");
         chartData.push({timestamp: moment.utc(ts).format("MM-DD HH:mm"), player_count: stat.player_count, weight: wt, url: ur});
