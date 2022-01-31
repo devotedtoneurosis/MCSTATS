@@ -140,7 +140,7 @@ class StatsList extends Component {
 
       for (let x = 0; x < st.length; x++) {
 
-        var wt = null;
+        var wt = 0;
         var ur = "";
 
         var stat = st[x];
@@ -205,6 +205,7 @@ class StatsList extends Component {
           <Tooltip content={<CustomTooltip />} />
           <Legend />
           <Line yAxisId={1} type="monotone"  dataKey="player_count" stroke="#ff7300" />
+          <Scatter yAxisId={2} dataKey="weight" fill="red" />
         </ComposedChart>
 
 
