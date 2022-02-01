@@ -19,22 +19,22 @@ import Scatter from '@bit/recharts.recharts.scatter';
 const CustomTooltip = ({ active, payload, label }) => {
 
   if (active && payload && payload.length && 
-    typeof payload[0][2] != 'undefined' &&
-    typeof payload[0][3] != 'undefined') {
-    console.log(payload[0][0].toString());
+    typeof payload[0,2] != 'undefined' &&
+    typeof payload[0,3] != 'undefined') {
+    console.log(payload[0,0].toString());
     return (
       <div className="custom-tooltip">
-        <p className="players">Playerz:{`${label} : ${payload[0][1]}`}</p>
-        <p className="weight">Weight:{`${label} : ${payload[0][2]}`}</p>
-        <p className="url">URL:{`${label} : ${payload[0][3]}`}</p>
+        <p className="players">Playerz:{`${label} : ${payload[0,1]}`}</p>
+        <p className="weight">Weight:{`${label} : ${payload[0,2]}`}</p>
+        <p className="url">URL:{`${label} : ${payload[0,3]}`}</p>
       </div>
     );
   }
 
-  if (active && payload && payload.length && typeof payload[0][1] != 'undefined') {
+  if (active && payload && payload.length && typeof payload[0,1] != 'undefined') {
     return (
       <div className="custom-tooltip">
-        <p className="players">Players:{`${label} : ${payload[0][1]}`}</p>
+        <p className="players">Players:{`${label} : ${payload[0,1]}`}</p>
       </div>
     );
   }
