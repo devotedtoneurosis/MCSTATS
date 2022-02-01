@@ -24,9 +24,9 @@ const CustomTooltip = ({ active, payload, label }) => {
     console.log(payload[0].payload);
     return (
       <div className="custom-tooltip">
-        <p className="players">Playerz:{`${payload[0,2,0].value}`}</p>
-        <p className="weight">Weight:{`${payload[0,2,3].value}`}</p>
-        <p className="url">URL:{`${payload[0,2,2].value}`}</p>
+        <p className="players">Playerz:{`${payload[0].payload[1]}`}</p>
+        <p className="weight">Weight:{`${payload[0].payload[2]}`}</p>
+        <p className="url">URL:{`${payload[0].payload[3]}`}</p>
       </div>
     );
   }
