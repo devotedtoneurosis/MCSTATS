@@ -20,8 +20,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 
   console.log(payload); 
 
-  if (active && payload && payload.length && 
-    typeof payload[0,2,2] != 'undefined') {
+  if (active && payload && payload.length && payload[0,2,2].length > 0) {
     console.log(payload[0,2,2].value.toString());
     return (
       <div className="custom-tooltip">
