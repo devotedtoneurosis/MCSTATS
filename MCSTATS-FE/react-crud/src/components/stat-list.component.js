@@ -21,7 +21,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   console.log(payload); 
 
   if (active && payload && payload.length) {
-    console.log(payload[0].payload[3].value.toString());
+    console.log(payload[0].payload[3].toString());
     return (
       <div className="custom-tooltip">
         <p className="players">Playerz:{`${payload[0,2,0].value}`}</p>
