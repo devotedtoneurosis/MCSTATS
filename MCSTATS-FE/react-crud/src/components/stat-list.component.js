@@ -21,22 +21,22 @@ const CustomTooltip = ({ active, payload, label }) => {
   console.log(payload); 
 
   if (active && payload && payload.length && 
-    typeof payload[0,2] != 'undefined') {
-    console.log(payload[0,0].value.toString());
+    typeof payload[0,2,2] != 'undefined') {
+    console.log(payload[0,2,2].value.toString());
     return (
       <div className="custom-tooltip">
-        <p className="players">Playerz:{`${payload[0,1].value}`}</p>
-        <p className="weight">Weight:{`${payload[0,2].value}`}</p>
-        <p className="url">URL:{`${payload[0,3].value}`}</p>
+        <p className="players">Playerz:{`${payload[0,2,0].value}`}</p>
+        <p className="weight">Weight:{`${payload[0,2,3].value}`}</p>
+        <p className="url">URL:{`${payload[0,2,2].value}`}</p>
       </div>
     );
   }
 
-  if (active && payload && payload.length && typeof payload[0,1] != 'undefined') {
-    console.log(payload[0,0].value.toString());
+  if (active && payload && payload.length && typeof payload[0,2,0] != 'undefined') {
+    console.log(payload[0,2,0].value.toString());
     return (
       <div className="custom-tooltip">
-        <p className="players">Players:{`${payload[0,1].value}`}</p>
+        <p className="players">Players:{`${payload[0,2,0].value}`}</p>
       </div>
     );
   }
